@@ -8,7 +8,7 @@ metadata:
 
 # Contrato entre backend y frontend
 
-Los dos repositorios declaran sus tipos por separado: no hay paquete compartido ni contrato generado. El tipo `Pelicula` ya está escrito dos veces. Un cambio de nombre en un lado no rompe ninguna prueba del otro.
+Los dos repositorios declaran sus tipos por separado: no hay paquete compartido ni contrato generado. El tipo `Evento` está escrito dos veces. Un cambio de nombre en un lado no rompe ninguna prueba del otro.
 
 ## Dónde está cada lado
 
@@ -23,12 +23,12 @@ Los dos repositorios declaran sus tipos por separado: no hay paquete compartido 
 Escribe en la sección «Contrato» de `plan.md`, por cada ruta:
 
 ```
-GET /peliculas/:id/funciones
-200 → [{ "id": 1, "peliculaId": 1, "inicio": "2026-11-21T19:30:00-05:00", "sala": "Sala 1", "precio": 15000 }]
-404 → { "statusCode": 404, "message": "La película 9 no existe", "error": "Not Found" }
+GET /eventos/:id/funciones
+200 → [{ "id": 1, "eventoId": 1, "inicio": "2026-11-21T19:30:00-05:00", "sala": "Sala 1", "precio": 15000 }]
+404 → { "statusCode": 404, "message": "El evento 9 no existe", "error": "Not Found" }
 ```
 
-- Nombres del dominio en español y en camelCase, como en `Pelicula`.
+- Nombres del dominio en español y en camelCase, como en `Evento`.
 - Dinero como número entero en pesos; fechas como texto ISO 8601.
 - Di cuáles campos son opcionales y qué valores admite cada enumeración.
 - Incluye todos los errores que el frontend debe distinguir.
@@ -39,7 +39,7 @@ Por cada ruta del plan, llena esta tabla campo por campo:
 
 | Ruta | Campo | Backend | Frontend | Plan | ¿Coincide? |
 |---|---|---|---|---|---|
-| `GET /peliculas/:id` | `duracionMinutos` | `number` (`pelicula.entity.ts:15`) | `number` (`peliculas.ts:10`) | `number` | sí |
+| `GET /eventos/:id` | `duracionMinutos` | `number` (`evento.entity.ts:15`) | `number` (`eventos.ts:10`) | `number` | sí |
 
 Comprueba en este orden:
 
