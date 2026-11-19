@@ -4,6 +4,8 @@ description: Comprueba en un navegador real lo que las pruebas del frontend de T
 tools: Read, Glob, Bash
 disallowedTools: Edit, Write, Agent
 model: sonnet
+skills:
+  - guia-visual
 ---
 
 # Verificador de la interfaz
@@ -35,7 +37,7 @@ Compruebas con los dos servidores encendidos lo que solo se ve al ejecutar. No e
 - Un criterio de aceptación visible que no se cumple en la página.
 - La pantalla en blanco con el backend apagado.
 
-El diseño visual lo juzga el desarrollador humano: señala lo que veas, sin bloquear por gusto.
+El diseño visual lo juzga el desarrollador humano: señala lo que veas, sin bloquear por gusto. Compara las capturas con la skill `guia-visual` y reporta lo que se aparte de ella (un color o un tamaño que no está en la guía, un estado sin mensaje, un control diminuto).
 
 ## Qué devuelves
 

@@ -1,0 +1,63 @@
+---
+name: guia-visual
+description: Guía visual de la interfaz de Taquillera, con los colores, tamaños, botones, formularios, mensajes y estados que ya usa la aplicación. Úsala al escribir o revisar cualquier página o componente del frontend, para que una pantalla nueva se vea igual que la cartelera y el detalle de película.
+metadata:
+  author: Abilson Rivera Garcia y Bredman Estiven Velez Cortez
+  version: "1.0.0"
+---
+
+# Guía visual de Taquillera
+
+La cartelera y el detalle de película ya definen cómo se ve Taquillera. Una pantalla nueva reutiliza esas mismas clases de Tailwind; no inventa colores, tamaños ni bordes. Todo lleva su variante `dark:`.
+
+## Lo que ya existe y se reutiliza
+
+| Elemento | Clases |
+|---|---|
+| Contenedor de página | `mx-auto w-full max-w-6xl flex-1 px-4 py-10 sm:px-6` |
+| Título de página (`h1`) | `text-3xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50` |
+| Título de sección (`h2`) | `text-xl font-semibold text-zinc-950 dark:text-zinc-50` |
+| Texto principal | `text-zinc-950 dark:text-zinc-50` |
+| Texto secundario | `text-zinc-600 dark:text-zinc-400` |
+| Tarjeta o panel | `rounded-xl border border-black/[.08] bg-white shadow-sm dark:border-white/[.145] dark:bg-zinc-900` |
+| Etiqueta pequeña | `rounded-md border border-zinc-300 px-2 py-0.5 text-sm font-semibold text-zinc-700 dark:border-zinc-600 dark:text-zinc-300` |
+| Enlace de texto | `text-sm font-medium text-zinc-700 underline underline-offset-4 hover:text-zinc-950 dark:text-zinc-300 dark:hover:text-zinc-50` |
+| Foco de teclado | `focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600 dark:focus-visible:outline-blue-400` |
+| Mensaje de error | `role="alert"` y `rounded-xl border border-red-200 bg-red-50 p-6 text-red-800 dark:border-red-900 dark:bg-red-950 dark:text-red-200` |
+| Mensaje de vacío | `rounded-xl border border-black/[.08] p-6 text-zinc-600 dark:border-white/[.145] dark:text-zinc-400` |
+| Espacio mientras carga | `animate-pulse bg-zinc-200 dark:bg-zinc-800`, dentro de un contenedor con `aria-busy="true"` |
+
+## Piezas nuevas
+
+Cuando una pantalla necesite una de estas piezas, se escribe así:
+
+| Pieza | Clases |
+|---|---|
+| Botón principal | `rounded-lg bg-zinc-950 px-5 py-3 text-base font-semibold text-white hover:bg-zinc-800 dark:bg-zinc-50 dark:text-zinc-950 dark:hover:bg-zinc-200`, más el foco de teclado |
+| Botón secundario | `rounded-lg border border-zinc-300 px-5 py-3 text-base font-semibold text-zinc-950 hover:bg-zinc-100 dark:border-zinc-600 dark:text-zinc-50 dark:hover:bg-zinc-800` |
+| Botón o control deshabilitado | Se agrega `disabled:cursor-not-allowed disabled:opacity-50` y el atributo `disabled` |
+| Etiqueta de un campo | `<label>` visible encima del campo: `text-sm font-semibold text-zinc-950 dark:text-zinc-50` |
+| Campo de texto | `w-full rounded-lg border border-zinc-300 bg-white px-3 py-2.5 text-base text-zinc-950 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-50`, más el foco de teclado |
+| Error de un campo | Debajo del campo, unido con `aria-describedby`: `text-sm text-red-700 dark:text-red-300`. El campo lleva `aria-invalid="true"` |
+| Mensaje de éxito | `rounded-xl border border-green-200 bg-green-50 p-6 text-green-900 dark:border-green-900 dark:bg-green-950 dark:text-green-200` |
+
+## Reglas
+
+- **Una sola acción principal por pantalla.** Si hay dos botones, el otro es secundario o un enlace.
+- **El color nunca es la única señal.** Un asiento ocupado, un campo con error o una boleta usada se distinguen también por un texto, un icono o un atributo (`disabled`, `aria-pressed`, `aria-invalid`).
+- **Controles de al menos 44 px** de alto y de ancho en el celular, con separación suficiente para no tocar el vecino.
+- **Primero el celular.** La pantalla se arma para 390 px sin desborde horizontal, y con `sm:`, `md:` y `lg:` se acomoda a pantallas grandes.
+- **Encabezados en orden.** Un solo `h1` por página, también en los estados de error y de «no encontrado».
+- **Un estado vacío no es una página en blanco.** Dice qué pasó y ofrece a dónde ir, con un enlace o un botón.
+- **Dinero y fechas con las funciones de `src/lib/formato.ts`.** Ningún componente formatea por su cuenta: «$ 15.000», «sábado, 21 de noviembre», «7:30 p. m.».
+- **Textos en español, tratando de tú** y con verbos en los botones: «Continuar», «Pagar $ 30.000», «Validar ingreso».
+- **Sin librerías de componentes ni de iconos.** Si hace falta un icono, es un SVG en línea con `aria-hidden="true"` y el texto al lado.
+
+## Al revisar una pantalla
+
+1. ¿Usa las clases de las tablas, o aparece un color, un radio o un tamaño que no está aquí?
+2. ¿Se entiende en tema oscuro sin depender de un color que solo contrasta en tema claro?
+3. ¿Cada estado (cargando, vacío, error, no encontrado) tiene su mensaje y su salida?
+4. ¿Se puede usar solo con el teclado, y se ve dónde está el foco?
+
+Si una pantalla necesita una pieza que no está en esta guía, se agrega aquí en la misma spec, y el plan lo dice.

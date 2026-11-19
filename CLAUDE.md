@@ -9,7 +9,7 @@ Espacio de trabajo del proyecto **Taquillera** (cartelera de cine y venta de bol
   agents/        los nueve agentes del sistema
   hooks/         limitar-rutas.mjs y rutas.json: bloquean las escrituras fuera de las rutas de cada agente
   rules/         normas del equipo, siempre o por tipo de archivo
-  skills/        nueva-spec, matriz-criterios, contrato-api
+  skills/        nueva-spec, matriz-criterios, contrato-api, guia-visual
   settings.json  comandos permitidos y negados para todos los agentes
 specs/           una carpeta por spec: spec.md, plan.md, tareas.md y evidencia/
 herramientas/    servidores.mjs y verificar-ui.mjs
