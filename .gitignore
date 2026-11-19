@@ -1,0 +1,14 @@
+# Los dos repositorios de la aplicación se clonan aquí con scripts/preparar.ps1
+/backend/
+/frontend/
+
+node_modules/
+
+# Registros y PID de los servidores que levantan las herramientas
+/.arnes/
+
+# Ajustes personales de Claude Code
+.claude/settings.local.json
+
+.env
+.env.*

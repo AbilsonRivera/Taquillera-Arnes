@@ -1,0 +1,11 @@
+{
+  "name": "taquillera-herramientas",
+  "version": "1.0.0",
+  "description": "Dependencias de las herramientas de verificación del arnés. Viven aquí, y no en la raíz, para que Next no encuentre un package-lock.json por encima del frontend.",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "playwright-core": "^1.50.0"
+  }
+}

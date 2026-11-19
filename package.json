@@ -1,0 +1,12 @@
+{
+  "name": "taquillera-arnes",
+  "version": "1.0.0",
+  "description": "Arnés de Claude Code del proyecto Taquillera: agentes, hook, reglas, skills, specs y herramientas de verificación.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:hooks": "node --test .claude/hooks/limitar-rutas.test.mjs",
+    "servidores": "node herramientas/servidores.mjs",
+    "verificar-ui": "node herramientas/verificar-ui.mjs"
+  }
+}

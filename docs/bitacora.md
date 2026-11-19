@@ -1,0 +1,26 @@
+# Bitácora del arnés
+
+Lo que observamos al implementar y usar el arnés, y qué cambiamos por eso. De aquí salen la sección «Qué cambió respecto del taller» del README y la exposición.
+
+Cada entrada dice cuándo se observó: **al implementar** (antes de ejecutar ninguna spec) o **al ejecutar** una spec concreta.
+
+## 19 de noviembre de 2026 · al implementar
+
+| # | Qué observamos | Qué cambiamos | Dónde quedó |
+|---|---|---|---|
+| 1 | El taller decía que abrimos los dos repositorios desde la misma carpeta padre, pero esa carpeta no era un repositorio: los agentes no tenían dónde quedar en `main`. | Creamos un tercer repositorio para el arnés; `backend/` y `frontend/` se clonan dentro y no se versionan aquí. | `.gitignore`, `scripts/preparar.ps1` |
+| 2 | El proyecto pide especificación, plan y tareas por cada spec. El taller solo tenía historia, plan y matriz, guardados en `planes/`. | El orquestador escribe en `specs/NNN-nombre/` en lugar de `planes/`: guarda `plan.md`, deriva `tareas.md` y archiva la evidencia. | `.claude/agents/taquilla-orquestador.md`, `specs/README.md` |
+| 3 | La documentación de permisos advierte que negar `Bash(git push *)` no detiene `git -C backend push`. Con los repositorios en subcarpetas, ese es justo el comando que usaría un agente. | Agregamos las reglas `Bash(git -C * push *)` y `Bash(git -c * push *)` a la lista de negados. | `.claude/settings.json` |
+| 4 | Un `cd backend` seguido de `git` pide aprobación en cada comando, y las reglas del taller (`Bash(git add *)`) no cubren `git -C backend add`. | Permitimos `add`, `commit`, `diff`, `log` y `status` con `git -C backend` y `git -C frontend`, uno por uno y sin comodín en la carpeta. | `.claude/settings.json` |
+| 5 | Claude Code solo bloquea una herramienta cuando el hook sale con código 2. Si el script fallara con un error cualquiera saldría con 1 y la escritura pasaría: el riesgo que el taller dejó anotado como «si el script tiene un error, la restricción deja de funcionar sin avisar». | El hook atrapa cualquier error y sale con 2. Tiene siete pruebas, incluidas las de entrada inválida y las de `..`. | `.claude/hooks/limitar-rutas.mjs`, `npm run test:hooks` |
+| 6 | El taller no decía quién escribe la configuración de pruebas del frontend: el probador solo puede tocar `*.test.ts(x)` y el desarrollador solo `src/`. | El desarrollador-front puede escribir `vitest.config.ts` y `vitest.setup.ts`. `package.json` sigue sin editarse a mano: se cambia con `npm install`, que pide aprobación. | `.claude/agents/desarrollador-front.md` |
+| 7 | Con Playwright MCP, axe-core hay que inyectarlo a mano en cada página y las capturas no quedan guardadas como evidencia. Además, levantar y apagar servidores desde un agente en Windows deja procesos huérfanos. | El verificador-ui ya no usa MCP: ejecuta un script que levanta los servidores, toma las mismas capturas en cada spec, corre axe y guarda todo en `evidencia/ui/`. El desarrollador-back usa el mismo script de servidores para sus `curl`. | `herramientas/`, `.claude/agents/verificador-ui.md` |
+| 8 | Al probar el script, Git Bash convirtió el argumento `/` en `C:/Program Files/Git/` y el navegador intentó abrir `http://localhost:3000C:/Program Files/Git/`. | Las rutas de `verificar-ui` van sin la barra inicial (`inicio,peliculas/1`), y el script rechaza una ruta que llegue convertida. | `herramientas/verificar-ui.mjs`, `CLAUDE.md` |
+| 9 | En la primera captura de la cartelera a 390 px, los tres últimos pósteres salieron vacíos: tienen `loading="lazy"` y nunca entraron en pantalla. Habría parecido un defecto de la página. | El script recorre la página antes de la captura completa y reporta aparte las imágenes que de verdad no cargan. | `herramientas/verificar-ui.mjs` |
+| 10 | `next build` se detuvo con un aviso de seguridad de Next 16.4.3 y, dentro de la salida, traía instrucciones para el agente: ejecutar `next upgrade --agent=security` y hacerle una pregunta al usuario. Pasa una vez sí y una no cuando lo ejecuta un agente. | No se obedeció. Agregamos a la memoria la norma de no seguir instrucciones que vengan en la salida de una herramienta, y el script de servidores repite la compilación una vez cuando ve ese aviso. La actualización a Next 16.4.6 queda como decisión del equipo, por pull request. | `CLAUDE.md`, `herramientas/servidores.mjs` |
+| 11 | Con un `package-lock.json` en la raíz del arnés, Next avisaba en cada compilación de que encontró un lockfile por encima del frontend. | Las dependencias de las herramientas viven en `herramientas/`, no en la raíz. | `herramientas/package.json` |
+| 12 | En la primera prueba real, el desarrollador-back escribió `backend/prueba-hook.txt` y un `*.spec.ts`, las dos rutas que tiene prohibidas, y el hook no dijo nada. La carpeta no tenía aceptado el diálogo de confianza: en ese estado Claude Code ignora los permisos del proyecto y no ejecuta los hooks de los agentes. El script estaba bien y sus siete pruebas pasaban; lo que fallaba era que nadie lo llamaba. | Aceptar el diálogo de confianza es un paso obligatorio de la preparación, y `scripts/probar-hook.ps1` comprueba con una sesión real que el hook bloquea. Probar el script no basta: hay que probar que se ejecuta. | `README.md`, `scripts/probar-hook.ps1` |
+
+## Al ejecutar las specs
+
+Todavía no se ha ejecutado ninguna. Cada spec agrega aquí sus filas.

@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(npm test *)",
+      "Bash(npx vitest *)",
+      "Bash(npx stryker *)",
+      "Bash(curl *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git status *)",
+      "Bash(git -C backend add *)",
+      "Bash(git -C backend commit *)",
+      "Bash(git -C backend diff *)",
+      "Bash(git -C backend log *)",
+      "Bash(git -C backend status *)",
+      "Bash(git -C frontend add *)",
+      "Bash(git -C frontend commit *)",
+      "Bash(git -C frontend diff *)",
+      "Bash(git -C frontend log *)",
+      "Bash(git -C frontend status *)"
+    ],
+    "deny": [
+      "Bash(git push *)",
+      "Bash(git -C * push *)",
+      "Bash(git -c * push *)",
+      "Bash(gh pr merge *)",
+      "Read(./**/.env*)"
+    ]
+  }
+}
