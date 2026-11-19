@@ -7,6 +7,7 @@
   "scripts": {
     "test:hooks": "node --test .claude/hooks/limitar-rutas.test.mjs",
     "servidores": "node herramientas/servidores.mjs",
-    "verificar-ui": "node herramientas/verificar-ui.mjs"
+    "verificar-ui": "node herramientas/verificar-ui.mjs",
+    "vista-previa": "node herramientas/vista-previa.mjs"
   }
 }
