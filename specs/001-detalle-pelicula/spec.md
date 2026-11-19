@@ -1,9 +1,9 @@
 # 001 · Detalle de película
 
-- **Estado:** aprobada
+- **Estado:** implementada y revisada; en pull request
 - **Rama:** `feat/001-detalle-pelicula`
 - **Repositorios:** frontend
-- **Pull requests:** pendientes
+- **Pull requests:** [Frontend #4](https://github.com/Bredman01/TaquilleraFrontend/pull/4)
 
 ## Por qué
 

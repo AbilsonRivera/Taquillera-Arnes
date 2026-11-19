@@ -18,7 +18,7 @@ El arnés es un repositorio aparte porque un solo sistema de agentes coordina lo
 |---|---|
 | Arnés: memoria, reglas, skills | Implementado |
 | Sistema de agentes y hook de rutas | Implementado. El hook pasa sus doce pruebas y la prueba con sesiones reales, con el agente ejecutado directamente e invocado por el orquestador |
-| Cinco specs | Escritas y aprobadas; ninguna ejecutada todavía |
+| Cinco specs | La 001 está implementada, revisada y en pull request; las otras cuatro, aprobadas y sin empezar |
 | Mecanismos de calidad | CI, cobertura y mutación en pull request abierto en cada repositorio; evidencia por spec, pendiente |
 
 ## Piezas del arnés
@@ -150,7 +150,7 @@ Los cambios que salgan de ejecutar las cinco specs se agregan aquí, cada uno co
 
 | Spec | Estado | Pull requests |
 |---|---|---|
-| [001 · Detalle de película](specs/001-detalle-pelicula/spec.md) | Aprobada, sin empezar | Pendientes |
+| [001 · Detalle de película](specs/001-detalle-pelicula/spec.md) | Implementada y revisada; en pull request | [Frontend #4](https://github.com/Bredman01/TaquilleraFrontend/pull/4) |
 | [002 · Funciones por película](specs/002-funciones-por-pelicula/spec.md) | Aprobada, sin empezar | Pendientes |
 | [003 · Mapa de asientos](specs/003-mapa-de-asientos/spec.md) | Aprobada, sin empezar | Pendientes |
 | [004 · Compra con pago simulado](specs/004-compra-pago-simulado/spec.md) | Aprobada, sin empezar | Pendientes |

@@ -35,7 +35,7 @@ specs/NNN-nombre/
 
 | Spec | Qué construye | Repositorios | Estado | Pull requests |
 |---|---|---|---|---|
-| [001 · Detalle de película](001-detalle-pelicula/spec.md) | Página de detalle y pruebas del frontend | frontend | Aprobada, sin empezar | Pendientes |
+| [001 · Detalle de película](001-detalle-pelicula/spec.md) | Página de detalle y pruebas del frontend | frontend | Implementada y revisada; en pull request | [Frontend #4](https://github.com/Bredman01/TaquilleraFrontend/pull/4) |
 | [002 · Funciones por película](002-funciones-por-pelicula/spec.md) | Horarios, sala y precio en el detalle | backend, frontend | Aprobada, sin empezar | Pendientes |
 | [003 · Mapa de asientos](003-mapa-de-asientos/spec.md) | Selección de asientos de una función | backend, frontend | Aprobada, sin empezar | Pendientes |
 | [004 · Compra con pago simulado](004-compra-pago-simulado/spec.md) | Compra sin vender dos veces un asiento | backend, frontend | Aprobada, sin empezar | Pendientes |
