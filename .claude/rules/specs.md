@@ -11,3 +11,4 @@ paths:
 - `tareas.md` usa casillas `- [ ]` y `- [x]`. Una tarea se marca solo cuando su evidencia está en `evidencia/traza.md`.
 - `evidencia/` guarda lo que produjeron los controles, sin editarlo: `traza.md`, `contrato.md`, `revision.md` y `ui/`.
 - Si lo implementado se aparta de la spec o del plan, se corrige el documento en la misma rama y se anota el motivo en la sección «Desviaciones» de `plan.md`.
+- Lo que decide o hace el desarrollador se anota en primera persona y con sus palabras («aprobé el plan», «descarté B2 porque…», «instalé las dependencias»), nunca como «el desarrollador humano decidió». Los agentes se nombran por su rol. No se anota que el desarrollador revisó o comprobó algo si él no lo dijo.

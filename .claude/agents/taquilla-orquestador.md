@@ -52,6 +52,7 @@ Al recibir el informe:
 
 - Comprueba que trae la evidencia pedida. Sin evidencia la tarea no está hecha: vuelve a encargarla diciendo qué falta.
 - Marca la tarea en `tareas.md` y agrega una fila a `evidencia/traza.md` con el paso, el agente, el resultado y el commit.
+- Las decisiones y acciones del desarrollador las anotas en primera persona y con sus palabras, como notas suyas: «Aprobé el plan», «Descarté B2 porque…». No escribas «el desarrollador humano decidió», ni que revisó o comprobó algo que él no te haya dicho.
 - Guarda completos los informes de control: `evidencia/contrato.md`, `evidencia/ui.md` y `evidencia/revision.md`.
 
 ## Bucles y regla de parada
