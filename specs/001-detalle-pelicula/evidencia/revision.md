@@ -1,6 +1,6 @@
 # Revisión · 001 Detalle de película
 
-Este archivo tiene, en orden: la primera vuelta del revisor, las decisiones del desarrollador humano sobre sus hallazgos y la segunda vuelta, acotada a esas decisiones.
+Este archivo tiene, en orden: la primera vuelta del revisor, mis decisiones sobre sus hallazgos y la segunda vuelta, acotada a esas decisiones.
 
 | Vuelta | Código revisado | Veredicto | Hallazgos |
 |---|---|---|---|
@@ -174,17 +174,17 @@ No están en la matriz (B1).
 
 ## Notas del orquestador sobre la primera vuelta
 
-- **No hubo bucle de corrección.** El veredicto fue `aprobado` y no había hallazgos críticos ni altos, así que, por la regla de parada, los medios y bajos se anotaron aquí. No se delegó ninguna corrección ni se repitió el control hasta que el desarrollador humano decidió (siguiente sección).
+- **No hubo bucle de corrección.** El veredicto fue `aprobado` y no había hallazgos críticos ni altos, así que, por la regla de parada, los medios y bajos se anotaron aquí. No se delegó ninguna corrección ni se repitió el control hasta que se registraron mis decisiones (sección siguiente).
 - **M1 y la matriz.** La fila CA-6 1) del plan decía «backend apagado o tiempo agotado». La prueba solo cubría el `fetch` rechazado; el corte a 5 s no tenía prueba. `plan.md` lo dijo hasta que M1 quedó resuelto.
-- **B1 (plan desactualizado)** y **B3 (aviso de Vite):** ver la decisión del desarrollador humano en la sección siguiente.
+- **B1 (plan desactualizado)** y **B3 (aviso de Vite):** ver mi decisión en la sección siguiente.
 
 ---
 
-# Decisiones del desarrollador humano sobre los hallazgos de la primera vuelta
+# Mis decisiones sobre los hallazgos de la primera vuelta
 
-Las tomó Abilson Rivera Garcia después de revisar el cierre de la primera vuelta. Antes de decidir había subido la rama y abierto el pull request #4 en `Bredman01/TaquilleraFrontend`, con el CI en verde, y había añadido un commit propio `d8af73b` (`docs: memoria del frontend con las pruebas y la cobertura`), que actualiza `frontend/AGENTS.md`. (El pull request, el CI y la subida los toma el orquestador de lo que dijo el desarrollador: no puede verlos. El commit `d8af73b` sí consta en el reflog de la rama.)
+Las tomé después de revisar el cierre de la primera vuelta. Antes de decidir había subido la rama y abierto el pull request #4 en `Bredman01/TaquilleraFrontend`, con el CI en verde, y había añadido un commit propio `d8af73b` (`docs: memoria del frontend con las pruebas y la cobertura`), que actualiza `frontend/AGENTS.md`. (El pull request, el CI y la subida los toma el orquestador de lo que dije yo: no puede verlos. El commit `d8af73b` sí consta en el reflog de la rama.)
 
-| # | Hallazgo | Decisión | Motivo del desarrollador | Estado |
+| # | Hallazgo | Decisión | Mi motivo | Estado |
 |---|---|---|---|---|
 | M1 | El corte a 5 s de `getPelicula` no tiene prueba | **Aceptado** | Se encarga al probador-front en un commit `test:` aparte. La prueba nueva debe fallar si se borra o cambia la línea que defiende; el probador explica por qué fallaría, porque no puede tocar producción. Si no se puede probar sin cambiar producción, que lo diga y no la fuerce. | **Resuelto** en `54f9d7d`; confirmado por el revisor en la segunda vuelta |
 | M2 | Ninguna prueba defiende `typeof datos !== "object"` | **Aceptado** | Igual que M1. | **Resuelto** en `54f9d7d`; confirmado |
@@ -192,7 +192,7 @@ Las tomó Abilson Rivera Garcia después de revisar el cierre de la primera vuel
 | B1 | `plan.md` sin las cuatro pruebas de `b645b14`, con el comando de CA-9 y las citas desfasadas | **Aceptado** | Lo corrige el orquestador: agregar a la matriz las cuatro pruebas de `b645b14` y las tres nuevas, y corregir el comando de CA-9. | **Resuelto** por el orquestador en `plan.md`. La segunda vuelta no lo revisó (fuera de su alcance). |
 | B2 | La prueba de CA-2 no relaciona cada dato con su etiqueta | **Descartado** | CA-2 no pide las etiquetas, y la relación entre cada dato y su etiqueta se ve en las capturas del verificador-ui. | Cerrado, sin cambios |
 | B3 / O1 | Aviso de Vite sobre `configLoader: 'native'` en `vitest.config.ts` | **Descartado por ahora** | No falla nada, y renombrar la configuración obligaría a cambiar `rutas.json` y el plan. Se revisa si Vite lo convierte en error. | Cerrado por ahora, sin cambios |
-| — | Observaciones de diseño del verificador-ui: póster claro sobre fondo oscuro, página casi vacía en «no encontramos esa película», estado de error sin encabezado | **Sin acción en esta spec** | Quedan para la revisión del desarrollador en el pull request. No se tocan. | Abiertas, de él |
+| — | Observaciones de diseño del verificador-ui: póster claro sobre fondo oscuro, página casi vacía en «no encontramos esa película», estado de error sin encabezado | **Sin acción en esta spec** | Quedan para mi revisión en el pull request. No se tocan. | Abiertas, mías |
 
 ---
 
@@ -314,18 +314,17 @@ Prueba en `PeliculaCard.test.tsx:27-46`.
 ## Notas del orquestador sobre la segunda vuelta
 
 - **Regla de parada.** Segunda vuelta del revisor: no repite hallazgos de la primera y el veredicto es `aprobado`, así que no se pregunta por una tercera. No hay críticos ni altos.
-- **Estado final de los hallazgos.** M1, M2 y M3: resueltos en `54f9d7d`. B1: resuelto en `plan.md`. B2 y B3: descartados por el desarrollador. B4 (nuevo, bajo): **abierto, sin decisión del desarrollador humano**; no se encargó nada.
+- **Estado final de los hallazgos.** M1, M2 y M3: resueltos en `54f9d7d`. B1: resuelto en `plan.md`. B2 y B3: descartados por mí. B4 (nuevo, bajo): **abierto, aún sin decisión mía**; no se encargó nada. Lo aplacé después a la spec 002 (sección siguiente).
 - **Las pruebas nuevas nunca estuvieron en rojo.** El código ya existía; en lugar del rojo, el probador y el revisor razonan los mutantes sobre el código real. Ningún mutante se ejecutó (no hay Stryker en el frontend y los agentes no pueden editar producción).
 - **Comandos denegados en esta vuelta.** `git -C frontend show 54f9d7d --stat` se denegó porque `show` no está en `.claude/settings.json`: el encargo del orquestador sugería esa forma y fue un error del encargo, no del revisor. El revisor probó además dos formas con ruta absoluta que el encargo no pedía, también denegadas, y no las repitió.
-- **Pendiente del desarrollador.** `54f9d7d` está solo en local («ahead of origin by 1 commit»): lo sube él, y el pull request #4 se actualiza con él.
+- **Pendiente mío.** `54f9d7d` estaba solo en local («ahead of origin by 1 commit»); lo subí yo y el pull request #4 se actualizó con él (sección siguiente).
 
 ---
 
-# Decisión del desarrollador humano sobre el hallazgo de la segunda vuelta
+# Mi decisión sobre el hallazgo de la segunda vuelta
 
-La tomó Abilson Rivera Garcia el 19 de noviembre de 2026, después de subir `54f9d7d` al pull request #4 y de ver el CI en verde.
+La tomé el 19 de noviembre de 2026, después de subir `54f9d7d` al pull request #4 y de ver el CI en verde.
 
-| # | Hallazgo | Decisión | Motivo del desarrollador | Estado |
+| # | Hallazgo | Decisión | Mi motivo | Estado |
 |---|---|---|---|---|
 | B4 | La prueba de la tarjeta no comprueba que la insignia de clasificación quede dentro del enlace | **Aplazado a la spec 002** | La spec 002 reescribe esa tarjeta para eventos. Corregirlo aquí sería otra vuelta del probador y del revisor sobre código que va a cambiar. | Abierto; lo recoge la spec 002 en sus notas |
-
