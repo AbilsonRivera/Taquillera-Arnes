@@ -23,6 +23,7 @@ const TEMAS = [
   { nombre: 'oscuro', esquema: 'dark' },
 ];
 const IMPACTOS_QUE_BLOQUEAN = new Set(['serious', 'critical']);
+const MAX_PARADAS = 60;
 
 function argumento(nombre) {
   const indice = process.argv.indexOf(`--${nombre}`);
@@ -127,12 +128,56 @@ async function visitar(navegador, ruta, { ancho, alto, esquema }, archivoCaptura
   return resultado;
 }
 
+/**
+ * Recorre la página con la tecla Tab y anota cada parada: qué control es, cómo lo
+ * anuncia un lector de pantalla, a dónde lleva y si se ve dónde está el foco.
+ */
+async function recorrerConTeclado(navegador, ruta) {
+  const contexto = await navegador.newContext({
+    viewport: { width: 1280, height: 800 },
+    locale: 'es-CO',
+    timezoneId: 'America/Bogota',
+  });
+  const pagina = await contexto.newPage();
+  await pagina.goto(BASE + ruta, { waitUntil: 'networkidle', timeout: 30000 });
+  const paradas = [];
+  for (let i = 0; i < MAX_PARADAS; i++) {
+    await pagina.keyboard.press('Tab');
+    const parada = await pagina.evaluate(() => {
+      const el = document.activeElement;
+      if (!el || el === document.body) return null;
+      const estilo = getComputedStyle(el);
+      const textos = [
+        el.getAttribute('aria-label'),
+        el.labels?.[0]?.innerText,
+        el.innerText,
+        el.querySelector?.('img[alt]')?.getAttribute('alt'),
+        el.getAttribute('alt'),
+        el.getAttribute('title'),
+      ];
+      const nombre = (textos.find((t) => t && t.trim() !== '') ?? '').replace(/\s+/g, ' ').trim();
+      return {
+        control: el.getAttribute('role') || el.tagName.toLowerCase(),
+        nombre,
+        destino: el.getAttribute('href'),
+        focoVisible: estilo.outlineStyle !== 'none' && parseFloat(estilo.outlineWidth) > 0,
+        huella: el.outerHTML.slice(0, 300),
+      };
+    });
+    if (!parada) break;
+    if (paradas.length > 0 && parada.huella === paradas[0].huella) break;
+    paradas.push(parada);
+  }
+  await contexto.close();
+  return paradas.map(({ huella, ...resto }) => resto);
+}
+
 function erroresDelServidor(desde) {
   const registro = readFileSync(archivoLog('front'), 'utf8').slice(desde);
   return registro.split(/\r?\n/).filter((linea) => /error|⨯|unhandled/i.test(linea));
 }
 
-function informeMarkdown(spec, visitas, sinBackend, servidor, bloqueos) {
+function informeMarkdown(spec, visitas, sinBackend, recorridos, servidor, bloqueos) {
   const lineas = [
     `# Verificación de interfaz · ${spec}`,
     '',
@@ -157,6 +202,25 @@ function informeMarkdown(spec, visitas, sinBackend, servidor, bloqueos) {
         `| \`${v.ruta}\` | ${v.estado} | ${v.alertas.map((a) => `«${a}»`).join(' ') || 'ninguno'} | [${v.captura}](${v.captura}) |`,
     ),
     '',
+    '## Recorrido con teclado',
+    '',
+    'Cada fila es una parada de la tecla Tab, en orden, a 1280 px.',
+    '',
+    ...recorridos.flatMap(({ ruta, paradas }) => [
+      `### \`${ruta}\``,
+      '',
+      ...(paradas.length === 0
+        ? ['No hay ningún control al que se llegue con el teclado.', '']
+        : [
+            '| # | Control | Cómo se anuncia | A dónde lleva | Se ve el foco |',
+            '|---|---|---|---|---|',
+            ...paradas.map(
+              (p, i) =>
+                `| ${i + 1} | ${p.control} | ${p.nombre ? `«${p.nombre.slice(0, 90)}»` : '**sin nombre**'} | ${p.destino ? `\`${p.destino}\`` : '—'} | ${p.focoVisible ? 'sí' : 'no'} |`,
+            ),
+            '',
+          ]),
+    ]),
     '## Errores del servidor del frontend',
     '',
     ...(servidor.length === 0 ? ['Ninguno.'] : servidor.map((l) => `- \`${l.trim()}\``)),
@@ -192,6 +256,7 @@ async function principal() {
   let navegador;
   const visitas = [];
   const sinBackend = [];
+  const recorridos = [];
   let servidor = [];
   try {
     await iniciar('ambos');
@@ -213,6 +278,10 @@ async function principal() {
           console.log(`${ruta} · ${tamano.ancho} px · ${tema.nombre}: capturada`);
         }
       }
+    }
+    for (const ruta of rutas) {
+      recorridos.push({ ruta, paradas: await recorrerConTeclado(navegador, ruta) });
+      console.log(`${ruta} · teclado: recorrida`);
     }
     servidor = erroresDelServidor(inicioDelRegistro);
 
@@ -246,6 +315,11 @@ async function principal() {
     if (v.desbordeHorizontal) bloqueos.push(`${donde}: el contenido se sale a lo ancho de la pantalla`);
     if (v.estado >= 500) bloqueos.push(`${donde}: la página respondió ${v.estado}`);
   }
+  for (const { ruta, paradas } of recorridos) {
+    paradas.forEach((p, i) => {
+      if (!p.nombre) bloqueos.push(`\`${ruta}\`: la parada ${i + 1} del teclado (${p.control}) no tiene nombre accesible`);
+    });
+  }
   for (const linea of servidor) bloqueos.push(`Error del servidor del frontend: \`${linea.trim()}\``);
   for (const v of sinBackend) {
     if (v.estado >= 500 || v.textoVisible === 0) {
@@ -257,9 +331,9 @@ async function principal() {
 
   writeFileSync(
     path.join(salida, 'informe.json'),
-    JSON.stringify({ spec, rutas, visitas, sinBackend, servidor, bloqueos }, null, 2),
+    JSON.stringify({ spec, rutas, visitas, sinBackend, recorridos, servidor, bloqueos }, null, 2),
   );
-  writeFileSync(path.join(salida, 'informe.md'), informeMarkdown(spec, visitas, sinBackend, servidor, bloqueos));
+  writeFileSync(path.join(salida, 'informe.md'), informeMarkdown(spec, visitas, sinBackend, recorridos, servidor, bloqueos));
 
   console.log(`\nInforme: specs/${spec}/evidencia/ui/informe.md`);
   console.log(bloqueos.length === 0 ? 'Resultado: pasa' : `Resultado: no pasa (${bloqueos.length} bloqueos)`);
