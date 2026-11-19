@@ -1,6 +1,6 @@
 # Taquillera · arnés
 
-Arnés de Claude Code del proyecto **Taquillera**, una aplicación web para consultar la cartelera de un cine y comprar boletas. Proyecto integrador del Diplomado en Ingeniería de Software con IA y Sistemas Agénticos (FET).
+Arnés de Claude Code del proyecto **Taquillera**, una aplicación web con la cartelera de eventos pequeños (cine, teatro, conciertos y charlas) y la venta de boletas con asiento numerado. Proyecto integrador del Diplomado en Ingeniería de Software con IA y Sistemas Agénticos (FET).
 
 **Grupo 11:** Abilson Rivera Garcia y Bredman Estiven Velez Cortez.
 
@@ -18,7 +18,7 @@ El arnés es un repositorio aparte porque un solo sistema de agentes coordina lo
 |---|---|
 | Arnés: memoria, reglas, skills | Implementado |
 | Sistema de agentes y hook de rutas | Implementado. El hook pasa sus doce pruebas y la prueba con sesiones reales, con el agente ejecutado directamente e invocado por el orquestador |
-| Cinco specs | La 001 está implementada, revisada y en pull request; las otras cuatro, aprobadas y sin empezar |
+| Seis specs | La 001 está implementada, revisada y en pull request; las otras cinco, aprobadas y sin empezar |
 | Mecanismos de calidad | CI, cobertura y mutación en pull request abierto en cada repositorio; evidencia por spec, pendiente |
 
 ## Piezas del arnés
@@ -134,7 +134,7 @@ El diseño de partida es el del «Taller: Sistema de agentes para su proyecto».
 | El hook de rutas ya no va en el frontmatter de cada agente: hay uno solo en `settings.json`, con las rutas de todos en `rutas.json`. | Al ejecutar la spec 001, el hook del orquestador se aplicó también a los subagentes que invocaba y les bloqueó todo lo que no fuera `specs/`. |
 | El revisor ejecuta también `npm run test:cov` en el frontend, y el orquestador invoca al guardián cuando se toca `frontend/src/lib/`. | El planificador de la spec 001 encontró que el CI y la regla `contrato.md` pedían más que los agentes. |
 
-Los cambios que salgan de ejecutar las cinco specs se agregan aquí, cada uno con su observación.
+Los cambios que salgan de ejecutar las demás specs se agregan aquí, cada uno con su observación.
 
 ## Mecanismos de calidad
 
@@ -152,7 +152,8 @@ Los cambios que salgan de ejecutar las cinco specs se agregan aquí, cada uno co
 | Spec | Estado | Pull requests |
 |---|---|---|
 | [001 · Detalle de película](specs/001-detalle-pelicula/spec.md) | Implementada y revisada; en pull request | [Frontend #4](https://github.com/Bredman01/TaquilleraFrontend/pull/4) |
-| [002 · Funciones por película](specs/002-funciones-por-pelicula/spec.md) | Aprobada, sin empezar | Pendientes |
-| [003 · Mapa de asientos](specs/003-mapa-de-asientos/spec.md) | Aprobada, sin empezar | Pendientes |
-| [004 · Compra con pago simulado](specs/004-compra-pago-simulado/spec.md) | Aprobada, sin empezar | Pendientes |
-| [005 · Boleta por código](specs/005-boleta-por-codigo/spec.md) | Aprobada, sin empezar | Pendientes |
+| [002 · Eventos y filtros de la cartelera](specs/002-eventos-y-filtros/spec.md) | Aprobada, sin empezar | Pendientes |
+| [003 · Funciones por evento](specs/003-funciones-por-evento/spec.md) | Aprobada, sin empezar | Pendientes |
+| [004 · Mapa de asientos](specs/004-mapa-de-asientos/spec.md) | Aprobada, sin empezar | Pendientes |
+| [005 · Compra con pago simulado](specs/005-compra-pago-simulado/spec.md) | Aprobada, sin empezar | Pendientes |
+| [006 · Boleta con código QR y validación](specs/006-boleta-por-codigo/spec.md) | Aprobada, sin empezar | Pendientes |

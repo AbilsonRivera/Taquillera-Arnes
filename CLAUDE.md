@@ -1,6 +1,6 @@
 # Taquillera · arnés
 
-Espacio de trabajo del proyecto **Taquillera** (cartelera de cine y venta de boletas, diplomado FET). Este repositorio no tiene código de la aplicación: tiene el arnés con el que se desarrolla, y dentro se clonan los dos repositorios de la aplicación.
+Espacio de trabajo del proyecto **Taquillera** (cartelera de eventos pequeños y venta de boletas con asiento numerado, diplomado FET). Este repositorio no tiene código de la aplicación: tiene el arnés con el que se desarrolla, y dentro se clonan los dos repositorios de la aplicación.
 
 ## Organización
 
