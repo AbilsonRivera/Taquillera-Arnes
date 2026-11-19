@@ -1,4 +1,4 @@
-# Comprueba con una sesión real de Claude Code que el hook limitar-rutas se ejecuta.
+﻿# Comprueba con una sesión real de Claude Code que el hook limitar-rutas se ejecuta.
 #
 #   ./scripts/probar-hook.ps1
 #

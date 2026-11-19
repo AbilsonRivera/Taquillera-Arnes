@@ -17,9 +17,9 @@ El arnés es un repositorio aparte porque un solo sistema de agentes coordina lo
 | Parte | Estado |
 |---|---|
 | Arnés: memoria, reglas, skills | Implementado |
-| Sistema de agentes y hook de rutas | Implementado; el script del hook tiene pruebas. Falta repetir la prueba con una sesión real después de aceptar el diálogo de confianza |
+| Sistema de agentes y hook de rutas | Implementado. El hook pasa sus siete pruebas y la prueba con una sesión real de Claude Code |
 | Cinco specs | Escritas y aprobadas; ninguna ejecutada todavía |
-| Mecanismos de calidad | Herramientas listas; CI y evidencia por spec, pendientes |
+| Mecanismos de calidad | CI, cobertura y mutación en pull request abierto en cada repositorio; evidencia por spec, pendiente |
 
 ## Piezas del arnés
 
@@ -137,12 +137,12 @@ Los cambios que salgan de ejecutar las cinco specs se agregan aquí, cada uno co
 
 | Mecanismo | Cómo funciona | Estado | Evidencia |
 |---|---|---|---|
-| TDD estructural | El probador y el desarrollador son agentes distintos, el hook le impide al desarrollador tocar una prueba, y el commit `test:` va antes del `feat:`. | Hook implementado y probado | [`limitar-rutas.test.mjs`](.claude/hooks/limitar-rutas.test.mjs); el historial de cada rama y `evidencia/revision.md`, al ejecutar las specs |
-| CI con cobertura mínima del 80 % y `main` protegida | Un workflow por repositorio con lint, pruebas, cobertura y build en cada pull request. | Pendiente | Checks de cada pull request |
+| TDD estructural | El probador y el desarrollador son agentes distintos, el hook le impide al desarrollador tocar una prueba, y el commit `test:` va antes del `feat:`. | Hook implementado y probado, también en una sesión real | [`limitar-rutas.test.mjs`](.claude/hooks/limitar-rutas.test.mjs) y [`probar-hook.ps1`](scripts/probar-hook.ps1); el historial de cada rama y `evidencia/revision.md`, al ejecutar las specs |
+| CI con cobertura mínima del 80 % y `main` protegida | Un workflow por repositorio con lint, pruebas, cobertura y build en cada pull request. | Workflows en pull request, sin fusionar; falta proteger `main` | [Backend #4](https://github.com/Bredman01/Taquillera-Backend/pull/4) y [Frontend #3](https://github.com/Bredman01/TaquilleraFrontend/pull/3); después, los checks de cada pull request |
 | Revisión independiente con matriz | El revisor comprueba que cada criterio tiene una prueba que falla si se borra el código, y clasifica los hallazgos por severidad. | Agente implementado | `specs/NNN-nombre/evidencia/revision.md` |
 | Contrato entre repositorios | El guardian-contrato compara campo por campo los tipos del frontend con lo que responde el backend. | Agente implementado | `specs/NNN-nombre/evidencia/contrato.md` |
 | Verificación en el navegador | Capturas a 390 y 1280 px en tema claro y oscuro, axe-core, consola y estado con el backend apagado. | Herramienta implementada y probada sobre la cartelera | `specs/NNN-nombre/evidencia/ui/` |
-| Mutación en el backend | StrykerJS sobre los archivos que cambió la spec; los sobrevivientes se clasifican. Es informativa, no bloquea. | Pendiente de configurar | `specs/NNN-nombre/evidencia/revision.md` |
+| Mutación en el backend | StrykerJS sobre los archivos que cambió la spec; los sobrevivientes se clasifican. Es informativa, no bloquea. | Configurada en el mismo pull request del backend; línea base del 63,1 % | [Backend #4](https://github.com/Bredman01/Taquillera-Backend/pull/4); después, `specs/NNN-nombre/evidencia/revision.md` |
 
 ## Specs
 

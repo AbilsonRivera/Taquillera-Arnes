@@ -1,4 +1,4 @@
-# Prepara el espacio de trabajo del arnés: clona los dos repositorios de la aplicación
+﻿# Prepara el espacio de trabajo del arnés: clona los dos repositorios de la aplicación
 # como backend/ y frontend/ e instala las dependencias de todo.
 #
 #   ./scripts/preparar.ps1
