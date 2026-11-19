@@ -38,6 +38,7 @@ Cuando una pantalla necesite una de estas piezas, se escribe así:
 | Botón o control deshabilitado | Se agrega `disabled:cursor-not-allowed disabled:opacity-50` y el atributo `disabled` |
 | Etiqueta de un campo | `<label>` visible encima del campo: `text-sm font-semibold text-zinc-950 dark:text-zinc-50` |
 | Campo de texto | `w-full rounded-lg border border-zinc-300 bg-white px-3 py-2.5 text-base text-zinc-950 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-50`, más el foco de teclado |
+| Lista desplegable | `<select>` nativo con su `<label>` visible encima y las mismas clases del campo de texto |
 | Error de un campo | Debajo del campo, unido con `aria-describedby`: `text-sm text-red-700 dark:text-red-300`. El campo lleva `aria-invalid="true"` |
 | Mensaje de éxito | `rounded-xl border border-green-200 bg-green-50 p-6 text-green-900 dark:border-green-900 dark:bg-green-950 dark:text-green-200` |
 

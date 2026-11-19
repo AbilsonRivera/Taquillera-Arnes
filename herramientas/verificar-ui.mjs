@@ -40,8 +40,13 @@ function normalizarRuta(texto) {
   return limpia === '' || limpia === 'inicio' ? '/' : `/${limpia}`;
 }
 
-const nombreDe = (ruta) =>
-  ruta.split('?')[0].replace(/^\/+|\/+$/g, '').replace(/[^a-zA-Z0-9]+/g, '-') || 'inicio';
+/** Nombre de archivo de una ruta. Incluye la consulta, para que "/?a=1" y "/?a=2" no se pisen. */
+function nombreDe(ruta) {
+  const [camino, consulta = ''] = ruta.split('?');
+  const limpiar = (texto) =>
+    texto.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-zA-Z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  return [limpiar(camino) || 'inicio', limpiar(consulta)].filter(Boolean).join('-').toLowerCase();
+}
 
 async function abrirNavegador() {
   for (const canal of ['chrome', 'msedge']) {
@@ -174,6 +179,11 @@ async function principal() {
     console.error('Uso: npm run verificar-ui -- --spec NNN-nombre --rutas inicio,peliculas/1');
     console.error('La spec debe existir en specs/. Las rutas van sin la barra inicial; "inicio" es la portada.');
     process.exit(1);
+  }
+  if (process.argv.includes('--listar')) {
+    // Solo muestra cómo se entendieron las rutas, sin levantar nada.
+    for (const ruta of rutas) console.log(`${ruta}  ->  ${nombreDe(ruta)}-<ancho>-<tema>.png`);
+    return;
   }
   const salida = path.join(carpetaSpec, 'evidencia', 'ui');
   mkdirSync(salida, { recursive: true });
