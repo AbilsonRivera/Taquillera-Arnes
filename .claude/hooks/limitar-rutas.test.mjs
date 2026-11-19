@@ -47,7 +47,7 @@ test('el desarrollador escribe código y no puede tocar una prueba', () => {
 });
 
 test('las rutas de un repositorio no dan acceso al otro', () => {
-  assert.equal(rutaPermitida('frontend/src/lib/peliculas.ts', RUTAS['desarrollador-back']), false);
+  assert.equal(rutaPermitida('frontend/src/lib/eventos.ts', RUTAS['desarrollador-back']), false);
   assert.equal(rutaPermitida('backend/src/main.ts', RUTAS['probador-front']), false);
   assert.equal(rutaPermitida('frontend/src/lib/formato.test.ts', RUTAS['probador-front']), true);
   assert.equal(rutaPermitida('frontend/src/components/PeliculaCard.test.tsx', RUTAS['probador-front']), true);
@@ -71,7 +71,7 @@ test('un subagente invocado por el orquestador usa sus propias rutas, no las del
   assert.equal(ejecutar(escribir('desarrollador-front', 'frontend/vitest.config.ts', delegada)).status, 0);
   assert.equal(ejecutar(escribir('desarrollador-back', 'backend/src/main.ts', delegada)).status, 0);
   assert.equal(ejecutar(escribir('desarrollador-back', 'specs/001-detalle-pelicula/plan.md', delegada)).status, 2);
-  assert.equal(ejecutar(escribir('probador-front', 'frontend/src/lib/peliculas.ts', delegada)).status, 2);
+  assert.equal(ejecutar(escribir('probador-front', 'frontend/src/lib/eventos.ts', delegada)).status, 2);
 });
 
 test('los agentes de solo lectura no pueden escribir nada', () => {

@@ -22,7 +22,7 @@ export const LADOS = {
     nombre: 'backend',
     carpeta: path.join(RAIZ, 'backend'),
     puerto: 3001,
-    listo: 'http://localhost:3001/peliculas',
+    listo: 'http://localhost:3001/eventos',
     // node dist/main.js, igual que el script start:prod del backend.
     arranque: () => [process.execPath, ['dist/main.js']],
     entorno: { PORT: '3001' },
