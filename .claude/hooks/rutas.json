@@ -1,0 +1,18 @@
+{
+  "taquilla-orquestador": ["specs/**"],
+  "planificador": [],
+  "probador-back": ["backend/src/**/*.spec.ts", "backend/test/**"],
+  "desarrollador-back": ["backend/src/**", "!backend/src/**/*.spec.ts"],
+  "probador-front": ["frontend/src/**/*.test.ts", "frontend/src/**/*.test.tsx"],
+  "desarrollador-front": [
+    "frontend/src/**",
+    "frontend/next.config.ts",
+    "frontend/vitest.config.ts",
+    "frontend/vitest.setup.ts",
+    "!frontend/src/**/*.test.ts",
+    "!frontend/src/**/*.test.tsx"
+  ],
+  "guardian-contrato": [],
+  "verificador-ui": [],
+  "revisor": []
+}

@@ -4,20 +4,6 @@ description: Implementa en el frontend de Taquillera las páginas, componentes y
 tools: Read, Grep, Glob, Edit, Write, Bash
 disallowedTools: Agent
 model: sonnet
-hooks:
-  PreToolUse:
-    - matcher: "Edit|Write"
-      hooks:
-        - type: command
-          command: node
-          args:
-            - "${CLAUDE_PROJECT_DIR}/.claude/hooks/limitar-rutas.mjs"
-            - "frontend/src/**"
-            - "frontend/next.config.ts"
-            - "frontend/vitest.config.ts"
-            - "frontend/vitest.setup.ts"
-            - "!frontend/src/**/*.test.ts"
-            - "!frontend/src/**/*.test.tsx"
 ---
 
 # Desarrollador del frontend (Green y refactor)
