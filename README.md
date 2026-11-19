@@ -12,6 +12,24 @@ Arnés de Claude Code del proyecto **Taquillera**, una aplicación web con la ca
 
 El arnés es un repositorio aparte porque un solo sistema de agentes coordina los dos repositorios de la aplicación, que se clonan dentro como `backend/` y `frontend/`.
 
+## Alcance frente a la propuesta
+
+La propuesta del proyecto era una cartelera de eventos pequeños con asientos numerados y validación por código QR. El proyecto integrador pide desarrollar cinco funcionalidades con el arnés, no el producto completo, así que construimos el recorrido del comprador de principio a fin y dejamos fuera lo demás.
+
+| Lo que decía la propuesta | Cómo queda | Spec |
+|---|---|---|
+| Cartelera con filtros por fecha, categoría y ciudad | Sí | 002 y 003 |
+| Mapa de asientos | Sí, sin la reserva temporal de 10 minutos | 004 |
+| Pago simulado | Sí, sin pasarela de pruebas | 005 |
+| Que no se venda dos veces el mismo asiento | Sí | 005 |
+| Boleta con QR | Sí, en pantalla; sin PDF ni envío por correo | 006 |
+| Validación: válida, ya usada o inválida | Sí | 006 |
+| Registro e inicio de sesión con roles | No | — |
+| Gestión de eventos por el organizador | No | — |
+| Base de datos PostgreSQL | No: los datos viven en memoria | — |
+
+Las primeras pantallas se construyeron solo con películas. Al comparar con la propuesta decidimos volver a eventos (cine, teatro, conciertos y charlas) con la spec 002, cuando solo había una spec terminada. Está contado en la entrada 29 de la [bitácora](docs/bitacora.md).
+
 ## Estado
 
 | Parte | Estado |
