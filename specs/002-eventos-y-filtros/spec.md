@@ -50,4 +50,5 @@ El backend y el frontend pasan de «películas» a «eventos», con categoría, 
 - Los datos viven en memoria. Los de ejemplo traen al menos ocho eventos, de las cuatro categorías y de al menos dos ciudades, una de ellas Neiva.
 - Es un cambio de nombres en los dos repositorios: entidad, rutas, tipos, componentes, pruebas y textos. No deben quedar restos de «película» en el código, salvo en los datos de ejemplo de la categoría cine.
 - Las piezas de la interfaz salen de la skill `guia-visual`.
+- Pendiente que viene de la spec 001 (hallazgo B4 del revisor): la prueba de la tarjeta debe comprobar que todo su contenido, incluida la insignia de clasificación, queda dentro del enlace.
 - Al cerrar la spec, el desarrollador actualiza los `AGENTS.md` de los dos repositorios, que todavía hablan de películas.

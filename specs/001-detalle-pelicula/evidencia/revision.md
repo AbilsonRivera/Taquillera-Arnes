@@ -318,3 +318,14 @@ Prueba en `PeliculaCard.test.tsx:27-46`.
 - **Las pruebas nuevas nunca estuvieron en rojo.** El código ya existía; en lugar del rojo, el probador y el revisor razonan los mutantes sobre el código real. Ningún mutante se ejecutó (no hay Stryker en el frontend y los agentes no pueden editar producción).
 - **Comandos denegados en esta vuelta.** `git -C frontend show 54f9d7d --stat` se denegó porque `show` no está en `.claude/settings.json`: el encargo del orquestador sugería esa forma y fue un error del encargo, no del revisor. El revisor probó además dos formas con ruta absoluta que el encargo no pedía, también denegadas, y no las repitió.
 - **Pendiente del desarrollador.** `54f9d7d` está solo en local («ahead of origin by 1 commit»): lo sube él, y el pull request #4 se actualiza con él.
+
+---
+
+# Decisión del desarrollador humano sobre el hallazgo de la segunda vuelta
+
+La tomó Abilson Rivera Garcia el 19 de noviembre de 2026, después de subir `54f9d7d` al pull request #4 y de ver el CI en verde.
+
+| # | Hallazgo | Decisión | Motivo del desarrollador | Estado |
+|---|---|---|---|---|
+| B4 | La prueba de la tarjeta no comprueba que la insignia de clasificación quede dentro del enlace | **Aplazado a la spec 002** | La spec 002 reescribe esa tarjeta para eventos. Corregirlo aquí sería otra vuelta del probador y del revisor sobre código que va a cambiar. | Abierto; lo recoge la spec 002 en sus notas |
+
