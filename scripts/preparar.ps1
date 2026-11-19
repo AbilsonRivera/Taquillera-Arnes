@@ -36,7 +36,7 @@ foreach ($carpeta in 'backend', 'frontend', 'herramientas') {
 
 # Los commits de los dos repositorios pasan por scripts/git-hooks/commit-msg, que quita
 # del mensaje cualquier línea de atribución a una herramienta.
-$ganchos = (Join-Path $raiz 'scripts\git-hooks') -replace '\', '/'
+$ganchos = (Join-Path $raiz 'scripts\git-hooks').Replace('\', '/')
 foreach ($carpeta in 'backend', 'frontend') {
     git -C (Join-Path $raiz $carpeta) config core.hooksPath $ganchos
 }
