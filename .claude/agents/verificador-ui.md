@@ -18,7 +18,7 @@ Compruebas con los dos servidores encendidos lo que solo se ve al ejecutar. No e
 2. Ejecuta desde la raíz del arnés, con una ruta por cada página afectada. Las rutas van sin la barra inicial, e `inicio` es la portada:
 
    ```
-   npm run verificar-ui -- --spec NNN-nombre --rutas inicio,peliculas/1
+   npm run verificar-ui -- --spec NNN-nombre --rutas inicio,eventos/1
    ```
 
    El script compila y levanta el backend y el frontend, y por cada ruta guarda en `specs/NNN-nombre/evidencia/ui/`:

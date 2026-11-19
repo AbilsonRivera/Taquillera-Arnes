@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Evidencia de interfaz de una spec: capturas, axe-core, consola y estado sin backend.
 //
-//   npm run verificar-ui -- --spec 001-detalle-pelicula --rutas inicio,peliculas/1
+//   npm run verificar-ui -- --spec 001-detalle-pelicula --rutas inicio,eventos/1
 //
 // Las rutas van sin la barra inicial e "inicio" es la portada: Git Bash en Windows
 // convierte un argumento que empieza por "/" en una ruta de disco.
@@ -30,11 +30,11 @@ function argumento(nombre) {
   return indice === -1 ? undefined : process.argv[indice + 1];
 }
 
-/** "inicio" → "/", "peliculas/1" → "/peliculas/1". */
+/** "inicio" → "/", "eventos/1" → "/eventos/1". */
 function normalizarRuta(texto) {
   if (/^[a-zA-Z]:[\\/]/.test(texto)) {
     throw new Error(
-      `La ruta "${texto}" llegó convertida en ruta de disco. Escríbela sin la barra inicial: inicio,peliculas/1`,
+      `La ruta "${texto}" llegó convertida en ruta de disco. Escríbela sin la barra inicial: inicio,eventos/1`,
     );
   }
   const limpia = texto.replace(/^\/+/, '');
@@ -240,7 +240,7 @@ async function principal() {
   const rutas = (argumento('rutas') ?? '').split(',').map((r) => r.trim()).filter(Boolean).map(normalizarRuta);
   const carpetaSpec = path.join(RAIZ, 'specs', spec ?? '');
   if (!spec || rutas.length === 0 || !existsSync(carpetaSpec) || !statSync(carpetaSpec).isDirectory()) {
-    console.error('Uso: npm run verificar-ui -- --spec NNN-nombre --rutas inicio,peliculas/1');
+    console.error('Uso: npm run verificar-ui -- --spec NNN-nombre --rutas inicio,eventos/1');
     console.error('La spec debe existir en specs/. Las rutas van sin la barra inicial; "inicio" es la portada.');
     process.exit(1);
   }
