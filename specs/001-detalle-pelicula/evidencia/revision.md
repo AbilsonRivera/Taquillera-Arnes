@@ -1,9 +1,20 @@
 # Revisión · 001 Detalle de película
 
+Este archivo tiene, en orden: la primera vuelta del revisor, las decisiones del desarrollador humano sobre sus hallazgos y la segunda vuelta, acotada a esas decisiones.
+
+| Vuelta | Código revisado | Veredicto | Hallazgos |
+|---|---|---|---|
+| 1 | frontend en `876cb79` | `aprobado` | 3 medios (M1, M2, M3) y 3 bajos (B1, B2, B3) |
+| 2 | frontend en `54f9d7d` | `aprobado` | M1, M2 y M3 resueltos; 1 bajo nuevo (B4) |
+
+---
+
+# Primera vuelta
+
 - **Control:** revisor (T6), primera vuelta.
 - **Estado del código revisado:** frontend en `876cb79` (`feat:`); backend en `main`, sin cambios.
 - **Veredicto del agente:** `aprobado`. Sin hallazgos críticos ni altos; 3 medios y 3 bajos, que no bloquean.
-- **Verificado por el orquestador:** M1, M2, M3 y B2, leyendo `frontend/src/lib/peliculas.ts:80,90`, `peliculas.test.ts:122-149`, `PeliculaCard.test.tsx:22-24` y `DetallePelicula.test.tsx:37-39`: las pruebas son como el revisor las describe. Después de su informe, el hash de `frontend/.git/refs/heads/feat/001-detalle-pelicula` sigue siendo `876cb79148986c49d79a697660f03969c2b3ca02`: el revisor no dejó commits. **No verificado por el orquestador:** la salida de lint, pruebas, cobertura y build, ni el razonamiento sobre mutantes, que tomo del agente.
+- **Verificado por el orquestador:** M1, M2, M3 y B2, leyendo `frontend/src/lib/peliculas.ts:80,90`, `peliculas.test.ts:122-149`, `PeliculaCard.test.tsx:22-24` y `DetallePelicula.test.tsx:37-39`: las pruebas son como el revisor las describe. Después de su informe, el hash de `frontend/.git/refs/heads/feat/001-detalle-pelicula` seguía siendo `876cb79148986c49d79a697660f03969c2b3ca02`: el revisor no dejó commits. **No verificado por el orquestador:** la salida de lint, pruebas, cobertura y build, ni el razonamiento sobre mutantes, que tomo del agente.
 
 Informe del agente, sin cambios:
 
@@ -161,10 +172,149 @@ No están en la matriz (B1).
 
 ---
 
-## Notas del orquestador sobre este informe
+## Notas del orquestador sobre la primera vuelta
 
-- **No hay bucle de corrección.** El veredicto es `aprobado` y no hay hallazgos críticos ni altos, así que, por la regla de parada, los medios y bajos solo se anotan aquí. No se delegó ninguna corrección ni se repitió el control.
-- **Hallazgos abiertos para decidir antes del pull request:** M1, M2 y M3 (pruebas que sobreviven a una mutación) y B2. Los cuatro caen en el rol `probador-front`: serían pruebas nuevas en `peliculas.test.ts`, `PeliculaCard.test.tsx` y `DetallePelicula.test.tsx`, con un commit `test:` aparte y sin tocar código de producción. Decide el desarrollador humano; el orquestador no los ha encargado.
-- **B1 (plan desactualizado):** resuelto por el orquestador en `plan.md` tras este informe (matriz, desviaciones y comandos).
-- **B3 (aviso de Vite):** decide el desarrollador humano (O1 de la traza).
-- **M1 y la matriz.** La fila CA-6 1) del plan decía «backend apagado o tiempo agotado». La prueba solo cubre el `fetch` rechazado; el corte a 5 s no tiene prueba. `plan.md` ahora lo dice.
+- **No hubo bucle de corrección.** El veredicto fue `aprobado` y no había hallazgos críticos ni altos, así que, por la regla de parada, los medios y bajos se anotaron aquí. No se delegó ninguna corrección ni se repitió el control hasta que el desarrollador humano decidió (siguiente sección).
+- **M1 y la matriz.** La fila CA-6 1) del plan decía «backend apagado o tiempo agotado». La prueba solo cubría el `fetch` rechazado; el corte a 5 s no tenía prueba. `plan.md` lo dijo hasta que M1 quedó resuelto.
+- **B1 (plan desactualizado)** y **B3 (aviso de Vite):** ver la decisión del desarrollador humano en la sección siguiente.
+
+---
+
+# Decisiones del desarrollador humano sobre los hallazgos de la primera vuelta
+
+Las tomó Abilson Rivera Garcia después de revisar el cierre de la primera vuelta. Antes de decidir había subido la rama y abierto el pull request #4 en `Bredman01/TaquilleraFrontend`, con el CI en verde, y había añadido un commit propio `d8af73b` (`docs: memoria del frontend con las pruebas y la cobertura`), que actualiza `frontend/AGENTS.md`. (El pull request, el CI y la subida los toma el orquestador de lo que dijo el desarrollador: no puede verlos. El commit `d8af73b` sí consta en el reflog de la rama.)
+
+| # | Hallazgo | Decisión | Motivo del desarrollador | Estado |
+|---|---|---|---|---|
+| M1 | El corte a 5 s de `getPelicula` no tiene prueba | **Aceptado** | Se encarga al probador-front en un commit `test:` aparte. La prueba nueva debe fallar si se borra o cambia la línea que defiende; el probador explica por qué fallaría, porque no puede tocar producción. Si no se puede probar sin cambiar producción, que lo diga y no la fuerce. | **Resuelto** en `54f9d7d`; confirmado por el revisor en la segunda vuelta |
+| M2 | Ninguna prueba defiende `typeof datos !== "object"` | **Aceptado** | Igual que M1. | **Resuelto** en `54f9d7d`; confirmado |
+| M3 | La prueba de CA-1 no exige que la tarjeta entera sea el enlace | **Aceptado** | Igual que M1. | **Resuelto** en `54f9d7d`; confirmado |
+| B1 | `plan.md` sin las cuatro pruebas de `b645b14`, con el comando de CA-9 y las citas desfasadas | **Aceptado** | Lo corrige el orquestador: agregar a la matriz las cuatro pruebas de `b645b14` y las tres nuevas, y corregir el comando de CA-9. | **Resuelto** por el orquestador en `plan.md`. La segunda vuelta no lo revisó (fuera de su alcance). |
+| B2 | La prueba de CA-2 no relaciona cada dato con su etiqueta | **Descartado** | CA-2 no pide las etiquetas, y la relación entre cada dato y su etiqueta se ve en las capturas del verificador-ui. | Cerrado, sin cambios |
+| B3 / O1 | Aviso de Vite sobre `configLoader: 'native'` en `vitest.config.ts` | **Descartado por ahora** | No falla nada, y renombrar la configuración obligaría a cambiar `rutas.json` y el plan. Se revisa si Vite lo convierte en error. | Cerrado por ahora, sin cambios |
+| — | Observaciones de diseño del verificador-ui: póster claro sobre fondo oscuro, página casi vacía en «no encontramos esa película», estado de error sin encabezado | **Sin acción en esta spec** | Quedan para la revisión del desarrollador en el pull request. No se tocan. | Abiertas, de él |
+
+---
+
+# Segunda vuelta
+
+- **Control:** revisor (T6), segunda vuelta, acotada al commit `54f9d7d` y a M1, M2 y M3.
+- **Estado del código revisado:** frontend en `54f9d7d` (`test:`), cuyo padre es `d8af73b`. Backend sin cambios.
+- **Veredicto del agente:** `aprobado`. No repite ningún hallazgo de la primera vuelta; M1, M2 y M3 resueltos; un hallazgo nuevo bajo (B4).
+- **Verificado por el orquestador:** el hash de `frontend/.git/refs/heads/feat/001-detalle-pelicula` es `54f9d7d7da8ff47d77009942da0db2050897dde6`, y el reflog de la rama muestra que el último commit es ese, así que el revisor no dejó commits. Leí las tres pruebas nuevas en `peliculas.test.ts:128-162` y `:187-202` y en `PeliculaCard.test.tsx:27-46`: son como el revisor las describe. **No verificado por el orquestador:** la salida de lint, pruebas, cobertura y build, ni el razonamiento sobre mutantes, que tomo del agente.
+
+Informe del agente, sin cambios:
+
+---
+
+Segunda vuelta: no repito ningún hallazgo de la primera. M1, M2 y M3 quedan resueltos. Encuentro un solo hallazgo nuevo, de severidad baja, que no bloquea.
+
+# Revisión · 001 Detalle de película (frontend), segunda vuelta
+
+## Veredicto: `aprobado`
+
+El commit `54f9d7d` solo añade tres pruebas y el import de `within`. Lint, pruebas, cobertura y build pasan. Ninguna de las mutaciones de M1, M2 y M3 por las que pregunta el encargo sobrevive. La única que sobrevive es una cuarta, que no pedía el encargo: sacar del enlace solo la insignia de clasificación (B4).
+
+**No ejecuté mutantes.** El frontend no tiene Stryker y yo no puedo editar. Los razoné leyendo `peliculas.ts`, `PeliculaCard.tsx` y las pruebas reales. La ejecución en verde demuestra tres hechos en los que se apoya el razonamiento:
+1. El espía sobre `AbortSignal.timeout` intercepta la llamada del módulo. Si no la interceptara, `toHaveBeenCalledTimes(1)` fallaría.
+2. `fetch` se llama en el mismo tick que `getPelicula`. Si no, fallarían las aserciones síncronas.
+3. `cache` no memoriza en Vitest: `fetch` se llama 3 veces con el mismo id `"4"`.
+
+## Comprobaciones
+
+La herramienta solo muestra el código de salida cuando no es 0; en ningún caso apareció.
+
+| Comando | Resultado | Código |
+|---|---|---|
+| `git -C frontend log main..HEAD --oneline` | Seis commits: `5ac64e6 chore` → `aa8dad8 test` → `b645b14 test` → `876cb79 feat` → `d8af73b docs` → `54f9d7d test` | 0 |
+| `git -C frontend log main..HEAD --name-status --format=%h%x20%p%x20%an%x20%s` | El padre de `54f9d7d` es `d8af73b`, y la historia es lineal. `54f9d7d` cambia solo `src/components/PeliculaCard.test.tsx` y `src/lib/peliculas.test.ts`. `d8af73b` cambia solo `AGENTS.md`. | 0 |
+| `git -C frontend diff d8af73b..54f9d7d --stat` | 2 archivos, 75 inserciones y 1 borrado | 0 |
+| `git -C frontend diff d8af73b..54f9d7d` | El único `-` es el import de `PeliculaCard.test.tsx:1`, que ahora incluye `within`. Lo demás son bloques `it(...)` nuevos, insertados entre pruebas que no cambian. No toca producción ni configuración. | 0 |
+| `git -C frontend status` | Rama `feat/001-detalle-pelicula`, «working tree clean», «ahead of origin by 1 commit». En el remoto ya está hasta `d8af73b`; `54f9d7d` solo existe en local. | 0 |
+| `npm run lint --prefix frontend` | Sin errores ni avisos | 0 |
+| `npm test --prefix frontend -- --reporter=verbose` | `Test Files 5 passed (5)`, `Tests 26 passed (26)`. Aparecen las tres pruebas nuevas con su nombre exacto. | 0 |
+| `npm run test:cov --prefix frontend` | 26 de 26. Líneas 91,11 % (41/45), por encima del 80 %. Sentencias 89,58 %, ramas 96,66 % y funciones 66,66 %. La tabla de texto solo muestra `CarteleraSkeleton.tsx` al 0 % y `PeliculaCard.tsx` con la rama 28 sin cubrir; las dos cosas ya estaban antes. La cifra no cambia porque las pruebas nuevas pasan por líneas que ya estaban cubiertas. | 0 |
+| `npm run build --prefix frontend` | Next.js 16.4.6: «Compiled successfully» y TypeScript sin errores, también en las pruebas nuevas. `/peliculas/[id]` aparece como `◐` (Partial Prerender). | 0 |
+
+**Orden de los commits.** No es un hallazgo. La regla de `flujo.md` es que el `test:` va antes de **su** `feat:`. Eso se cumple: `aa8dad8` y `b645b14` van antes de `876cb79`. El commit `54f9d7d` no tiene `feat:` porque no cambia producción: refuerza pruebas de código que ya existía, por orden del desarrollador. Estas pruebas nunca estuvieron en rojo, y en lugar de esa fase roja va el razonamiento de mutantes que sigue, que hice yo.
+
+## M1: corte a 5 s (`peliculas.ts:80`), **resuelto**
+
+Prueba en `peliculas.test.ts:128-162`.
+
+| Mutación en `peliculas.ts:79-81` | Aserción que se rompe | Por qué |
+|---|---|---|
+| Borrar `signal: AbortSignal.timeout(5000)`, o llamar a `fetch(url)` sin opciones | `:151` `expect(timeoutSpy).toHaveBeenCalledTimes(1)` | El espía recibe 0 llamadas. Falla antes del `await`, así que no se queda colgada aunque el `fetch` falso no termine nunca. |
+| Cambiar 5000 por 500000, 500, 0… | `:152` `toHaveBeenCalledWith(5000)` | El argumento cambia |
+| Crear el corte sin pasárselo a `fetch` (`fetch(url)`, `{ signal: undefined }`, una clave mal escrita, otra señal) | `:154` `fetchMock.mock.calls[0]?.[1]?.signal` `toBe(corte.signal)` | Llega `undefined` u otro objeto |
+| Sustituirlo por `new AbortController().signal` o por `AbortSignal.abort()` | `:151` | No se llama a `timeout` |
+| `5_000`, `5e3`, `5 * 1000` | Ninguna | Mutantes equivalentes |
+
+- **El espía sí intercepta la llamada del módulo.** Ese módulo busca `AbortSignal.timeout` en el global cada vez que se ejecuta, y la prueba espía ese mismo objeto. Lo confirman `:151` y `:154`, que pasan.
+- **Sin temporizadores reales.** `mockReturnValue` no llama al `timeout` original, así que no se arranca ningún temporizador de 5 s.
+- **Ninguna promesa queda colgada.** `corte.abort(...)` dispara `abort` de forma síncrona, el `fetch` falso se rechaza y el `catch` de `peliculas.ts:95-100` devuelve el error. Con un mutante, lo peor que puede pasar es que la prueba agote el tiempo de Vitest; no bloquea la suite.
+- **Los dobles se restauran.** `restoreMocks` y `unstubGlobals` (`vitest.config.ts:14-15`) los deshacen antes de cada prueba (`vitest/dist/chunks/reporters.d.DtoKVV2s.d.ts:2962-2970`), y `fetchMock` se crea de nuevo en cada `beforeEach`.
+- **Es fiel a producción.** Las dos versiones de `unstable_rethrow`, la de servidor (`next/dist/client/components/unstable-rethrow.js:17`) y la de navegador (`unstable-rethrow.browser.js:14`), solo relanzan errores que llevan `digest`. Un `TimeoutError` no lo lleva, así que el `{ ok: false, motivo: "error" }` de `:161` también es lo que pasaría en el servidor.
+
+## M2: cuerpo que no es objeto (`peliculas.ts:90`), **resuelto**
+
+Prueba en `peliculas.test.ts:187-202`.
+
+| Mutación en `:90` | Aserción que se rompe | Por qué |
+|---|---|---|
+| Borrar `typeof datos !== "object"` | `:195-198` con `"texto"`, en la primera vuelta del bucle | No es `null` y `Array.isArray("texto")` da `false`, así que devuelve `{ ok: true, pelicula: "texto" }`. Con `42` y `true` pasa lo mismo: **ningún otro operando atrapa los primitivos**. |
+| Invertirla (`=== "object"`) | `:195` y además `:72`, la prueba del 200 | Los primitivos pasan como película y el objeto válido da error |
+| Comprobar un solo tipo (`!== "string"`, `=== "number"`…) | `:195` con el tipo que falte | Los tres cuerpos son de tipos distintos |
+| `\|\|` → `&&` | `:195` | `(null && …)` da `false` |
+
+`:201` (`toHaveBeenCalledTimes(3)`) asegura que las tres vueltas llegan al backend y no se cortan antes, en la validación del id. Ahora cada operando tiene una prueba que falla si se quita: `null` y el arreglo en `:178-185`, los primitivos en `:187-202`.
+
+## M3: la tarjeta entera es el enlace (D9), **resuelto**
+
+Prueba en `PeliculaCard.test.tsx:27-46`.
+
+| Mutación en `PeliculaCard.tsx:16-48` | Aserción que se rompe | Por qué |
+|---|---|---|
+| `<Link>` solo alrededor del `<h3>` | `:36` `within(enlace).getByRole("img", …)` lanza | El enlace se sigue encontrando por su nombre «Risas en Familia», pero dentro ya no está el póster |
+| `<Link>` solo alrededor del póster | `:39-42` `getByRole("heading", { level: 3 })` lanza | El enlace se encuentra por el `alt`, pero no contiene el `h3` |
+| Todo dentro del enlace menos el `<p>` | `:44` `getByText(/Comedia/)` lanza | |
+| `<h3>` y `<p>` dentro, el póster fuera | `:36` | |
+| Sacar del enlace solo la insignia `Clasificación TP` (`:36-41`) | **Ninguna: sobrevive** | Ver B4 |
+
+**No puede fallar sin motivo.** `getByText` solo lee los nodos de texto propios de cada elemento (`@testing-library/dom/dist/get-node-text.js:12`). El único con «Comedia» y «1 h 35 min» es el `<p>`, porque `<a>`, `<article>` y los `<div>` no tienen texto propio. El nombre del `img` y el del `heading` se comparan con cadenas exactas, y hay un solo enlace. No hay forma de que salgan duplicados.
+
+## Hallazgos nuevos
+
+| # | Severidad | Archivo:línea | Qué pasa | Regla o criterio | Rol |
+|---|---|---|---|---|---|
+| B4 | Bajo | `frontend/src/components/PeliculaCard.test.tsx:27-46` (código en `PeliculaCard.tsx:36-41`) | La prueba se llama «la tarjeta entera es el enlace», pero no comprueba la insignia de clasificación. Si esa insignia sale del `<Link>`, todo sigue en verde. CA-1 queda intacto (enlace, `href` y nombre con el título), así que respecto al criterio es equivalente. Con D9 leído al pie de la letra («toda la tarjeta») sería un mutante que sobrevive por una prueba débil, es decir, Medio; lo dejo en Bajo porque es improbable y no toca ningún criterio. En ningún caso bloquea. | D9 | probador-front, si el desarrollador lo pide: `within(enlace).getByLabelText("Clasificación TP")`. |
+
+**Observaciones que no cuento como hallazgos:**
+- La prueba de M1 da por hecho que `fetch` se llama en el mismo tick que `getPelicula`, y que la señal es exactamente la que devuelve `AbortSignal.timeout`. Un `await` antes del `fetch`, o envolver la señal con `AbortSignal.any`, la romperían aunque el corte siguiera funcionando. Hoy el código cumple las dos cosas, y fui yo quien propuso este método en la primera vuelta.
+- La primera prueba de `PeliculaCard` (`:19-25`) ahora está contenida en la nueva. Se mantiene porque el desarrollador pidió no tocar las pruebas existentes y porque es la fila CA-1 de la matriz.
+- Las tres pruebas nuevas tienen que entrar en la matriz de `plan.md` (CA-6 para M1 y M2, CA-1/D9 para M3). Eso es trabajo del orquestador y queda fuera de mi alcance: no lo revisé.
+
+## Mutación
+
+- **Frontend:** no hay Stryker y no ejecuté mutantes. Las tablas anteriores son razonamiento sobre el código real.
+- **Backend:** no aplica. Esta spec no lo cambia.
+
+## Lo que no pude ejecutar o comprobar
+
+- **Denegados, sin nada pegado:** `git -C "C:/…/frontend" log main..HEAD --oneline` y `git -C "C:/…/frontend" show 54f9d7d --stat`, con la ruta absoluta entre comillas. No los repetí así; usé las formas relativas del encargo.
+- **Denegado:** `git -C frontend show 54f9d7d --stat`, la forma relativa del encargo. No lo reintenté. Lo que habría mostrado lo cubren `git -C frontend diff d8af73b..54f9d7d --stat`, que también pedía el encargo, y `git -C frontend log … --name-status`.
+- Añadí `-- --reporter=verbose` a `npm test` para ver los nombres de las pruebas, y no se denegó.
+- No ejecuté mutantes, el verificador-ui ni el navegador.
+- No edité nada. Mis ejecuciones regeneraron `frontend/coverage/` y `frontend/.next/`, que git ignora, y el árbol sigue limpio.
+
+**Instrucciones que aparecieron en la salida de los comandos (no las seguí):** git sugería `use "git push" to publish your local commits`, y Vite, `Set VITE_CONFIG_NATIVE_IGNORE_WARNING=true to suppress this warning` (es B3, que el desarrollador descartó).
+
+---
+
+## Notas del orquestador sobre la segunda vuelta
+
+- **Regla de parada.** Segunda vuelta del revisor: no repite hallazgos de la primera y el veredicto es `aprobado`, así que no se pregunta por una tercera. No hay críticos ni altos.
+- **Estado final de los hallazgos.** M1, M2 y M3: resueltos en `54f9d7d`. B1: resuelto en `plan.md`. B2 y B3: descartados por el desarrollador. B4 (nuevo, bajo): **abierto, sin decisión del desarrollador humano**; no se encargó nada.
+- **Las pruebas nuevas nunca estuvieron en rojo.** El código ya existía; en lugar del rojo, el probador y el revisor razonan los mutantes sobre el código real. Ningún mutante se ejecutó (no hay Stryker en el frontend y los agentes no pueden editar producción).
+- **Comandos denegados en esta vuelta.** `git -C frontend show 54f9d7d --stat` se denegó porque `show` no está en `.claude/settings.json`: el encargo del orquestador sugería esa forma y fue un error del encargo, no del revisor. El revisor probó además dos formas con ruta absoluta que el encargo no pedía, también denegadas, y no las repitió.
+- **Pendiente del desarrollador.** `54f9d7d` está solo en local («ahead of origin by 1 commit»): lo sube él, y el pull request #4 se actualiza con él.
