@@ -3,7 +3,7 @@ name: guia-visual
 description: Guía visual de la interfaz de Taquillera, con los colores, tamaños, botones, formularios, mensajes y estados que ya usa la aplicación. Úsala al escribir o revisar cualquier página o componente del frontend, para que una pantalla nueva se vea igual que la cartelera y el detalle de película.
 metadata:
   author: Abilson Rivera Garcia y Bredman Estiven Velez Cortez
-  version: "1.3.0"
+  version: "1.4.0"
 ---
 
 # Guía visual de Taquillera
@@ -37,7 +37,7 @@ Cuando una pantalla necesite una de estas piezas, se escribe así:
 | Botón secundario | `rounded-lg border border-zinc-300 px-5 py-3 text-base font-semibold text-zinc-950 enabled:hover:bg-zinc-100 dark:border-zinc-600 dark:text-zinc-50 dark:enabled:hover:bg-zinc-800`; en un enlace, `hover:` sin `enabled:` |
 | Botón o control deshabilitado | Se agrega `disabled:cursor-not-allowed disabled:opacity-50` y el atributo `disabled` |
 | Etiqueta de un campo | `<label>` visible encima del campo: `text-sm font-semibold text-zinc-950 dark:text-zinc-50` |
-| Campo de texto | `min-h-11 w-full rounded-lg border border-zinc-300 bg-white px-3 py-2.5 text-base text-zinc-950 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-50`, más el foco de teclado |
+| Campo de texto | `min-h-11 w-full rounded-lg border border-zinc-500 bg-white px-3 py-2.5 text-base text-zinc-950 dark:bg-zinc-900 dark:text-zinc-50`, más el foco de teclado. El borde es `zinc-500` en los dos temas: el contorno de un campo necesita al menos 3 a 1 de contraste contra su fondo (4,8 a 1 sobre blanco y 3,6 a 1 sobre `zinc-900`). Con `zinc-300` daba 1,5 a 1 |
 | Lista desplegable | `<select>` nativo con su `<label>` visible encima y las mismas clases del campo de texto, incluido `min-h-11` |
 | Campo de fecha | `<input type="date">` nativo con su `<label>` visible encima, las clases del campo de texto, el foco de teclado y `dark:scheme-dark`, para que el icono del calendario se vea en tema oscuro |
 | Subtítulo (`h3`) | `text-lg font-semibold text-zinc-950 dark:text-zinc-50` |
