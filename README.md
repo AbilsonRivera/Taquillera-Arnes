@@ -36,8 +36,8 @@ Las primeras pantallas se construyeron solo con películas. Al comparar con la p
 |---|---|
 | Arnés: memoria, reglas, skills | Implementado |
 | Sistema de agentes y hook de rutas | Implementado. El hook pasa sus doce pruebas y la prueba con sesiones reales, con el agente ejecutado directamente e invocado por el orquestador |
-| Seis specs | La 001 está implementada, revisada y en pull request; las otras cinco, aprobadas y sin empezar |
-| Mecanismos de calidad | CI, cobertura y mutación en pull request abierto en cada repositorio; evidencia por spec, pendiente |
+| Seis specs | La 001 está fusionada; la 002, implementada, revisada y en pull request; la 003, en ejecución; las otras tres, aprobadas y sin empezar |
+| Mecanismos de calidad | CI con cobertura, orden de commits, revisión, contrato, navegador y mutación, funcionando; la evidencia de cada spec está en su carpeta |
 
 ## Piezas del arnés
 
@@ -159,19 +159,19 @@ Los cambios que salgan de ejecutar las demás specs se agregan aquí, cada uno c
 | Mecanismo | Cómo funciona | Estado | Evidencia |
 |---|---|---|---|
 | TDD estructural | El probador y el desarrollador son agentes distintos, el hook le impide al desarrollador tocar una prueba, y el commit `test:` va antes del `feat:`. | Hook implementado y probado, también en una sesión real | [`limitar-rutas.test.mjs`](.claude/hooks/limitar-rutas.test.mjs) y [`probar-hook.ps1`](scripts/probar-hook.ps1); el historial de cada rama y `evidencia/revision.md`, al ejecutar las specs |
-| CI con cobertura mínima del 80 % y `main` protegida | Un workflow por repositorio con lint, pruebas, cobertura y build en cada pull request. | Workflows en pull request, sin fusionar; falta proteger `main` | [Backend #4](https://github.com/Bredman01/Taquillera-Backend/pull/4) y [Frontend #3](https://github.com/Bredman01/TaquilleraFrontend/pull/3); después, los checks de cada pull request |
+| CI con cobertura mínima del 80 % y `main` protegida | Un workflow por repositorio con lint, pruebas, cobertura y build en cada pull request. | Funcionando en los dos repositorios; falta proteger `main` | [Backend #4](https://github.com/Bredman01/Taquillera-Backend/pull/4) y [Frontend #3](https://github.com/Bredman01/TaquilleraFrontend/pull/3); después, los checks de cada pull request |
 | Revisión independiente con matriz | El revisor comprueba que cada criterio tiene una prueba que falla si se borra el código, y clasifica los hallazgos por severidad. | Agente implementado | `specs/NNN-nombre/evidencia/revision.md` |
 | Contrato entre repositorios | El guardian-contrato compara campo por campo los tipos del frontend con lo que responde el backend. | Agente implementado | `specs/NNN-nombre/evidencia/contrato.md` |
 | Verificación en el navegador | Capturas a 390 y 1280 px en tema claro y oscuro, axe-core, consola y estado con el backend apagado. | Herramienta implementada y probada sobre la cartelera | `specs/NNN-nombre/evidencia/ui/` |
-| Mutación en el backend | StrykerJS sobre los archivos que cambió la spec; los sobrevivientes se clasifican. Es informativa, no bloquea. | Configurada en el mismo pull request del backend; línea base del 63,1 % | [Backend #4](https://github.com/Bredman01/Taquillera-Backend/pull/4); después, `specs/NNN-nombre/evidencia/revision.md` |
+| Mutación en el backend | StrykerJS sobre los archivos que cambió la spec; los sobrevivientes se clasifican. Es informativa, no bloquea. | Funcionando. En la spec 002, el módulo de eventos dio 98,8 %, frente al 61,3 % del módulo anterior | [Backend #4](https://github.com/Bredman01/Taquillera-Backend/pull/4); después, `specs/NNN-nombre/evidencia/revision.md` |
 
 ## Specs
 
 | Spec | Estado | Pull requests |
 |---|---|---|
-| [001 · Detalle de película](specs/001-detalle-pelicula/spec.md) | Implementada y revisada; en pull request | [Frontend #4](https://github.com/Bredman01/TaquilleraFrontend/pull/4) |
-| [002 · Eventos y filtros de la cartelera](specs/002-eventos-y-filtros/spec.md) | Aprobada, sin empezar | Pendientes |
-| [003 · Funciones por evento](specs/003-funciones-por-evento/spec.md) | Aprobada, sin empezar | Pendientes |
+| [001 · Detalle de película](specs/001-detalle-pelicula/spec.md) | Fusionada en `main` | [Frontend #4](https://github.com/Bredman01/TaquilleraFrontend/pull/4) |
+| [002 · Eventos y filtros de la cartelera](specs/002-eventos-y-filtros/spec.md) | Implementada y revisada; en pull request | [Backend #5](https://github.com/Bredman01/Taquillera-Backend/pull/5) y [Frontend #5](https://github.com/Bredman01/TaquilleraFrontend/pull/5) |
+| [003 · Funciones por evento](specs/003-funciones-por-evento/spec.md) | Plan aprobado; en ejecución | Pendientes |
 | [004 · Mapa de asientos](specs/004-mapa-de-asientos/spec.md) | Aprobada, sin empezar | Pendientes |
 | [005 · Compra con pago simulado](specs/005-compra-pago-simulado/spec.md) | Aprobada, sin empezar | Pendientes |
 | [006 · Boleta con código QR y validación](specs/006-boleta-por-codigo/spec.md) | Aprobada, sin empezar | Pendientes |

@@ -109,6 +109,19 @@ function prepararCopiaDelBackend() {
   if (!existsSync(enlace)) symlinkSync(path.join(BACKEND, 'node_modules'), enlace, 'junction');
 }
 
+// --watch reinicia el backend cada vez que el espejo trae una compilación nueva.
+const lanzarBackend = () =>
+  lanzar('back', process.execPath, ['--watch', 'dist/main.js'], {
+    cwd: COPIA_BACK,
+    env: { ...process.env, PORT: String(PUERTO_BACK), FRONTEND_URL: `http://localhost:${PUERTO_FRONT}` },
+  });
+
+const lanzarFrontend = () =>
+  lanzar('front', process.execPath, ['node_modules/next/dist/bin/next', 'dev', '-p', String(PUERTO_FRONT)], {
+    cwd: COPIA,
+    env: { ...process.env, NEXT_PUBLIC_API_URL: `http://localhost:${PUERTO_BACK}` },
+  });
+
 async function detener() {
   for (const nombre of ['espejo', 'front', 'back']) {
     const archivo = path.join(ESTADO, `vista-${nombre}.pid`);
@@ -152,15 +165,8 @@ async function iniciar() {
     spawnSync('npm', ['ci', '--no-audit', '--no-fund'], { cwd: COPIA, shell: true, stdio: 'ignore' });
   }
 
-  // --watch reinicia el backend cada vez que el espejo trae una compilación nueva.
-  lanzar('back', process.execPath, ['--watch', 'dist/main.js'], {
-    cwd: COPIA_BACK,
-    env: { ...process.env, PORT: String(PUERTO_BACK), FRONTEND_URL: `http://localhost:${PUERTO_FRONT}` },
-  });
-  lanzar('front', process.execPath, ['node_modules/next/dist/bin/next', 'dev', '-p', String(PUERTO_FRONT)], {
-    cwd: COPIA,
-    env: { ...process.env, NEXT_PUBLIC_API_URL: `http://localhost:${PUERTO_BACK}` },
-  });
+  lanzarBackend();
+  lanzarFrontend();
   lanzar('espejo', process.execPath, [fileURLToPath(import.meta.url), 'espejo'], { cwd: RAIZ });
 
   let arriba = false;
@@ -174,8 +180,13 @@ async function iniciar() {
 }
 
 async function espejo() {
-  for (;;) {
+  for (let vuelta = 1; ; vuelta++) {
     try { sincronizar(); } catch { /* un archivo a medio escribir: se reintenta en la siguiente vuelta */ }
+    // Cada 15 segundos comprueba que los dos servidores sigan escuchando y levanta el que se haya caído.
+    if (vuelta % 5 === 0) {
+      if (pidsEnPuerto(PUERTO_BACK).length === 0) lanzarBackend();
+      if (pidsEnPuerto(PUERTO_FRONT).length === 0) lanzarFrontend();
+    }
     await esperar(3000);
   }
 }
