@@ -51,7 +51,7 @@ Cada subagente empieza sin contexto. En cada encargo incluye:
 - La ruta de `spec.md` y de `plan.md`.
 - Los criterios de aceptación y las filas de la matriz que le tocan.
 - Qué debe devolver y qué evidencia esperas.
-- Las normas que no puede deducir: sin archivos temporales; sin `rm`, `mv`, `cp` ni redirecciones, que están negados; commits sin líneas de atribución; un comando negado no se reintenta, salvo la excepción de `flujo.md`.
+- Las normas que no puede deducir: sin archivos temporales; sin `rm`, `mv`, `cp` ni redirecciones, que están negados; commits de una sola línea; un comando negado no se reintenta, salvo la excepción de `flujo.md`.
 
 Al recibir el informe:
 
