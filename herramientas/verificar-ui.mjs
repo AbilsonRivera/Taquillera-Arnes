@@ -24,6 +24,8 @@ const TEMAS = [
 ];
 const IMPACTOS_QUE_BLOQUEAN = new Set(['serious', 'critical']);
 const MAX_PARADAS = 60;
+// La guía visual pide controles de al menos 44 px de alto.
+const TAMANO_MINIMO = 44;
 
 function argumento(nombre) {
   const indice = process.argv.indexOf(`--${nombre}`);
@@ -161,6 +163,8 @@ async function recorrerConTeclado(navegador, ruta) {
         nombre,
         destino: el.getAttribute('href'),
         focoVisible: estilo.outlineStyle !== 'none' && parseFloat(estilo.outlineWidth) > 0,
+        ancho: Math.round(el.getBoundingClientRect().width),
+        alto: Math.round(el.getBoundingClientRect().height),
         huella: el.outerHTML.slice(0, 300),
       };
     });
@@ -177,7 +181,7 @@ function erroresDelServidor(desde) {
   return registro.split(/\r?\n/).filter((linea) => /error|⨯|unhandled/i.test(linea));
 }
 
-function informeMarkdown(spec, visitas, sinBackend, recorridos, servidor, bloqueos) {
+function informeMarkdown(spec, visitas, sinBackend, recorridos, servidor, bloqueos, observaciones) {
   const lineas = [
     `# Verificación de interfaz · ${spec}`,
     '',
@@ -212,11 +216,11 @@ function informeMarkdown(spec, visitas, sinBackend, recorridos, servidor, bloque
       ...(paradas.length === 0
         ? ['No hay ningún control al que se llegue con el teclado.', '']
         : [
-            '| # | Control | Cómo se anuncia | A dónde lleva | Se ve el foco |',
-            '|---|---|---|---|---|',
+            '| # | Control | Cómo se anuncia | A dónde lleva | Se ve el foco | Tamaño (px) |',
+            '|---|---|---|---|---|---|',
             ...paradas.map(
               (p, i) =>
-                `| ${i + 1} | ${p.control} | ${p.nombre ? `«${p.nombre.slice(0, 90)}»` : '**sin nombre**'} | ${p.destino ? `\`${p.destino}\`` : '—'} | ${p.focoVisible ? 'sí' : 'no'} |`,
+                `| ${i + 1} | ${p.control} | ${p.nombre ? `«${p.nombre.slice(0, 90)}»` : '**sin nombre**'} | ${p.destino ? `\`${p.destino}\`` : '—'} | ${p.focoVisible ? 'sí' : 'no'} | ${p.ancho} × ${p.alto}${p.alto < TAMANO_MINIMO ? ' **bajo**' : ''} |`,
             ),
             '',
           ]),
@@ -228,6 +232,10 @@ function informeMarkdown(spec, visitas, sinBackend, recorridos, servidor, bloque
     '## Qué bloquea',
     '',
     ...(bloqueos.length === 0 ? ['Nada.'] : bloqueos.map((b) => `- ${b}`)),
+    '',
+    '## Observaciones que no bloquean',
+    '',
+    ...(observaciones.length === 0 ? ['Ninguna.'] : observaciones.map((o) => `- ${o}`)),
     '',
     'El detalle completo, con cada violación de axe y cada mensaje de consola, está en `informe.json`.',
     '',
@@ -304,6 +312,7 @@ async function principal() {
   }
 
   const bloqueos = [];
+  const observaciones = [];
   for (const v of visitas) {
     const donde = `\`${v.ruta}\` a ${v.ancho} px en tema ${v.tema}`;
     for (const x of v.violaciones.filter((x) => IMPACTOS_QUE_BLOQUEAN.has(x.impacto))) {
@@ -317,6 +326,9 @@ async function principal() {
   }
   for (const { ruta, paradas } of recorridos) {
     paradas.forEach((p, i) => {
+      if (p.alto < TAMANO_MINIMO) {
+        observaciones.push(`\`${ruta}\`: «${p.nombre.slice(0, 60)}» (${p.control}) mide ${p.alto} px de alto; la guía visual pide ${TAMANO_MINIMO}`);
+      }
       if (!p.nombre) bloqueos.push(`\`${ruta}\`: la parada ${i + 1} del teclado (${p.control}) no tiene nombre accesible`);
     });
   }
@@ -331,9 +343,9 @@ async function principal() {
 
   writeFileSync(
     path.join(salida, 'informe.json'),
-    JSON.stringify({ spec, rutas, visitas, sinBackend, recorridos, servidor, bloqueos }, null, 2),
+    JSON.stringify({ spec, rutas, visitas, sinBackend, recorridos, servidor, bloqueos, observaciones }, null, 2),
   );
-  writeFileSync(path.join(salida, 'informe.md'), informeMarkdown(spec, visitas, sinBackend, recorridos, servidor, bloqueos));
+  writeFileSync(path.join(salida, 'informe.md'), informeMarkdown(spec, visitas, sinBackend, recorridos, servidor, bloqueos, observaciones));
 
   console.log(`\nInforme: specs/${spec}/evidencia/ui/informe.md`);
   console.log(bloqueos.length === 0 ? 'Resultado: pasa' : `Resultado: no pasa (${bloqueos.length} bloqueos)`);
