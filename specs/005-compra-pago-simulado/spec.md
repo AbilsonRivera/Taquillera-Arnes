@@ -1,9 +1,9 @@
 # 005 · Compra con pago simulado
 
-- **Estado:** aprobada
+- **Estado:** implementada y revisada; en pull request
 - **Rama:** `feat/005-compra-pago-simulado`
 - **Repositorios:** backend, frontend
-- **Pull requests:** pendientes
+- **Pull requests:** [Backend #8](https://github.com/Bredman01/Taquillera-Backend/pull/8) y [Frontend #8](https://github.com/Bredman01/TaquilleraFrontend/pull/8)
 
 ## Por qué
 
