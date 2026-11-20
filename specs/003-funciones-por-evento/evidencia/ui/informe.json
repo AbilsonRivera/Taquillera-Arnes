@@ -1,0 +1,1274 @@
+{
+  "spec": "003-funciones-por-evento",
+  "rutas": [
+    "/",
+    "/?fecha=2026-11-21",
+    "/?categoria=teatro&ciudad=Neiva&fecha=2026-11-22",
+    "/?fecha=2026-11-23",
+    "/?fecha=2026-02-30",
+    "/eventos/4",
+    "/eventos/8",
+    "/eventos/10"
+  ],
+  "visitas": [
+    {
+      "ruta": "/",
+      "ancho": 390,
+      "tema": "claro",
+      "captura": "inicio-390-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 727,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/",
+      "ancho": 390,
+      "tema": "oscuro",
+      "captura": "inicio-390-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 727,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/",
+      "ancho": 1280,
+      "tema": "claro",
+      "captura": "inicio-1280-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 727,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/",
+      "ancho": 1280,
+      "tema": "oscuro",
+      "captura": "inicio-1280-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 727,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/?fecha=2026-11-21",
+      "ancho": 390,
+      "tema": "claro",
+      "captura": "inicio-fecha-2026-11-21-390-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 382,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/?fecha=2026-11-21",
+      "ancho": 390,
+      "tema": "oscuro",
+      "captura": "inicio-fecha-2026-11-21-390-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 382,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/?fecha=2026-11-21",
+      "ancho": 1280,
+      "tema": "claro",
+      "captura": "inicio-fecha-2026-11-21-1280-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 382,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/?fecha=2026-11-21",
+      "ancho": 1280,
+      "tema": "oscuro",
+      "captura": "inicio-fecha-2026-11-21-1280-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 382,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/?categoria=teatro&ciudad=Neiva&fecha=2026-11-22",
+      "ancho": 390,
+      "tema": "claro",
+      "captura": "inicio-categoria-teatro-ciudad-neiva-fecha-2026-11-22-390-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 227,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/?categoria=teatro&ciudad=Neiva&fecha=2026-11-22",
+      "ancho": 390,
+      "tema": "oscuro",
+      "captura": "inicio-categoria-teatro-ciudad-neiva-fecha-2026-11-22-390-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 227,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/?categoria=teatro&ciudad=Neiva&fecha=2026-11-22",
+      "ancho": 1280,
+      "tema": "claro",
+      "captura": "inicio-categoria-teatro-ciudad-neiva-fecha-2026-11-22-1280-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 227,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/?categoria=teatro&ciudad=Neiva&fecha=2026-11-22",
+      "ancho": 1280,
+      "tema": "oscuro",
+      "captura": "inicio-categoria-teatro-ciudad-neiva-fecha-2026-11-22-1280-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 227,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/?fecha=2026-11-23",
+      "ancho": 390,
+      "tema": "claro",
+      "captura": "inicio-fecha-2026-11-23-390-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 230,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/?fecha=2026-11-23",
+      "ancho": 390,
+      "tema": "oscuro",
+      "captura": "inicio-fecha-2026-11-23-390-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 230,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/?fecha=2026-11-23",
+      "ancho": 1280,
+      "tema": "claro",
+      "captura": "inicio-fecha-2026-11-23-1280-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 230,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/?fecha=2026-11-23",
+      "ancho": 1280,
+      "tema": "oscuro",
+      "captura": "inicio-fecha-2026-11-23-1280-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 230,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/?fecha=2026-02-30",
+      "ancho": 390,
+      "tema": "claro",
+      "captura": "inicio-fecha-2026-02-30-390-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 727,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/?fecha=2026-02-30",
+      "ancho": 390,
+      "tema": "oscuro",
+      "captura": "inicio-fecha-2026-02-30-390-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 727,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/?fecha=2026-02-30",
+      "ancho": 1280,
+      "tema": "claro",
+      "captura": "inicio-fecha-2026-02-30-1280-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 727,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/?fecha=2026-02-30",
+      "ancho": 1280,
+      "tema": "oscuro",
+      "captura": "inicio-fecha-2026-02-30-1280-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 727,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/eventos/4",
+      "ancho": 390,
+      "tema": "claro",
+      "captura": "eventos-4-390-claro.png",
+      "estado": 200,
+      "titulo": "Cartas a Medianoche · Taquillera",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 337,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/eventos/4",
+      "ancho": 390,
+      "tema": "oscuro",
+      "captura": "eventos-4-390-oscuro.png",
+      "estado": 200,
+      "titulo": "Cartas a Medianoche · Taquillera",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 337,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/eventos/4",
+      "ancho": 1280,
+      "tema": "claro",
+      "captura": "eventos-4-1280-claro.png",
+      "estado": 200,
+      "titulo": "Cartas a Medianoche · Taquillera",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 337,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/eventos/4",
+      "ancho": 1280,
+      "tema": "oscuro",
+      "captura": "eventos-4-1280-oscuro.png",
+      "estado": 200,
+      "titulo": "Cartas a Medianoche · Taquillera",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 337,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/eventos/8",
+      "ancho": 390,
+      "tema": "claro",
+      "captura": "eventos-8-390-claro.png",
+      "estado": 200,
+      "titulo": "Del Grano a la Taza · Taquillera",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 265,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/eventos/8",
+      "ancho": 390,
+      "tema": "oscuro",
+      "captura": "eventos-8-390-oscuro.png",
+      "estado": 200,
+      "titulo": "Del Grano a la Taza · Taquillera",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 265,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/eventos/8",
+      "ancho": 1280,
+      "tema": "claro",
+      "captura": "eventos-8-1280-claro.png",
+      "estado": 200,
+      "titulo": "Del Grano a la Taza · Taquillera",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 265,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/eventos/8",
+      "ancho": 1280,
+      "tema": "oscuro",
+      "captura": "eventos-8-1280-oscuro.png",
+      "estado": 200,
+      "titulo": "Del Grano a la Taza · Taquillera",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 265,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/eventos/10",
+      "ancho": 390,
+      "tema": "claro",
+      "captura": "eventos-10-390-claro.png",
+      "estado": 200,
+      "titulo": "Historia del Huila en Cinco Objetos · Taquillera",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 274,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/eventos/10",
+      "ancho": 390,
+      "tema": "oscuro",
+      "captura": "eventos-10-390-oscuro.png",
+      "estado": 200,
+      "titulo": "Historia del Huila en Cinco Objetos · Taquillera",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 274,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/eventos/10",
+      "ancho": 1280,
+      "tema": "claro",
+      "captura": "eventos-10-1280-claro.png",
+      "estado": 200,
+      "titulo": "Historia del Huila en Cinco Objetos · Taquillera",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 274,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/eventos/10",
+      "ancho": 1280,
+      "tema": "oscuro",
+      "captura": "eventos-10-1280-oscuro.png",
+      "estado": 200,
+      "titulo": "Historia del Huila en Cinco Objetos · Taquillera",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 274,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    }
+  ],
+  "sinBackend": [
+    {
+      "ruta": "/",
+      "captura": "inicio-sin-backend.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [
+        "No pudimos cargar la cartelera. Intenta de nuevo en unos minutos."
+      ],
+      "textoVisible": 140,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/?fecha=2026-11-21",
+      "captura": "inicio-fecha-2026-11-21-sin-backend.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [
+        "No pudimos cargar la cartelera. Intenta de nuevo en unos minutos."
+      ],
+      "textoVisible": 140,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/?categoria=teatro&ciudad=Neiva&fecha=2026-11-22",
+      "captura": "inicio-categoria-teatro-ciudad-neiva-fecha-2026-11-22-sin-backend.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [
+        "No pudimos cargar la cartelera. Intenta de nuevo en unos minutos."
+      ],
+      "textoVisible": 140,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/?fecha=2026-11-23",
+      "captura": "inicio-fecha-2026-11-23-sin-backend.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [
+        "No pudimos cargar la cartelera. Intenta de nuevo en unos minutos."
+      ],
+      "textoVisible": 140,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/?fecha=2026-02-30",
+      "captura": "inicio-fecha-2026-02-30-sin-backend.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [
+        "No pudimos cargar la cartelera. Intenta de nuevo en unos minutos."
+      ],
+      "textoVisible": 140,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/eventos/4",
+      "captura": "eventos-4-sin-backend.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [
+        "No pudimos cargar el evento. Intenta de nuevo en unos minutos."
+      ],
+      "textoVisible": 124,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/eventos/8",
+      "captura": "eventos-8-sin-backend.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [
+        "No pudimos cargar el evento. Intenta de nuevo en unos minutos."
+      ],
+      "textoVisible": 124,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/eventos/10",
+      "captura": "eventos-10-sin-backend.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [
+        "No pudimos cargar el evento. Intenta de nuevo en unos minutos."
+      ],
+      "textoVisible": 124,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    }
+  ],
+  "recorridos": [
+    {
+      "ruta": "/",
+      "paradas": [
+        {
+          "control": "select",
+          "nombre": "Categoría",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "select",
+          "nombre": "Ciudad",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "input",
+          "nombre": "Fecha",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "input",
+          "nombre": "Fecha",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": true
+        },
+        {
+          "control": "input",
+          "nombre": "Fecha",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": true
+        },
+        {
+          "control": "input",
+          "nombre": "Fecha",
+          "destino": null,
+          "focoVisible": false,
+          "ancho": 224,
+          "alto": 48,
+          "interna": true
+        },
+        {
+          "control": "button",
+          "nombre": "Filtrar",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 87,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "El Último Faro +13 Cine · Neiva · 1 h 58 min",
+          "destino": "/eventos/1",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Galaxia Perdida +7 Cine · Bogotá · 2 h 12 min",
+          "destino": "/eventos/2",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Risas en Familia TP Cine · Pitalito · 1 h 35 min",
+          "destino": "/eventos/3",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Cartas a Medianoche +13 Teatro · Neiva · 1 h 30 min",
+          "destino": "/eventos/4",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "El Inspector Distraído TP Teatro · Bogotá · 1 h 20 min",
+          "destino": "/eventos/5",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Bambucos al Atardecer TP Concierto · Neiva · 2 h",
+          "destino": "/eventos/6",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Rock del Valle de Laboyos +16 Concierto · Pitalito · 2 h 30 min",
+          "destino": "/eventos/7",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Del Grano a la Taza TP Charla · Neiva · 1 h",
+          "destino": "/eventos/8",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Inteligencia Artificial sin Miedo TP Charla · Bogotá · 1 h 15 min",
+          "destino": "/eventos/9",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Historia del Huila en Cinco Objetos TP Charla · Íquira · 50 min",
+          "destino": "/eventos/10",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        }
+      ]
+    },
+    {
+      "ruta": "/?fecha=2026-11-21",
+      "paradas": [
+        {
+          "control": "select",
+          "nombre": "Categoría",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "select",
+          "nombre": "Ciudad",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "input",
+          "nombre": "Fecha",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "input",
+          "nombre": "Fecha",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": true
+        },
+        {
+          "control": "input",
+          "nombre": "Fecha",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": true
+        },
+        {
+          "control": "input",
+          "nombre": "Fecha",
+          "destino": null,
+          "focoVisible": false,
+          "ancho": 224,
+          "alto": 48,
+          "interna": true
+        },
+        {
+          "control": "button",
+          "nombre": "Filtrar",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 87,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "El Último Faro +13 Cine · Neiva · 1 h 58 min",
+          "destino": "/eventos/1",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Cartas a Medianoche +13 Teatro · Neiva · 1 h 30 min",
+          "destino": "/eventos/4",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "El Inspector Distraído TP Teatro · Bogotá · 1 h 20 min",
+          "destino": "/eventos/5",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Bambucos al Atardecer TP Concierto · Neiva · 2 h",
+          "destino": "/eventos/6",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        }
+      ]
+    },
+    {
+      "ruta": "/?categoria=teatro&ciudad=Neiva&fecha=2026-11-22",
+      "paradas": [
+        {
+          "control": "select",
+          "nombre": "Categoría",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "select",
+          "nombre": "Ciudad",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "input",
+          "nombre": "Fecha",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "input",
+          "nombre": "Fecha",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": true
+        },
+        {
+          "control": "input",
+          "nombre": "Fecha",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": true
+        },
+        {
+          "control": "input",
+          "nombre": "Fecha",
+          "destino": null,
+          "focoVisible": false,
+          "ancho": 224,
+          "alto": 48,
+          "interna": true
+        },
+        {
+          "control": "button",
+          "nombre": "Filtrar",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 87,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Cartas a Medianoche +13 Teatro · Neiva · 1 h 30 min",
+          "destino": "/eventos/4",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        }
+      ]
+    },
+    {
+      "ruta": "/?fecha=2026-11-23",
+      "paradas": [
+        {
+          "control": "select",
+          "nombre": "Categoría",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "select",
+          "nombre": "Ciudad",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "input",
+          "nombre": "Fecha",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "input",
+          "nombre": "Fecha",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": true
+        },
+        {
+          "control": "input",
+          "nombre": "Fecha",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": true
+        },
+        {
+          "control": "input",
+          "nombre": "Fecha",
+          "destino": null,
+          "focoVisible": false,
+          "ancho": 224,
+          "alto": 48,
+          "interna": true
+        },
+        {
+          "control": "button",
+          "nombre": "Filtrar",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 87,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Ver todos los eventos",
+          "destino": "/",
+          "focoVisible": true,
+          "ancho": 134,
+          "alto": 44,
+          "interna": false
+        }
+      ]
+    },
+    {
+      "ruta": "/?fecha=2026-02-30",
+      "paradas": [
+        {
+          "control": "select",
+          "nombre": "Categoría",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "select",
+          "nombre": "Ciudad",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "input",
+          "nombre": "Fecha",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "input",
+          "nombre": "Fecha",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": true
+        },
+        {
+          "control": "input",
+          "nombre": "Fecha",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": true
+        },
+        {
+          "control": "input",
+          "nombre": "Fecha",
+          "destino": null,
+          "focoVisible": false,
+          "ancho": 224,
+          "alto": 48,
+          "interna": true
+        },
+        {
+          "control": "button",
+          "nombre": "Filtrar",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 87,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "El Último Faro +13 Cine · Neiva · 1 h 58 min",
+          "destino": "/eventos/1",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Galaxia Perdida +7 Cine · Bogotá · 2 h 12 min",
+          "destino": "/eventos/2",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Risas en Familia TP Cine · Pitalito · 1 h 35 min",
+          "destino": "/eventos/3",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Cartas a Medianoche +13 Teatro · Neiva · 1 h 30 min",
+          "destino": "/eventos/4",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "El Inspector Distraído TP Teatro · Bogotá · 1 h 20 min",
+          "destino": "/eventos/5",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Bambucos al Atardecer TP Concierto · Neiva · 2 h",
+          "destino": "/eventos/6",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Rock del Valle de Laboyos +16 Concierto · Pitalito · 2 h 30 min",
+          "destino": "/eventos/7",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Del Grano a la Taza TP Charla · Neiva · 1 h",
+          "destino": "/eventos/8",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Inteligencia Artificial sin Miedo TP Charla · Bogotá · 1 h 15 min",
+          "destino": "/eventos/9",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Historia del Huila en Cinco Objetos TP Charla · Íquira · 50 min",
+          "destino": "/eventos/10",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        }
+      ]
+    },
+    {
+      "ruta": "/eventos/4",
+      "paradas": [
+        {
+          "control": "a",
+          "nombre": "Volver a la cartelera",
+          "destino": "/",
+          "focoVisible": true,
+          "ancho": 124,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "sábado, 21 de noviembre, 4:00 p. m., $ 25.000",
+          "destino": "/funciones/5",
+          "focoVisible": true,
+          "ancho": 190,
+          "alto": 50,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "sábado, 21 de noviembre, 11:30 p. m., $ 25.000",
+          "destino": "/funciones/4",
+          "focoVisible": true,
+          "ancho": 198,
+          "alto": 50,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "domingo, 22 de noviembre, 7:30 p. m., $ 25.000",
+          "destino": "/funciones/3",
+          "focoVisible": true,
+          "ancho": 190,
+          "alto": 50,
+          "interna": false
+        }
+      ]
+    },
+    {
+      "ruta": "/eventos/8",
+      "paradas": [
+        {
+          "control": "a",
+          "nombre": "Volver a la cartelera",
+          "destino": "/",
+          "focoVisible": true,
+          "ancho": 124,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "domingo, 22 de noviembre, 10:30 a. m., $ 8.000",
+          "destino": "/funciones/10",
+          "focoVisible": true,
+          "ancho": 189,
+          "alto": 50,
+          "interna": false
+        }
+      ]
+    },
+    {
+      "ruta": "/eventos/10",
+      "paradas": [
+        {
+          "control": "a",
+          "nombre": "Volver a la cartelera",
+          "destino": "/",
+          "focoVisible": true,
+          "ancho": 124,
+          "alto": 44,
+          "interna": false
+        }
+      ]
+    }
+  ],
+  "servidor": [],
+  "bloqueos": [],
+  "observaciones": []
+}

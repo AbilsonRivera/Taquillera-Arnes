@@ -262,7 +262,16 @@ async function principal() {
   }
   const salida = path.join(carpetaSpec, 'evidencia', 'ui');
   mkdirSync(salida, { recursive: true });
-  for (const archivo of readdirSync(salida)) rmSync(path.join(salida, archivo), { force: true });
+  // Solo se reemplazan las capturas de las direcciones que se vuelven a visitar: vaciar
+  // la carpeta borraría la evidencia de las demás.
+  const prefijos = rutas.map((ruta) => `${nombreDe(ruta)}-`);
+  for (const archivo of readdirSync(salida)) {
+    const esDeEstaVuelta = prefijos.some((prefijo) => {
+      const resto = archivo.slice(prefijo.length);
+      return archivo.startsWith(prefijo) && /^(\d+-(claro|oscuro)|sin-backend)\.png$/.test(resto);
+    });
+    if (esDeEstaVuelta) rmSync(path.join(salida, archivo), { force: true });
+  }
 
   let navegador;
   const visitas = [];

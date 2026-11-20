@@ -3,7 +3,7 @@ name: guia-visual
 description: Guía visual de la interfaz de Taquillera, con los colores, tamaños, botones, formularios, mensajes y estados que ya usa la aplicación. Úsala al escribir o revisar cualquier página o componente del frontend, para que una pantalla nueva se vea igual que la cartelera y el detalle de película.
 metadata:
   author: Abilson Rivera Garcia y Bredman Estiven Velez Cortez
-  version: "1.1.0"
+  version: "1.2.0"
 ---
 
 # Guía visual de Taquillera
@@ -33,8 +33,8 @@ Cuando una pantalla necesite una de estas piezas, se escribe así:
 
 | Pieza | Clases |
 |---|---|
-| Botón principal | `rounded-lg bg-zinc-950 px-5 py-3 text-base font-semibold text-white hover:bg-zinc-800 dark:bg-zinc-50 dark:text-zinc-950 dark:hover:bg-zinc-200`, más el foco de teclado |
-| Botón secundario | `rounded-lg border border-zinc-300 px-5 py-3 text-base font-semibold text-zinc-950 hover:bg-zinc-100 dark:border-zinc-600 dark:text-zinc-50 dark:hover:bg-zinc-800` |
+| Botón principal | `rounded-lg bg-zinc-950 px-5 py-3 text-base font-semibold text-white enabled:hover:bg-zinc-800 dark:bg-zinc-50 dark:text-zinc-950 dark:enabled:hover:bg-zinc-200`, más el foco de teclado. Si la pieza es un enlace con aspecto de botón, lleva `hover:` sin `enabled:` |
+| Botón secundario | `rounded-lg border border-zinc-300 px-5 py-3 text-base font-semibold text-zinc-950 enabled:hover:bg-zinc-100 dark:border-zinc-600 dark:text-zinc-50 dark:enabled:hover:bg-zinc-800`; en un enlace, `hover:` sin `enabled:` |
 | Botón o control deshabilitado | Se agrega `disabled:cursor-not-allowed disabled:opacity-50` y el atributo `disabled` |
 | Etiqueta de un campo | `<label>` visible encima del campo: `text-sm font-semibold text-zinc-950 dark:text-zinc-50` |
 | Campo de texto | `min-h-11 w-full rounded-lg border border-zinc-300 bg-white px-3 py-2.5 text-base text-zinc-950 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-50`, más el foco de teclado |
@@ -43,6 +43,11 @@ Cuando una pantalla necesite una de estas piezas, se escribe así:
 | Subtítulo (`h3`) | `text-lg font-semibold text-zinc-950 dark:text-zinc-50` |
 | Error de un campo | Debajo del campo, unido con `aria-describedby`: `text-sm text-red-700 dark:text-red-300`. El campo lleva `aria-invalid="true"` |
 | Mensaje de éxito | `rounded-xl border border-green-200 bg-green-50 p-6 text-green-900 dark:border-green-900 dark:bg-green-950 dark:text-green-200` |
+| Asiento disponible | `<button type="button" aria-pressed="false">` con el número visible y `aria-label` «Fila A, asiento 1, disponible»: `inline-flex size-11 items-center justify-center gap-0.5 rounded-md border border-zinc-300 bg-white text-sm font-semibold text-zinc-950 enabled:hover:bg-zinc-100 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-50 dark:enabled:hover:bg-zinc-800`, más el foco del asiento: `focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 dark:focus-visible:outline-blue-400` |
+| Asiento seleccionado | El mismo botón con `aria-pressed="true"` y el mismo nombre. Suma `aria-pressed:border-zinc-950 aria-pressed:bg-zinc-950 aria-pressed:text-white aria-pressed:enabled:hover:bg-zinc-800 dark:aria-pressed:border-zinc-50 dark:aria-pressed:bg-zinc-50 dark:aria-pressed:text-zinc-950 dark:aria-pressed:enabled:hover:bg-zinc-200` y, junto al número, una marca de verificación en SVG en línea `size-3` con `aria-hidden="true"` |
+| Asiento ocupado | El mismo botón con el atributo `disabled`, `aria-pressed="false"` y «ocupado» en el nombre. Suma `disabled:cursor-not-allowed disabled:border-dashed disabled:line-through disabled:opacity-50`. No recibe el foco |
+| Fila de asientos | `<div role="group" aria-labelledby="fila-A">` con su etiqueta visible «Fila A» (`text-sm font-semibold text-zinc-950 dark:text-zinc-50`): encima de los asientos en el celular y a la izquierda desde `sm:`. Los asientos llevan `gap-0.5 sm:gap-2`, y el bloque del mapa `-mx-2 sm:mx-0`, para que ocho asientos de 44 px quepan en 390 px |
+| Escenario o pantalla | `<p>` «Escenario o pantalla», encima de la fila A y del ancho de las filas: `block rounded-md border border-zinc-300 px-2 py-2 text-center text-sm font-semibold text-zinc-700 dark:border-zinc-600 dark:text-zinc-300` (la «Etiqueta pequeña» con `py-2` y el texto centrado) |
 
 ## Reglas
 
