@@ -1,0 +1,1067 @@
+{
+  "spec": "004-mapa-de-asientos",
+  "rutas": [
+    "/funciones/5",
+    "/funciones/10",
+    "/funciones/9999",
+    "/eventos/4"
+  ],
+  "visitas": [
+    {
+      "ruta": "/funciones/5",
+      "ancho": 390,
+      "tema": "claro",
+      "captura": "funciones-5-390-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 390,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/5",
+      "ancho": 390,
+      "tema": "oscuro",
+      "captura": "funciones-5-390-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 390,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/5",
+      "ancho": 1280,
+      "tema": "claro",
+      "captura": "funciones-5-1280-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 390,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/5",
+      "ancho": 1280,
+      "tema": "oscuro",
+      "captura": "funciones-5-1280-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 390,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/10",
+      "ancho": 390,
+      "tema": "claro",
+      "captura": "funciones-10-390-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 390,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/10",
+      "ancho": 390,
+      "tema": "oscuro",
+      "captura": "funciones-10-390-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 390,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/10",
+      "ancho": 1280,
+      "tema": "claro",
+      "captura": "funciones-10-1280-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 390,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/10",
+      "ancho": 1280,
+      "tema": "oscuro",
+      "captura": "funciones-10-1280-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 390,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/9999",
+      "ancho": 390,
+      "tema": "claro",
+      "captura": "funciones-9999-390-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 59,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/9999",
+      "ancho": 390,
+      "tema": "oscuro",
+      "captura": "funciones-9999-390-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 59,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/9999",
+      "ancho": 1280,
+      "tema": "claro",
+      "captura": "funciones-9999-1280-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 59,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/9999",
+      "ancho": 1280,
+      "tema": "oscuro",
+      "captura": "funciones-9999-1280-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 59,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/eventos/4",
+      "ancho": 390,
+      "tema": "claro",
+      "captura": "eventos-4-390-claro.png",
+      "estado": 200,
+      "titulo": "Cartas a Medianoche · Taquillera",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 337,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/eventos/4",
+      "ancho": 390,
+      "tema": "oscuro",
+      "captura": "eventos-4-390-oscuro.png",
+      "estado": 200,
+      "titulo": "Cartas a Medianoche · Taquillera",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 337,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/eventos/4",
+      "ancho": 1280,
+      "tema": "claro",
+      "captura": "eventos-4-1280-claro.png",
+      "estado": 200,
+      "titulo": "Cartas a Medianoche · Taquillera",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 337,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/eventos/4",
+      "ancho": 1280,
+      "tema": "oscuro",
+      "captura": "eventos-4-1280-oscuro.png",
+      "estado": 200,
+      "titulo": "Cartas a Medianoche · Taquillera",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 337,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    }
+  ],
+  "sinBackend": [
+    {
+      "ruta": "/funciones/5",
+      "captura": "funciones-5-sin-backend.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [
+        "No pudimos cargar la función. Intenta de nuevo en unos minutos."
+      ],
+      "textoVisible": 126,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/10",
+      "captura": "funciones-10-sin-backend.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [
+        "No pudimos cargar la función. Intenta de nuevo en unos minutos."
+      ],
+      "textoVisible": 126,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/9999",
+      "captura": "funciones-9999-sin-backend.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [
+        "No pudimos cargar la función. Intenta de nuevo en unos minutos."
+      ],
+      "textoVisible": 126,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/eventos/4",
+      "captura": "eventos-4-sin-backend.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [
+        "No pudimos cargar el evento. Intenta de nuevo en unos minutos."
+      ],
+      "textoVisible": 124,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    }
+  ],
+  "recorridos": [
+    {
+      "ruta": "/funciones/5",
+      "paradas": [
+        {
+          "control": "a",
+          "nombre": "Volver a la cartelera",
+          "destino": "/",
+          "focoVisible": true,
+          "ancho": 124,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila A, asiento 1, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila A, asiento 2, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila A, asiento 5, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila A, asiento 6, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila A, asiento 7, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila A, asiento 8, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila B, asiento 1, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila B, asiento 2, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila B, asiento 3, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila B, asiento 4, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila B, asiento 5, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila B, asiento 6, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila B, asiento 7, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila B, asiento 8, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila C, asiento 2, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila C, asiento 3, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila C, asiento 4, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila C, asiento 5, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila C, asiento 6, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila C, asiento 7, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila D, asiento 1, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila D, asiento 2, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila D, asiento 3, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila D, asiento 4, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila D, asiento 6, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila D, asiento 7, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila D, asiento 8, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila E, asiento 1, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila E, asiento 2, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila E, asiento 3, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila E, asiento 4, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila E, asiento 5, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila E, asiento 6, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila E, asiento 7, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        }
+      ]
+    },
+    {
+      "ruta": "/funciones/10",
+      "paradas": [
+        {
+          "control": "a",
+          "nombre": "Volver a la cartelera",
+          "destino": "/",
+          "focoVisible": true,
+          "ancho": 124,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila A, asiento 1, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila A, asiento 2, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila A, asiento 3, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila A, asiento 4, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila A, asiento 5, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila A, asiento 6, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila A, asiento 7, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila A, asiento 8, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila B, asiento 1, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila B, asiento 2, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila B, asiento 3, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila B, asiento 4, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila B, asiento 5, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila B, asiento 6, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila B, asiento 7, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila B, asiento 8, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila C, asiento 1, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila C, asiento 2, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila C, asiento 3, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila C, asiento 4, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila C, asiento 5, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila C, asiento 6, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila C, asiento 7, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila C, asiento 8, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila D, asiento 1, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila D, asiento 2, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila D, asiento 3, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila D, asiento 4, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila D, asiento 5, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila D, asiento 6, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila D, asiento 7, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila D, asiento 8, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila E, asiento 1, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila E, asiento 2, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila E, asiento 3, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila E, asiento 4, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila E, asiento 5, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila E, asiento 6, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila E, asiento 7, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Fila E, asiento 8, disponible",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 44,
+          "alto": 44,
+          "interna": false
+        }
+      ]
+    },
+    {
+      "ruta": "/funciones/9999",
+      "paradas": [
+        {
+          "control": "a",
+          "nombre": "Volver a la cartelera",
+          "destino": "/",
+          "focoVisible": true,
+          "ancho": 124,
+          "alto": 44,
+          "interna": false
+        }
+      ]
+    },
+    {
+      "ruta": "/eventos/4",
+      "paradas": [
+        {
+          "control": "a",
+          "nombre": "Volver a la cartelera",
+          "destino": "/",
+          "focoVisible": true,
+          "ancho": 124,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "sábado, 21 de noviembre, 4:00 p. m., $ 25.000",
+          "destino": "/funciones/5",
+          "focoVisible": true,
+          "ancho": 190,
+          "alto": 50,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "sábado, 21 de noviembre, 11:30 p. m., $ 25.000",
+          "destino": "/funciones/4",
+          "focoVisible": true,
+          "ancho": 198,
+          "alto": 50,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "domingo, 22 de noviembre, 7:30 p. m., $ 25.000",
+          "destino": "/funciones/3",
+          "focoVisible": true,
+          "ancho": 190,
+          "alto": 50,
+          "interna": false
+        }
+      ]
+    }
+  ],
+  "servidor": [],
+  "bloqueos": [],
+  "observaciones": []
+}

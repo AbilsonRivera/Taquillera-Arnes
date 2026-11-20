@@ -36,7 +36,7 @@ Las primeras pantallas se construyeron solo con películas. Al comparar con la p
 |---|---|
 | Arnés: memoria, reglas, skills | Implementado |
 | Sistema de agentes y hook de rutas | Implementado. El hook pasa sus doce pruebas y la prueba con sesiones reales, con el agente ejecutado directamente e invocado por el orquestador |
-| Seis specs | La 001 está fusionada; la 002 y la 003, implementadas, revisadas y en pull request; la 004, en ejecución; las otras dos, aprobadas y sin empezar |
+| Seis specs | La 001 está fusionada; la 002, la 003 y la 004, implementadas, revisadas y en pull request; las otras dos, aprobadas y sin empezar |
 | Mecanismos de calidad | CI con cobertura, orden de commits, revisión, contrato, navegador y mutación, funcionando; la evidencia de cada spec está en su carpeta |
 
 ## Piezas del arnés
@@ -174,6 +174,6 @@ Los cambios que salgan de ejecutar las demás specs se agregan aquí, cada uno c
 | [001 · Detalle de película](specs/001-detalle-pelicula/spec.md) | Fusionada en `main` | [Frontend #4](https://github.com/Bredman01/TaquilleraFrontend/pull/4) |
 | [002 · Eventos y filtros de la cartelera](specs/002-eventos-y-filtros/spec.md) | Implementada y revisada; en pull request | [Backend #5](https://github.com/Bredman01/Taquillera-Backend/pull/5) y [Frontend #5](https://github.com/Bredman01/TaquilleraFrontend/pull/5) |
 | [003 · Funciones por evento](specs/003-funciones-por-evento/spec.md) | Implementada y revisada; en pull request | [Backend #6](https://github.com/Bredman01/Taquillera-Backend/pull/6) y [Frontend #6](https://github.com/Bredman01/TaquilleraFrontend/pull/6) |
-| [004 · Mapa de asientos](specs/004-mapa-de-asientos/spec.md) | Plan aprobado; en ejecución | Pendientes |
+| [004 · Mapa de asientos](specs/004-mapa-de-asientos/spec.md) | Implementada y revisada; en pull request | [Backend #7](https://github.com/Bredman01/Taquillera-Backend/pull/7) y [Frontend #7](https://github.com/Bredman01/TaquilleraFrontend/pull/7) |
 | [005 · Compra con pago simulado](specs/005-compra-pago-simulado/spec.md) | Aprobada, sin empezar | Pendientes |
 | [006 · Boleta con código QR y validación](specs/006-boleta-por-codigo/spec.md) | Aprobada, sin empezar | Pendientes |
