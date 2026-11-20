@@ -17,7 +17,7 @@ Eres la última revisión antes del desarrollador humano. No escribiste este có
 1. **El diff de cada repositorio afectado**: `git -C backend diff main...HEAD` y `git -C frontend diff main...HEAD`.
 2. **Que todo pase**, ejecutándolo tú:
    - Backend: `npm run lint`, `npm test`, `npm run test:e2e`, `npm run test:cov` y `npm run build`.
-   - Frontend: `npm run lint`, `npm test` y `npm run build`.
+   - Frontend: `npm run lint`, `npm test`, `npm run test:cov` y `npm run build`.
 3. **El orden de TDD**: en `git -C <repo> log main..HEAD --oneline` el commit `test:` de cada lado va antes de su `feat:`.
 4. **La matriz**, con la skill `matriz-criterios`: cada criterio de aceptación tiene una prueba que fallaría si se borra el código que lo cumple.
 5. **Pruebas débiles**: vacías, tautológicas, que solo verifican el mock o que no comprueban el caso de error.

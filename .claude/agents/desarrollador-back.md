@@ -4,16 +4,6 @@ description: Implementa en el backend de Taquillera el código mínimo para pasa
 tools: Read, Grep, Glob, Edit, Write, Bash
 disallowedTools: Agent
 model: sonnet
-hooks:
-  PreToolUse:
-    - matcher: "Edit|Write"
-      hooks:
-        - type: command
-          command: node
-          args:
-            - "${CLAUDE_PROJECT_DIR}/.claude/hooks/limitar-rutas.mjs"
-            - "backend/src/**"
-            - "!backend/src/**/*.spec.ts"
 ---
 
 # Desarrollador del backend (Green y refactor)

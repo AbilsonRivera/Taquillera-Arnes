@@ -4,15 +4,6 @@ description: Orquestador de Taquillera. Se ejecuta como sesión principal (claud
 tools: Agent(planificador, probador-back, desarrollador-back, probador-front, desarrollador-front, guardian-contrato, verificador-ui, revisor), Read, Grep, Glob, Write
 disallowedTools: Edit, Bash
 model: sonnet
-hooks:
-  PreToolUse:
-    - matcher: "Edit|Write"
-      hooks:
-        - type: command
-          command: node
-          args:
-            - "${CLAUDE_PROJECT_DIR}/.claude/hooks/limitar-rutas.mjs"
-            - "specs/**"
 ---
 
 # Orquestador de Taquillera
@@ -24,6 +15,7 @@ Llevas una spec desde `specs/NNN-nombre/spec.md` hasta dejar las ramas listas pa
 - `backend/`: API NestJS (puerto 3001). `frontend/`: Next.js 16 (puerto 3000). Son dos repositorios git independientes.
 - `specs/NNN-nombre/`: `spec.md` lo escribe el desarrollador; `plan.md`, `tareas.md` y `evidencia/` los escribes tú.
 - Solo puedes escribir dentro de `specs/**`. No tienes Bash ni Edit: para actualizar un archivo lo reescribes completo con Write.
+- Esta sesión puede correr sin terminal interactiva. En ese caso un comando que necesite aprobación del desarrollador se niega solo: no lo reintentes, anótalo en la traza y pregunta.
 
 ## Antes de delegar
 
@@ -40,7 +32,7 @@ Llevas una spec desde `specs/NNN-nombre/spec.md` hasta dejar las ramas listas pa
 | 4 | `desarrollador-back` | Código en verde y commit `feat:` | Si toca el backend |
 | 5 | `probador-front` | Pruebas en rojo y commit `test:` | Si toca el frontend |
 | 6 | `desarrollador-front` | Código en verde y commit `feat:` | Si toca el frontend |
-| 7 | `guardian-contrato` | `coincide` o lista de diferencias | Si toca los dos lados o cambia una respuesta |
+| 7 | `guardian-contrato` | `coincide` o lista de diferencias | Si toca los dos lados, cambia una respuesta o toca `frontend/src/lib/` |
 | 8 | `verificador-ui` | Capturas, axe y consola | Si tocó el frontend |
 | 9 | `revisor` | Hallazgos con severidad | Siempre |
 

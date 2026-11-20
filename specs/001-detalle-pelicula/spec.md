@@ -1,9 +1,9 @@
 # 001 · Detalle de película
 
-- **Estado:** aprobada
+- **Estado:** implementada y revisada; en pull request
 - **Rama:** `feat/001-detalle-pelicula`
 - **Repositorios:** frontend
-- **Pull requests:** pendientes
+- **Pull requests:** [Frontend #4](https://github.com/Bredman01/TaquilleraFrontend/pull/4)
 
 ## Por qué
 
@@ -29,7 +29,7 @@ Una página de detalle por película, a la que se llega desde la cartelera, y el
 
 ## Fuera de alcance
 
-- Funciones y horarios de la película: van en la spec 002.
+- Funciones y horarios: van en la spec 003.
 - Cambios en el backend: `GET /peliculas/:id` ya existe y responde lo necesario.
 - Buscador o filtros en la cartelera.
 

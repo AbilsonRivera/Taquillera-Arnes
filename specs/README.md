@@ -35,8 +35,9 @@ specs/NNN-nombre/
 
 | Spec | Qué construye | Repositorios | Estado | Pull requests |
 |---|---|---|---|---|
-| [001 · Detalle de película](001-detalle-pelicula/spec.md) | Página de detalle y pruebas del frontend | frontend | Aprobada, sin empezar | Pendientes |
-| [002 · Funciones por película](002-funciones-por-pelicula/spec.md) | Horarios, sala y precio en el detalle | backend, frontend | Aprobada, sin empezar | Pendientes |
-| [003 · Mapa de asientos](003-mapa-de-asientos/spec.md) | Selección de asientos de una función | backend, frontend | Aprobada, sin empezar | Pendientes |
-| [004 · Compra con pago simulado](004-compra-pago-simulado/spec.md) | Compra sin vender dos veces un asiento | backend, frontend | Aprobada, sin empezar | Pendientes |
-| [005 · Boleta por código](005-boleta-por-codigo/spec.md) | Consulta y validación de la boleta | backend, frontend | Aprobada, sin empezar | Pendientes |
+| [001 · Detalle de película](001-detalle-pelicula/spec.md) | Página de detalle y pruebas del frontend | frontend | Implementada y revisada; en pull request | [Frontend #4](https://github.com/Bredman01/TaquilleraFrontend/pull/4) |
+| [002 · Eventos y filtros de la cartelera](002-eventos-y-filtros/spec.md) | De películas a eventos, con categoría, ciudad y filtros | backend, frontend | Aprobada, sin empezar | Pendientes |
+| [003 · Funciones por evento](003-funciones-por-evento/spec.md) | Fechas, horas y precio en el detalle; filtro por fecha | backend, frontend | Aprobada, sin empezar | Pendientes |
+| [004 · Mapa de asientos](004-mapa-de-asientos/spec.md) | Selección de asientos de una función | backend, frontend | Aprobada, sin empezar | Pendientes |
+| [005 · Compra con pago simulado](005-compra-pago-simulado/spec.md) | Compra sin vender dos veces un asiento | backend, frontend | Aprobada, sin empezar | Pendientes |
+| [006 · Boleta con código QR y validación](006-boleta-por-codigo/spec.md) | Boleta con QR y validación del ingreso | backend, frontend | Aprobada, sin empezar | Pendientes |

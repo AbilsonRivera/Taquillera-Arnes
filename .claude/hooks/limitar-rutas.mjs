@@ -1,19 +1,23 @@
 #!/usr/bin/env node
-// Hook PreToolUse (Edit|Write): bloquea las escrituras fuera de las rutas del agente.
+// Hook PreToolUse (Edit|Write) de todo el proyecto: bloquea las escrituras fuera de
+// las rutas del agente que las hace.
 //
-// Uso en el frontmatter de un agente:
-//   node .claude/hooks/limitar-rutas.mjs "backend/src/**" "!backend/src/**/*.spec.ts"
+// Se registra una sola vez en .claude/settings.json y decide por el campo agent_type
+// que Claude Code envía en cada llamada, tanto si el agente es la sesión principal
+// (claude --agent nombre) como si lo invocó el orquestador. Las rutas de cada agente
+// están en rutas.json: los patrones que empiezan por "!" son exclusiones y ganan.
 //
-// Cada argumento es un patrón relativo a la raíz del arnés. Los que empiezan por "!"
-// son exclusiones y ganan sobre los permitidos. Sale con 0 si la ruta está permitida
-// y con 2 si no: Claude Code solo bloquea la herramienta con el código 2, así que
-// cualquier fallo del propio script también termina en 2 (falla cerrado).
+// Sale con 0 si la ruta está permitida y con 2 si no. Claude Code solo bloquea la
+// herramienta con el código 2, así que cualquier fallo del propio script también
+// termina en 2 (falla cerrado).
 
-import { readFileSync, realpathSync } from 'node:fs';
+import { appendFileSync, readFileSync, realpathSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const BLOQUEAR = 2;
+const AQUI = path.dirname(fileURLToPath(import.meta.url));
+const ARCHIVO_RUTAS = path.join(AQUI, 'rutas.json');
 
 /** Convierte un patrón con **, * y ? en una expresión regular anclada. */
 export function patronARegex(patron) {
@@ -74,25 +78,49 @@ function rutaReal(absoluta) {
   }
 }
 
+/**
+ * Con LIMITAR_RUTAS_DEPURAR=<archivo>, anota qué recibió el hook en cada llamada
+ * (sin el contenido que se iba a escribir). Sirve para ver quién lo está invocando.
+ */
+function depurar(entrada) {
+  const destino = process.env.LIMITAR_RUTAS_DEPURAR;
+  if (!destino) return;
+  const { tool_input, ...resto } = entrada ?? {};
+  appendFileSync(destino, `${JSON.stringify({ ...resto, file_path: tool_input?.file_path })}\n`);
+}
+
 function bloquear(mensaje) {
   process.stderr.write(`${mensaje}\n`);
   process.exit(BLOQUEAR);
 }
 
 function principal() {
-  const patrones = process.argv.slice(2);
-  if (patrones.length === 0) {
-    bloquear('limitar-rutas: el agente no declara rutas permitidas; se bloquea la escritura.');
+  const entrada = JSON.parse(readFileSync(0, 'utf8'));
+  depurar(entrada);
+
+  const agente = entrada?.agent_type;
+  if (agente === undefined) {
+    // Sin agent_type ni agent_id es la sesión normal del desarrollador (claude, sin
+    // --agent): la supervisa una persona y no tiene rutas propias.
+    if (entrada?.agent_id === undefined) process.exit(0);
+    bloquear('limitar-rutas: la llamada viene de un subagente sin nombre; se bloquea la escritura.');
   }
 
-  const entrada = JSON.parse(readFileSync(0, 'utf8'));
+  const rutas = JSON.parse(readFileSync(ARCHIVO_RUTAS, 'utf8'));
+  if (typeof agente !== 'string' || !Object.hasOwn(rutas, agente)) {
+    bloquear(
+      `limitar-rutas: el agente "${agente}" no tiene rutas declaradas en .claude/hooks/rutas.json; se bloquea la escritura.`,
+    );
+  }
+  const patrones = rutas[agente];
+
   const archivo = entrada?.tool_input?.file_path;
   if (typeof archivo !== 'string' || archivo === '') {
     bloquear('limitar-rutas: la herramienta no indicó file_path; se bloquea la escritura.');
   }
 
   // La raíz es la carpeta que contiene .claude/, sin depender del directorio de trabajo.
-  const raiz = realpathSync(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..'));
+  const raiz = realpathSync(path.resolve(AQUI, '..', '..'));
   const absoluta = rutaReal(path.resolve(entrada.cwd ?? raiz, archivo));
   const relativa = relativaALaRaiz(absoluta, raiz);
 
@@ -100,8 +128,10 @@ function principal() {
 
   bloquear(
     [
-      `limitar-rutas: no puedes escribir en "${relativa ?? archivo}".`,
-      `Rutas de este agente: ${patrones.join(', ')}.`,
+      `limitar-rutas: el agente "${agente}" no puede escribir en "${relativa ?? archivo}".`,
+      patrones.length === 0
+        ? 'Es un agente de solo lectura.'
+        : `Sus rutas: ${patrones.join(', ')}.`,
       'No busques otra forma de escribir ese archivo: termina tu informe y dile al orquestador qué cambio hace falta y qué rol debe hacerlo.',
     ].join('\n'),
   );

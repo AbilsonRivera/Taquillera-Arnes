@@ -11,16 +11,19 @@
       "Bash(git diff *)",
       "Bash(git log *)",
       "Bash(git status *)",
+      "Bash(git show *)",
       "Bash(git -C backend add *)",
       "Bash(git -C backend commit *)",
       "Bash(git -C backend diff *)",
       "Bash(git -C backend log *)",
       "Bash(git -C backend status *)",
+      "Bash(git -C backend show *)",
       "Bash(git -C frontend add *)",
       "Bash(git -C frontend commit *)",
       "Bash(git -C frontend diff *)",
       "Bash(git -C frontend log *)",
-      "Bash(git -C frontend status *)"
+      "Bash(git -C frontend status *)",
+      "Bash(git -C frontend show *)"
     ],
     "deny": [
       "Bash(git push *)",
@@ -28,6 +31,22 @@
       "Bash(git -c * push *)",
       "Bash(gh pr merge *)",
       "Read(./**/.env*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node",
+            "args": [
+              "${CLAUDE_PROJECT_DIR}/.claude/hooks/limitar-rutas.mjs"
+            ]
+          }
+        ]
+      }
     ]
   }
 }

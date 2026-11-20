@@ -1,15 +1,15 @@
 # Taquillera · arnés
 
-Espacio de trabajo del proyecto **Taquillera** (cartelera de cine y venta de boletas, diplomado FET). Este repositorio no tiene código de la aplicación: tiene el arnés con el que se desarrolla, y dentro se clonan los dos repositorios de la aplicación.
+Espacio de trabajo del proyecto **Taquillera** (cartelera de eventos pequeños y venta de boletas con asiento numerado, diplomado FET). Este repositorio no tiene código de la aplicación: tiene el arnés con el que se desarrolla, y dentro se clonan los dos repositorios de la aplicación.
 
 ## Organización
 
 ```
 .claude/
   agents/        los nueve agentes del sistema
-  hooks/         limitar-rutas.mjs: bloquea las escrituras fuera de las rutas de cada agente
+  hooks/         limitar-rutas.mjs y rutas.json: bloquean las escrituras fuera de las rutas de cada agente
   rules/         normas del equipo, siempre o por tipo de archivo
-  skills/        nueva-spec, matriz-criterios, contrato-api
+  skills/        nueva-spec, matriz-criterios, contrato-api, guia-visual
   settings.json  comandos permitidos y negados para todos los agentes
 specs/           una carpeta por spec: spec.md, plan.md, tareas.md y evidencia/
 herramientas/    servidores.mjs y verificar-ui.mjs
@@ -27,7 +27,7 @@ Desde la raíz del arnés:
 ```
 ./scripts/preparar.ps1                           clona backend y frontend e instala dependencias
 npm run test:hooks                               pruebas del script del hook limitar-rutas
-./scripts/probar-hook.ps1                        comprueba con una sesión real que el hook se ejecuta
+./scripts/probar-hook.ps1                        comprueba con sesiones reales que el hook limita a cada agente
 npm run servidores -- iniciar back|front|ambos   compila y levanta los servidores
 npm run servidores -- detener                    los detiene y libera los puertos
 npm run verificar-ui -- --spec NNN-nombre --rutas inicio,peliculas/1

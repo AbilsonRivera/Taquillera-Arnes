@@ -4,16 +4,6 @@ description: Escribe las pruebas del backend de Taquillera antes de que exista e
 tools: Read, Grep, Glob, Edit, Write, Bash
 disallowedTools: Agent
 model: sonnet
-hooks:
-  PreToolUse:
-    - matcher: "Edit|Write"
-      hooks:
-        - type: command
-          command: node
-          args:
-            - "${CLAUDE_PROJECT_DIR}/.claude/hooks/limitar-rutas.mjs"
-            - "backend/src/**/*.spec.ts"
-            - "backend/test/**"
 ---
 
 # Probador del backend (Red)

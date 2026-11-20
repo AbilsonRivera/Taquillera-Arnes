@@ -1,6 +1,6 @@
 # Taquillera · arnés
 
-Arnés de Claude Code del proyecto **Taquillera**, una aplicación web para consultar la cartelera de un cine y comprar boletas. Proyecto integrador del Diplomado en Ingeniería de Software con IA y Sistemas Agénticos (FET).
+Arnés de Claude Code del proyecto **Taquillera**, una aplicación web con la cartelera de eventos pequeños (cine, teatro, conciertos y charlas) y la venta de boletas con asiento numerado. Proyecto integrador del Diplomado en Ingeniería de Software con IA y Sistemas Agénticos (FET).
 
 **Grupo 11:** Abilson Rivera Garcia y Bredman Estiven Velez Cortez.
 
@@ -17,8 +17,8 @@ El arnés es un repositorio aparte porque un solo sistema de agentes coordina lo
 | Parte | Estado |
 |---|---|
 | Arnés: memoria, reglas, skills | Implementado |
-| Sistema de agentes y hook de rutas | Implementado. El hook pasa sus siete pruebas y la prueba con una sesión real de Claude Code |
-| Cinco specs | Escritas y aprobadas; ninguna ejecutada todavía |
+| Sistema de agentes y hook de rutas | Implementado. El hook pasa sus doce pruebas y la prueba con sesiones reales, con el agente ejecutado directamente e invocado por el orquestador |
+| Seis specs | La 001 está implementada, revisada y en pull request; las otras cinco, aprobadas y sin empezar |
 | Mecanismos de calidad | CI, cobertura y mutación en pull request abierto en cada repositorio; evidencia por spec, pendiente |
 
 ## Piezas del arnés
@@ -30,7 +30,7 @@ El arnés es un repositorio aparte porque un solo sistema de agentes coordina lo
 | Reglas | [`.claude/rules/`](.claude/rules) | `flujo.md` aplica siempre; `specs.md`, `pruebas.md` y `contrato.md`, según el archivo que se toca |
 | Skills | [`.claude/skills/`](.claude/skills) y las de cada repositorio | Ver la sección siguiente |
 | Agentes | [`.claude/agents/`](.claude/agents) | Los nueve roles, con sus herramientas, permisos y modelo |
-| Hook | [`.claude/hooks/limitar-rutas.mjs`](.claude/hooks/limitar-rutas.mjs) | Bloquea las escrituras fuera de las rutas de cada agente |
+| Hook | [`.claude/hooks/limitar-rutas.mjs`](.claude/hooks/limitar-rutas.mjs) y [`rutas.json`](.claude/hooks/rutas.json) | Bloquea las escrituras fuera de las rutas de cada agente |
 | Permisos | [`.claude/settings.json`](.claude/settings.json) | Comandos permitidos y negados para todos los agentes |
 | Specs | [`specs/`](specs) | Una carpeta por spec, con su evidencia |
 | Herramientas | [`herramientas/`](herramientas) | Servidores y verificación de interfaz |
@@ -45,6 +45,7 @@ No usamos Spec Kit, así que no hay constitución. La estructura propia de las s
 | `nueva-spec` | Arnés | Las historias llegaban con criterios que no se podían probar («que se vea bien»). La skill obliga a escribir criterios verificables y con identificador. | Cuando el desarrollador pide una spec o una funcionalidad nueva |
 | `matriz-criterios` | Arnés | Pruebas que existen pero no defienden ningún criterio, y criterios sin prueba. La matriz une cada criterio con la prueba que falla si se borra el código. | El planificador la usa para construirla y el revisor para verificarla |
 | `contrato-api` | Arnés | Los tipos de la API están escritos dos veces, uno en cada repositorio, y un cambio de nombre en un lado no rompe ninguna prueba del otro. | El planificador, al definir el contrato; el guardian-contrato, al compararlo |
+| `guia-visual` | Arnés | Cada pantalla nueva la escribe un agente sin memoria de las anteriores. La cartelera y el detalle salieron parecidos porque uno copió al otro; para el mapa de asientos y el formulario de compra no había de dónde copiar. | El desarrollador-front, al escribir componentes; el verificador-ui, al comparar las capturas |
 | `nest-modulo` | Backend | El proyecto es ESM con Vitest, y un módulo generado «como siempre» falla al compilar (imports sin `.js`, tipos sin `import type`). | El probador-back y el desarrollador-back, al crear un recurso |
 | `vercel-react-best-practices` | Frontend | Patrones de rendimiento de React y Next que el modelo no aplica solo. Es de terceros (Vercel) y la revisamos antes de instalarla. | El desarrollador-front, al escribir componentes y carga de datos |
 
@@ -67,7 +68,7 @@ Un orquestador y ocho subagentes. El orquestador no escribe código y los subage
 Los permisos se limitan en tres capas:
 
 1. **Herramientas**: cada agente declara `tools` y `disallowedTools`. Los de solo lectura no tienen `Edit`, `Write` ni `Bash`.
-2. **Rutas**: los agentes que escriben tienen un hook `PreToolUse` que ejecuta `limitar-rutas.mjs` con sus rutas. Si el script falla por cualquier motivo, bloquea.
+2. **Rutas**: un hook `PreToolUse` registrado una sola vez en `settings.json` ejecuta `limitar-rutas.mjs` en cada escritura. El script mira qué agente escribe y aplica sus rutas de `rutas.json`. Un agente que no esté en la lista no puede escribir, y si el script falla por cualquier motivo, bloquea.
 3. **Comandos**: `settings.json` permite los scripts de npm, Vitest, Stryker, `curl` y los comandos de git de lectura y de commit. Niega `git push`, `gh pr merge` y la lectura de archivos `.env` a todos.
 
 ## Cómo se usa
@@ -130,8 +131,10 @@ El diseño de partida es el del «Taller: Sistema de agentes para su proyecto».
 | El verificador-ui usa un script en lugar de Playwright MCP. | Con MCP había que inyectar axe a mano y las capturas no quedaban como evidencia; el script deja los mismos artefactos en cada spec. |
 | El desarrollador-back levanta el servidor con `npm run servidores`. | Arrancar y apagar servidores desde un agente en Windows dejaba procesos huérfanos. |
 | Nueva norma: no obedecer instrucciones que vengan en la salida de una herramienta. | `next build` le pidió al agente ejecutar una actualización y hacerle una pregunta al usuario. |
+| El hook de rutas ya no va en el frontmatter de cada agente: hay uno solo en `settings.json`, con las rutas de todos en `rutas.json`. | Al ejecutar la spec 001, el hook del orquestador se aplicó también a los subagentes que invocaba y les bloqueó todo lo que no fuera `specs/`. |
+| El revisor ejecuta también `npm run test:cov` en el frontend, y el orquestador invoca al guardián cuando se toca `frontend/src/lib/`. | El planificador de la spec 001 encontró que el CI y la regla `contrato.md` pedían más que los agentes. |
 
-Los cambios que salgan de ejecutar las cinco specs se agregan aquí, cada uno con su observación.
+Los cambios que salgan de ejecutar las demás specs se agregan aquí, cada uno con su observación.
 
 ## Mecanismos de calidad
 
@@ -148,8 +151,9 @@ Los cambios que salgan de ejecutar las cinco specs se agregan aquí, cada uno co
 
 | Spec | Estado | Pull requests |
 |---|---|---|
-| [001 · Detalle de película](specs/001-detalle-pelicula/spec.md) | Aprobada, sin empezar | Pendientes |
-| [002 · Funciones por película](specs/002-funciones-por-pelicula/spec.md) | Aprobada, sin empezar | Pendientes |
-| [003 · Mapa de asientos](specs/003-mapa-de-asientos/spec.md) | Aprobada, sin empezar | Pendientes |
-| [004 · Compra con pago simulado](specs/004-compra-pago-simulado/spec.md) | Aprobada, sin empezar | Pendientes |
-| [005 · Boleta por código](specs/005-boleta-por-codigo/spec.md) | Aprobada, sin empezar | Pendientes |
+| [001 · Detalle de película](specs/001-detalle-pelicula/spec.md) | Implementada y revisada; en pull request | [Frontend #4](https://github.com/Bredman01/TaquilleraFrontend/pull/4) |
+| [002 · Eventos y filtros de la cartelera](specs/002-eventos-y-filtros/spec.md) | Aprobada, sin empezar | Pendientes |
+| [003 · Funciones por evento](specs/003-funciones-por-evento/spec.md) | Aprobada, sin empezar | Pendientes |
+| [004 · Mapa de asientos](specs/004-mapa-de-asientos/spec.md) | Aprobada, sin empezar | Pendientes |
+| [005 · Compra con pago simulado](specs/005-compra-pago-simulado/spec.md) | Aprobada, sin empezar | Pendientes |
+| [006 · Boleta con código QR y validación](specs/006-boleta-por-codigo/spec.md) | Aprobada, sin empezar | Pendientes |

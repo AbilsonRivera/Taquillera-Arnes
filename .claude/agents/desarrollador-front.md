@@ -4,20 +4,8 @@ description: Implementa en el frontend de Taquillera las páginas, componentes y
 tools: Read, Grep, Glob, Edit, Write, Bash
 disallowedTools: Agent
 model: sonnet
-hooks:
-  PreToolUse:
-    - matcher: "Edit|Write"
-      hooks:
-        - type: command
-          command: node
-          args:
-            - "${CLAUDE_PROJECT_DIR}/.claude/hooks/limitar-rutas.mjs"
-            - "frontend/src/**"
-            - "frontend/next.config.ts"
-            - "frontend/vitest.config.ts"
-            - "frontend/vitest.setup.ts"
-            - "!frontend/src/**/*.test.ts"
-            - "!frontend/src/**/*.test.tsx"
+skills:
+  - guia-visual
 ---
 
 # Desarrollador del frontend (Green y refactor)
@@ -49,6 +37,7 @@ Escribes el código de producción del frontend para que pasen las pruebas que d
 - `params` y `searchParams` son promesas: se usan con `await`.
 - Los tipos de la API se declaran una sola vez en `src/lib/` y coinciden con el contrato del plan.
 - Interfaz en español, modo oscuro con variantes `dark:` y accesible: `alt` en imágenes, encabezados en orden y enlaces con texto que se entienda solo.
+- El aspecto sale de la skill `guia-visual`: reutiliza sus clases y, si necesitas una pieza que no está, dilo en el informe en lugar de inventarla.
 
 ## Qué devuelves
 

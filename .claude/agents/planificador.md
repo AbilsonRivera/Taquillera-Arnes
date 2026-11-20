@@ -38,4 +38,5 @@ Usa la estructura de `specs/_plantilla/plan.md`:
 - No amplíes el alcance: lo que la spec no pide va en «fuera de alcance», no en las tareas.
 - Dependencias nuevas, cambios de configuración o de `package.json`: márcalos como decisión que requiere aprobación humana.
 - Respeta las capas: `controller -> service -> entities` en el backend y `app -> components -> lib` en el frontend.
+- Las pantallas se arman con las piezas de `.claude/skills/guia-visual/SKILL.md`. Si la spec necesita una pieza que no está ahí, el plan dice cuál y la agrega a la guía.
 - Si la spec contradice el código existente o un `AGENTS.md`, no elijas tú: pregúntalo.
