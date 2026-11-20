@@ -315,7 +315,8 @@ try {
   await aparece(noDisponibles);
   const aviso = await texto(noDisponibles);
   anotar('Con un asiento ya vendido, el aviso nombra A2 y no A3', 'sí', aviso.includes('Estos asientos ya no están disponibles: A2') && !aviso.includes('A3') ? 'sí' : `no («${aviso}»)`);
-  anotar('El formulario ya no está', 0, await pagina.locator('form').count());
+  // El del encabezado («Consultar boleta», spec 006) sigue ahí: se cuenta el del contenido.
+  anotar('El formulario de la compra ya no está', 0, await pagina.locator('main form').count());
   const elegirOtros = pagina.getByRole('link', { name: 'Elegir otros asientos' });
   anotar('«Elegir otros asientos» lleva al mapa', '/funciones/1', (await elegirOtros.count()) === 1 ? await elegirOtros.getAttribute('href') : 'sin enlace');
   anotar('El foco queda en «Elegir otros asientos»', 'sí', (await tieneElFoco(elegirOtros)) ? 'sí' : 'no');

@@ -104,9 +104,9 @@ try {
   anotar('«Continuar» está deshabilitado', 'sí', (await pagina.getByRole('button', { name: 'Continuar', exact: true }).isDisabled()) ? 'sí' : 'no');
 
   // 4 a 7: seleccionar con Espacio y con Enter
-  await pagina.keyboard.press('Tab');
-  await pagina.keyboard.press('Tab');
-  anotar('La segunda parada de Tab es el asiento A1', 'sí', (await tieneElFoco(asiento(pagina, 'A1'))) ? 'sí' : 'no');
+  // Desde la spec 006 el encabezado suma dos paradas (el campo y el botón de «Consultar boleta»),
+  // así que A1 ya no es la segunda: se llega con Tab, pasando por ellas y por «Volver a la cartelera».
+  anotar('Con Tab se llega al asiento A1', 'sí', (await tabHasta(pagina, asiento(pagina, 'A1'))) ? 'sí' : 'no');
   await pagina.keyboard.press('Space');
   anotar('Espacio selecciona A1 y lo expone con aria-pressed', 'true', await pulsado(asiento(pagina, 'A1')));
   anotar('La lista y el total cambian', 'sí', /A1/.test(await resumen(pagina)) && /Total: \$ 25\.000/.test(await resumen(pagina)) ? 'sí' : `no («${await resumen(pagina)}»)`);
