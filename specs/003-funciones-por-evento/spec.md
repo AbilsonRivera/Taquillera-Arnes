@@ -1,9 +1,9 @@
 # 003 · Funciones por evento
 
-- **Estado:** aprobada
+- **Estado:** implementada y revisada; en pull request
 - **Rama:** `feat/003-funciones-por-evento`
 - **Repositorios:** backend, frontend
-- **Pull requests:** pendientes
+- **Pull requests:** [Backend #6](https://github.com/Bredman01/Taquillera-Backend/pull/6) y [Frontend #6](https://github.com/Bredman01/TaquilleraFrontend/pull/6)
 
 ## Por qué
 
