@@ -515,7 +515,7 @@ Los pasos que siguen son los que planeó el planificador; la numeración de la p
 
 ## Tareas
 
-Cada encargo que termina en commit dice: «El mensaje del commit es solo el mensaje, sin `Co-Authored-By` ni otra atribución». La evidencia es:
+Cada encargo que termina en commit dice: «El mensaje del commit es solo el asunto, en una sola línea». La evidencia es:
 - la salida de los comandos;
 - la de `git -C <lado> log -1 --format=%B`;
 - la de `git -C <lado> status`.
@@ -523,7 +523,7 @@ Cada encargo que termina en commit dice: «El mensaje del commit es solo el mens
 **Normas de cada encargo** (las dije al aprobar):
 - una sola delegación a la vez, esperando a que termine, porque el equipo tiene poca memoria;
 - sin archivos temporales, sin `rm`, `mv`, `cp` ni redirecciones;
-- commits sin líneas de atribución, con la salida de `git log -1 --format=%B`;
+- commits de una sola línea, con la salida de `git log -1 --format=%B`;
 - mis decisiones en primera persona y mis tareas como «yo»;
 - la sesión corre sin terminal interactiva: un comando negado no se reintenta, salvo la excepción de `flujo.md`, y los encargos no piden comandos que `settings.json` no permite (`git branch`, por ejemplo);
 - las búsquedas de restos van sin llaves en los patrones;

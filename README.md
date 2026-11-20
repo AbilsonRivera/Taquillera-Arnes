@@ -28,8 +28,6 @@ La propuesta del proyecto era una cartelera de eventos pequeños con asientos nu
 | Gestión de eventos por el organizador | No | — |
 | Base de datos PostgreSQL | No: los datos viven en memoria | — |
 
-Las primeras pantallas se construyeron solo con películas. Al comparar con la propuesta decidimos volver a eventos (cine, teatro, conciertos y charlas) con la spec 002, cuando solo había una spec terminada. Está contado en la entrada 29 de la [bitácora](docs/bitacora.md).
-
 ## Estado
 
 | Parte | Estado |
@@ -65,7 +63,7 @@ No usamos Spec Kit, así que no hay constitución. La estructura propia de las s
 | `contrato-api` | Arnés | Los tipos de la API están escritos dos veces, uno en cada repositorio, y un cambio de nombre en un lado no rompe ninguna prueba del otro. | El planificador, al definir el contrato; el guardian-contrato, al compararlo |
 | `guia-visual` | Arnés | Cada pantalla nueva la escribe un agente sin memoria de las anteriores. La cartelera y el detalle salieron parecidos porque uno copió al otro; para el mapa de asientos y el formulario de compra no había de dónde copiar. | El desarrollador-front, al escribir componentes; el verificador-ui, al comparar las capturas |
 | `nest-modulo` | Backend | El proyecto es ESM con Vitest, y un módulo generado «como siempre» falla al compilar (imports sin `.js`, tipos sin `import type`). | El probador-back y el desarrollador-back, al crear un recurso |
-| `vercel-react-best-practices` | Frontend | Patrones de rendimiento de React y Next que el modelo no aplica solo. Es de terceros (Vercel): la revisamos buscando texto oculto y comandos de red, y su versión queda fijada en `skills-lock.json`. | El desarrollador-front, al escribir componentes y carga de datos |
+| `vercel-react-best-practices` | Frontend | Patrones de rendimiento de React y Next que el modelo no aplica solo. Es de terceros (Vercel): revisamos su contenido y su versión queda fijada en `skills-lock.json`. | El desarrollador-front, al escribir componentes y carga de datos |
 
 ## Sistema de agentes
 
@@ -143,7 +141,7 @@ claude --agent taquilla-orquestador --output-format json -p < encargo.txt
 claude --resume <sesión> --agent taquilla-orquestador --output-format json -p < respuesta.txt
 ```
 
-Si la sesión se corta, se retoma desde `tareas.md` y el historial de git. Nos pasó en la spec 005 (entrada 52 de la bitácora).
+Si la sesión se corta, se retoma desde `tareas.md` y el historial de git. Nos pasó en la spec 005 (entrada 50 de la bitácora).
 
 ## Qué cambió respecto del taller
 
@@ -164,12 +162,11 @@ El diseño de partida es el del «Taller: Sistema de agentes para su proyecto».
 | El revisor ejecuta también `npm run test:cov` en el frontend, y el orquestador invoca al guardián cuando se toca `frontend/src/lib/`. | El planificador de la spec 001 encontró que el CI y la regla `contrato.md` pedían más que los agentes. |
 | Los agentes no pueden borrar, mover ni copiar archivos, ni escribirlos con una redirección, y el arnés ya no se ejecuta en el modo que acepta ediciones. | En la spec 003 un probador contó que había usado `rm` y `cp` sin que nada lo bloqueara: ese modo aprueba solo esos comandos, y el hook de rutas solo vigila `Edit` y `Write`. |
 | Las piezas de la interfaz salen de una guía visual, y la verificación en el navegador recorre cada página con el teclado y mide cada control. | Cada agente escribía las pantallas sin memoria de las anteriores, y lo que se dejaba «para probar a mano» se quedaba sin probar. |
-| Tres barreras contra las líneas de atribución en los commits: el ajuste `attribution`, la norma en `flujo.md` y un gancho `commit-msg` de git. | Los agentes agregaron `Co-Authored-By` a sus commits sin que nadie lo pidiera, y cuatro llegaron así a `main` (entrada 33). |
-| Los documentos no dicen que decidimos o comprobamos algo que no dijimos. | El orquestador nos atribuyó una decisión que había deducido él. Lo reportó él mismo (entrada 35). |
-| Un solo orquestador a la vez, y dentro de él una sola delegación a la vez. | Para adelantar lanzábamos el plan de una spec junto con los controles de la anterior, y el equipo se quedó dos veces sin memoria (entrada 48). |
-| Las pantallas con interacción tienen una prueba de teclado propia, que escribimos y ejecutamos nosotros antes de los controles. El planificador lista sus pasos. | El verificador-ui solo abre direcciones: lo que el plan dejaba «para comprobar en el navegador» y exigía pulsar algo, nadie lo había visto (entradas 38 y 49). |
-| Cuando un defecto de la interfaz viene de la guía visual, se corrige primero la guía y después los componentes. | El botón deshabilitado que cambiaba al pasar el puntero y el borde de los campos con poco contraste no eran errores del agente: había copiado la guía (entradas 50 y 57). |
-| El orquestador marca cada tarea apenas recibe el informe, y sabe retomar una spec desde `tareas.md` y git. | El programa se cerró a mitad de la spec 005. No se perdió trabajo porque el estado no vivía en la conversación (entrada 52). |
+| Los documentos no dicen que decidimos o comprobamos algo que no dijimos. | El orquestador nos atribuyó una decisión que había deducido él. Lo reportó él mismo (entrada 33). |
+| Un solo orquestador a la vez, y dentro de él una sola delegación a la vez. | Para adelantar lanzábamos el plan de una spec junto con los controles de la anterior, y el equipo se quedó dos veces sin memoria (entrada 46). |
+| Las pantallas con interacción tienen una prueba de teclado propia, que escribimos y ejecutamos nosotros antes de los controles. El planificador lista sus pasos. | El verificador-ui solo abre direcciones: lo que el plan dejaba «para comprobar en el navegador» y exigía pulsar algo, nadie lo había visto (entradas 36 y 47). |
+| Cuando un defecto de la interfaz viene de la guía visual, se corrige primero la guía y después los componentes. | El botón deshabilitado que cambiaba al pasar el puntero y el borde de los campos con poco contraste no eran errores del agente: había copiado la guía (entradas 48 y 55). |
+| El orquestador marca cada tarea apenas recibe el informe, y sabe retomar una spec desde `tareas.md` y git. | El programa se cerró a mitad de la spec 005. No se perdió trabajo porque el estado no vivía en la conversación (entrada 50). |
 | Las normas que repetíamos a mano en cada encargo quedaron escritas en los agentes. | Al cerrar la spec 006 vimos que «una delegación a la vez» o «sin archivos temporales» solo existían en nuestros mensajes al orquestador, no en el arnés. |
 
 Lo que no cambió: los nueve roles, quién puede escribir en qué, que el orquestador no escribe código y que subir y fusionar lo hace una persona.
@@ -214,8 +211,6 @@ En la columna del CI van el resultado de los checks y la cobertura de líneas (b
 | Revisión | El borde de los campos tenía un contraste de 1,5 a 1. Axe no lo detecta. Se corrigió en la guía visual y en todos los campos. | 005 y 006 |
 | Hook de rutas | Un probador intentó escribir en una carpeta de fuera del proyecto, por una ruta mal armada. El hook lo bloqueó. | 002 |
 
-Lo que ningún mecanismo encontró fue que estábamos construyendo otro producto: películas en vez de eventos. Eso lo notó una persona al comparar con la propuesta.
-
 ## Specs
 
 Una rama y un pull request por spec en cada repositorio que toca. Los documentos de cada spec llegan a este repositorio por su propio pull request.
@@ -223,7 +218,7 @@ Una rama y un pull request por spec en cada repositorio que toca. Los documentos
 | Spec | Qué construye | Documentos | Pull requests del código |
 |---|---|---|---|
 | [001 · Detalle de película](specs/001-detalle-pelicula/spec.md) | La página de detalle y las primeras pruebas del frontend | [plan](specs/001-detalle-pelicula/plan.md) · [tareas](specs/001-detalle-pelicula/tareas.md) · [evidencia](specs/001-detalle-pelicula/evidencia) | [Frontend #4](https://github.com/Bredman01/TaquilleraFrontend/pull/4) |
-| [002 · Eventos y filtros de la cartelera](specs/002-eventos-y-filtros/spec.md) | De películas a eventos, con categoría, ciudad y filtros | [plan](specs/002-eventos-y-filtros/plan.md) · [tareas](specs/002-eventos-y-filtros/tareas.md) · [evidencia](specs/002-eventos-y-filtros/evidencia) | [Backend #5](https://github.com/Bredman01/Taquillera-Backend/pull/5) y [Frontend #5](https://github.com/Bredman01/TaquilleraFrontend/pull/5) |
+| [002 · Eventos y filtros de la cartelera](specs/002-eventos-y-filtros/spec.md) | Eventos con categoría y ciudad, y filtros de la cartelera | [plan](specs/002-eventos-y-filtros/plan.md) · [tareas](specs/002-eventos-y-filtros/tareas.md) · [evidencia](specs/002-eventos-y-filtros/evidencia) | [Backend #5](https://github.com/Bredman01/Taquillera-Backend/pull/5) y [Frontend #5](https://github.com/Bredman01/TaquilleraFrontend/pull/5) |
 | [003 · Funciones por evento](specs/003-funciones-por-evento/spec.md) | Fechas, horas y precio en el detalle; filtro por fecha | [plan](specs/003-funciones-por-evento/plan.md) · [tareas](specs/003-funciones-por-evento/tareas.md) · [evidencia](specs/003-funciones-por-evento/evidencia) | [Backend #6](https://github.com/Bredman01/Taquillera-Backend/pull/6) y [Frontend #6](https://github.com/Bredman01/TaquilleraFrontend/pull/6) |
 | [004 · Mapa de asientos](specs/004-mapa-de-asientos/spec.md) | La selección de asientos de una función | [plan](specs/004-mapa-de-asientos/plan.md) · [tareas](specs/004-mapa-de-asientos/tareas.md) · [evidencia](specs/004-mapa-de-asientos/evidencia) | [Backend #7](https://github.com/Bredman01/Taquillera-Backend/pull/7) y [Frontend #7](https://github.com/Bredman01/TaquilleraFrontend/pull/7) |
 | [005 · Compra con pago simulado](specs/005-compra-pago-simulado/spec.md) | La compra, sin vender dos veces un asiento | [plan](specs/005-compra-pago-simulado/plan.md) · [tareas](specs/005-compra-pago-simulado/tareas.md) · [evidencia](specs/005-compra-pago-simulado/evidencia) | [Backend #8](https://github.com/Bredman01/Taquillera-Backend/pull/8) y [Frontend #8](https://github.com/Bredman01/TaquilleraFrontend/pull/8) |

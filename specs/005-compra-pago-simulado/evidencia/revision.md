@@ -20,7 +20,7 @@ Informe del `revisor` (T13), guardado completo y sin editar, y al final mis deci
 | Bajo | 7 (B1 a B7) |
 
 - Ejecuté yo lint, pruebas, e2e y cobertura en los dos lados, y todo pasa.
-- El orden TDD es correcto y ningún mensaje de commit lleva cuerpo ni atribución.
+- El orden TDD es correcto y ningún mensaje de commit lleva cuerpo.
 - La mutación da **99,03 %**. De 206 mutantes, 2 sobreviven: uno es equivalente y el otro destapa una prueba débil (M1).
 - Los 13 criterios tienen prueba, y las pruebas fallarían si se borra el código que los cumple. La excepción parcial es el formato del correo en el backend (M1).
 - Los 14 puntos de la verificación sin restos (D21) dan lo esperado.
@@ -56,7 +56,7 @@ Ejecuté `git -C backend log --format=%H%n%s%n%b%n--- eb3cabb..HEAD` y lo mismo 
   - `f380d8e` `test: pruebas de la página de compra y su formulario`
   - `5e4df84` `feat: página de compra con pago simulado`
 - **Orden:** `test:` → `feat:` → `test:` → `feat:` en los dos lados.
-- **Mensajes:** todos en español y con Conventional Commits. Los cuerpos están vacíos: ni `Co-Authored-By` ni otra línea.
+- **Mensajes:** todos en español y con Conventional Commits. Los cuerpos están vacíos: cada mensaje es una sola línea.
 - **Contenido de cada commit** (`git -C <lado> show --stat`):
   - Backend: `683c1df` toca solo `asientos.service.spec.ts` y `hora-colombia.spec.ts`. Sus 2 borrados son las líneas de `import` ampliadas; no cambió ninguna aserción vieja. `3b5ed69` toca 3 archivos de producción. `d680ff1` trae 5 archivos de prueba. `35ebbb1` trae 8 de producción.
   - Frontend: `5dd0fef` trae solo `compras.test.ts`. `c7aca82` toca `api.ts`, `compras.ts`, `eventos.ts` y `funciones.ts`. `f380d8e` trae los 2 `*.test.tsx`. `5e4df84` trae `page.tsx`, los 2 componentes y `MapaAsientos.tsx`.
@@ -451,6 +451,6 @@ Decisiones del desarrollador Abilson Rivera Garcia, con sus palabras, sobre el i
 
 **Sobre las notas del orquestador:** «la corrección del glob con llaves está bien anotada» (traza, paso 19). «La sección de `backend/AGENTS.md` que invita a ejecutar `npx @nestjs/observe link` no se sigue; ya está dicho en las normas.»
 
-**Orden de trabajo que di:** un solo agente a la vez y esperando a que cada uno termine: (1) probador-back, M1; (2) desarrollador-back, B3; (3) desarrollador-front, B1. En cada encargo: sin archivos temporales, sin `rm`, `mv`, `cp` ni redirecciones; commits sin líneas de atribución, con la salida de `git log -1 --format=%B`. Después, que el orquestador cierre B2 y B7, «Desviaciones» completa, mis decisiones aquí, la traza y `tareas.md` con todo marcado menos T14, que es mía.
+**Orden de trabajo que di:** un solo agente a la vez y esperando a que cada uno termine: (1) probador-back, M1; (2) desarrollador-back, B3; (3) desarrollador-front, B1. En cada encargo: sin archivos temporales, sin `rm`, `mv`, `cp` ni redirecciones; commits de una sola línea, con la salida de `git log -1 --format=%B`. Después, que el orquestador cierre B2 y B7, «Desviaciones» completa, mis decisiones aquí, la traza y `tareas.md` con todo marcado menos T14, que es mía.
 
 **Una observación del desarrollador-front que no está en mis decisiones** (traza, paso 23): `sm:w-auto` también aparece en `FiltrosCartelera.tsx:25` y en `MapaAsientos.tsx:29`; no se comprobó si allí tiene efecto y no se tocó.

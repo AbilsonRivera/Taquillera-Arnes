@@ -7,9 +7,9 @@
 
 ## Por qué
 
-La propuesta del proyecto es una cartelera de eventos pequeños: obras de teatro, conciertos, charlas y también cine. La aplicación, en cambio, solo conoce películas, porque así empezó la primera pantalla. Si seguimos construyendo funciones, asientos y compras sobre «películas», el producto termina siendo otro.
+La propuesta del proyecto es una cartelera de eventos pequeños: obras de teatro, conciertos, charlas y también cine. El catálogo de la aplicación todavía no tiene categoría ni ciudad, y sus nombres hablan solo de películas. Las funciones, los asientos y las compras tienen que construirse sobre «eventos».
 
-Este es el momento más barato para corregirlo: solo existen la cartelera y el detalle.
+Este es el momento más barato para hacerlo: solo existen la cartelera y el detalle.
 
 ## Qué se construye
 

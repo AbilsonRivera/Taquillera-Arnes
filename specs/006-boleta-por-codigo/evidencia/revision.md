@@ -58,7 +58,7 @@ d76c2fd chore: dependencia qrcode-generator para el código QR de la boleta
 - **`090fc66 fix:` es aceptable.** D16 y D18 lo aprobaron sin un `test:` previo, porque jsdom no carga el CSS. Lo defienden el paso 39 del recorrido y el Grep 10. El recorrido corrió contra esta misma punta (`interaccion.md:91`).
 - **`63c4373 style:` es aceptable.** No es un `feat:`, así que la regla no aplica. Es solo formato: `git -C backend show 63c4373` quita el `|` inicial de la unión en `boleta.entity.ts:14-16` y el tipo no cambia. El recorrido corrió contra `abaa0c3`, y la diferencia es un tipo que no existe al ejecutar.
 
-**Mensajes (`git log --format=%B`):** los 14 están en español, siguen Conventional Commits, tienen una sola línea y ninguna lleva `Co-Authored-By` ni otra atribución. Todos van a nombre del usuario de git configurado.
+**Mensajes (`git log --format=%B`):** los 14 están en español, siguen Conventional Commits, y tienen una sola línea. Todos van a nombre del usuario de git configurado.
 
 **Comandos negados:**
 - `git -C frontend diff 7f6e8ba...HEAD -G "process\.env|\.env" --name-only` y el mismo con `backend` fueron negados. No los reintenté.
@@ -262,7 +262,7 @@ Las rutas parten de `C:\Users\USUARIO\Downloads\clases\Diplomado\Taquillera\`.
   - `VistaBoleta.test.tsx:316`, que contiene los dos bloques de «Ingreso».
   - La quinta prueba nueva (`:984`) ya pasaba antes del cambio, y es así a propósito: protege lo que ya funcionaba.
 
-**Mensajes:** los dos están en español, siguen Conventional Commits, tienen una sola línea, no llevan `Co-Authored-By` ni otra atribución y están a nombre de Abilson Rivera.
+**Mensajes:** los dos están en español, siguen Conventional Commits, tienen una sola línea y están a nombre de Abilson Rivera.
 
 **Comando negado:** pedí cuatro comandos `git -C "C:/…/frontend" …` y `git -C "C:/…/backend" …` con la ruta absoluta entre comillas, y pidieron aprobación. No los reintenté. Usé la forma de `CLAUDE.md`, `git -C frontend …` y `git -C backend …`, que funcionó.
 
