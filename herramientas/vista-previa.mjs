@@ -33,7 +33,7 @@ function pidsEnPuerto(puerto) {
   try {
     if (ES_WINDOWS) {
       return [...new Set(
-        execFileSync('netstat', ['-ano'], { encoding: 'utf8' })
+        execFileSync('netstat', ['-ano'], { encoding: 'utf8', windowsHide: true })
           .split(/\r?\n/)
           .map((linea) => linea.trim().split(/\s+/))
           .filter((c) => c[0] === 'TCP' && c[3] === 'LISTENING' && c[1].endsWith(`:${puerto}`))
@@ -48,7 +48,7 @@ function pidsEnPuerto(puerto) {
 }
 
 function matar(pid) {
-  if (ES_WINDOWS) spawnSync('taskkill', ['/PID', String(pid), '/T', '/F'], { stdio: 'ignore' });
+  if (ES_WINDOWS) spawnSync('taskkill', ['/PID', String(pid), '/T', '/F'], { stdio: 'ignore', windowsHide: true });
   else try { process.kill(pid, 'SIGTERM'); } catch { /* ya no existe */ }
 }
 
@@ -148,12 +148,12 @@ async function iniciar() {
 
   if (!existsSync(path.join(COPIA, '.git'))) {
     rmSync(COPIA, { recursive: true, force: true });
-    execFileSync('git', ['-C', ORIGEN, 'worktree', 'prune']);
-    execFileSync('git', ['-C', ORIGEN, 'worktree', 'add', '--detach', COPIA, 'HEAD'], { stdio: 'inherit' });
+    execFileSync('git', ['-C', ORIGEN, 'worktree', 'prune'], { windowsHide: true });
+    execFileSync('git', ['-C', ORIGEN, 'worktree', 'add', '--detach', COPIA, 'HEAD'], { stdio: 'inherit', windowsHide: true });
   }
   if (!existsSync(path.join(BACKEND, 'dist', 'main.js'))) {
     console.log('Compilando el backend...');
-    spawnSync('npm', ['run', 'build'], { cwd: BACKEND, shell: true, stdio: 'ignore' });
+    spawnSync('npm', ['run', 'build'], { cwd: BACKEND, shell: true, stdio: 'ignore', windowsHide: true });
   }
   prepararCopiaDelBackend();
   const candadoAntes = existsSync(path.join(COPIA, 'package-lock.json'))
@@ -162,7 +162,7 @@ async function iniciar() {
   const candado = readFileSync(path.join(COPIA, 'package-lock.json'), 'utf8');
   if (!existsSync(path.join(COPIA, 'node_modules')) || candado !== candadoAntes) {
     console.log('Instalando dependencias de la copia...');
-    spawnSync('npm', ['ci', '--no-audit', '--no-fund'], { cwd: COPIA, shell: true, stdio: 'ignore' });
+    spawnSync('npm', ['ci', '--no-audit', '--no-fund'], { cwd: COPIA, shell: true, stdio: 'ignore', windowsHide: true });
   }
 
   lanzarBackend();

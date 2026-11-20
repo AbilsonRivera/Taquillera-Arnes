@@ -46,7 +46,7 @@ const esperar = (ms) => new Promise((resolver) => setTimeout(resolver, ms));
 function pidsEnPuerto(puerto) {
   try {
     if (ES_WINDOWS) {
-      const salida = execFileSync('netstat', ['-ano'], { encoding: 'utf8' });
+      const salida = execFileSync('netstat', ['-ano'], { encoding: 'utf8', windowsHide: true });
       const pids = salida
         .split(/\r?\n/)
         .map((linea) => linea.trim().split(/\s+/))
@@ -63,7 +63,7 @@ function pidsEnPuerto(puerto) {
 
 function matar(pid) {
   if (ES_WINDOWS) {
-    spawnSync('taskkill', ['/PID', String(pid), '/T', '/F'], { stdio: 'ignore' });
+    spawnSync('taskkill', ['/PID', String(pid), '/T', '/F'], { stdio: 'ignore', windowsHide: true });
     return;
   }
   try {
@@ -78,7 +78,7 @@ function matar(pid) {
 }
 
 const compilarLado = (carpeta) =>
-  spawnSync('npm', ['run', 'build'], { cwd: carpeta, encoding: 'utf8', shell: true });
+  spawnSync('npm', ['run', 'build'], { cwd: carpeta, encoding: 'utf8', shell: true, windowsHide: true });
 
 async function responde(url) {
   try {
