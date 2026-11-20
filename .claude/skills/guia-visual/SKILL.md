@@ -33,8 +33,8 @@ Cuando una pantalla necesite una de estas piezas, se escribe así:
 
 | Pieza | Clases |
 |---|---|
-| Botón principal | `rounded-lg bg-zinc-950 px-5 py-3 text-base font-semibold text-white hover:bg-zinc-800 dark:bg-zinc-50 dark:text-zinc-950 dark:hover:bg-zinc-200`, más el foco de teclado |
-| Botón secundario | `rounded-lg border border-zinc-300 px-5 py-3 text-base font-semibold text-zinc-950 hover:bg-zinc-100 dark:border-zinc-600 dark:text-zinc-50 dark:hover:bg-zinc-800` |
+| Botón principal | `rounded-lg bg-zinc-950 px-5 py-3 text-base font-semibold text-white enabled:hover:bg-zinc-800 dark:bg-zinc-50 dark:text-zinc-950 dark:enabled:hover:bg-zinc-200`, más el foco de teclado. Si la pieza es un enlace con aspecto de botón, lleva `hover:` sin `enabled:` |
+| Botón secundario | `rounded-lg border border-zinc-300 px-5 py-3 text-base font-semibold text-zinc-950 enabled:hover:bg-zinc-100 dark:border-zinc-600 dark:text-zinc-50 dark:enabled:hover:bg-zinc-800`; en un enlace, `hover:` sin `enabled:` |
 | Botón o control deshabilitado | Se agrega `disabled:cursor-not-allowed disabled:opacity-50` y el atributo `disabled` |
 | Etiqueta de un campo | `<label>` visible encima del campo: `text-sm font-semibold text-zinc-950 dark:text-zinc-50` |
 | Campo de texto | `min-h-11 w-full rounded-lg border border-zinc-300 bg-white px-3 py-2.5 text-base text-zinc-950 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-50`, más el foco de teclado |

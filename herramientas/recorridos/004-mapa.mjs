@@ -19,6 +19,7 @@ const pasos = [];
 let fallos = 0;
 const problemas = [];
 let contarProblemas = true;
+let direccionFinal = '';
 
 function anotar(paso, esperado, obtenido) {
   const pasa = String(esperado) === String(obtenido);
@@ -135,7 +136,9 @@ try {
   contarProblemas = false;
   await pagina.keyboard.press('Enter');
   await pagina.waitForURL(/\/compra\?/, { timeout: 15000 });
-  anotar('Enter en «Continuar» lleva a la compra', '/funciones/5/compra?asientos=A1,A2', new URL(pagina.url()).pathname + new URL(pagina.url()).search);
+  // Next escribe la coma como %2C al navegar; la dirección es la misma una vez decodificada.
+  direccionFinal = new URL(pagina.url()).pathname + new URL(pagina.url()).search;
+  anotar('Enter en «Continuar» lleva a la compra con los asientos', '/funciones/5/compra?asientos=A1,A2', decodeURIComponent(direccionFinal));
   await contexto.close();
 
   // 18 y 19: 390 px, tema claro y oscuro
@@ -217,6 +220,8 @@ console.log('');
 console.log('| # | Paso | Esperado | Obtenido | Resultado |');
 console.log('|---|---|---|---|---|');
 console.log(pasos.join('\n'));
+console.log('');
+console.log(`Dirección tal como queda en el navegador después de «Continuar»: \`${direccionFinal}\`. El enlace lleva la coma literal (\`asientos=A1,A2\`); al navegar, Next la escribe como \`%2C\`. Decodificada es la misma dirección, y la página de compra recibe «A1,A2».`);
 if (problemas.length > 0) {
   console.log('');
   console.log('## Errores y peticiones fallidas');
