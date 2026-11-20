@@ -44,7 +44,7 @@ aprobado
 |---|---|
 | `git -C backend log main..HEAD --oneline` | `0ab6947 test:` → `de4fb6b feat:` → `bf2694b docs:`. El `test:` va antes del `feat:`. |
 | `git -C frontend log main..HEAD --oneline` | `c321042 test:` → `561f74c test:` → `3dcf6e0 feat:` → `cacf501 test:` → `4cc49e5 fix:`. Los dos `test:` van antes de su `feat:`/`fix:`. |
-| `git -C backend\|frontend log main..HEAD --format=%H%n%B` | 8 mensajes: cada uno es solo el asunto, sin `Co-Authored-By` ni otra atribución. Autor y committer: el usuario de git configurado, en los 8. |
+| `git -C backend\|frontend log main..HEAD --format=%H%n%B` | 8 mensajes: cada uno es solo el asunto. Autor y committer: el usuario de git configurado, en los 8. |
 | `git -C … show --stat` de cada commit | Los `test:` (`0ab6947`, `c321042`, `cacf501`) solo traen archivos de prueba. Los `feat:`/`fix:` solo traen código y los borrados de T2 y T5. |
 | `git -C backend diff main...HEAD --stat` | 17 archivos, +1021 −453: `src/eventos/`, `app.module.ts`, `test/eventos.e2e-spec.ts`, los borrados de películas y los documentos de `bf2694b`. El mismo `diff --stat` sobre `package.json`, `package-lock.json`, `tsconfig*`, `vitest.config*.ts`, `stryker.config.json`, `.github`, `.oxlintrc.json`, `nest-cli.json` y `src/main.ts` sale **vacío**. |
 | `git -C frontend diff main...HEAD --stat` | 24 archivos, +1840 −661. El mismo `diff --stat` sobre `package.json`, `package-lock.json`, `tsconfig.json`, `next.config.ts`, `vitest.config.ts`, `vitest.setup.ts`, `eslint.config.mjs` y `.github` sale **vacío**. |

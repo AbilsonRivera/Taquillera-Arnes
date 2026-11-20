@@ -40,20 +40,30 @@ Después del paso 1 guarda el plan en `plan.md` y preséntale al desarrollador u
 
 Si el plan incluye una tarea habilitadora (por ejemplo, instalar el framework de pruebas), delégala antes del paso Red que la necesita y dilo en la traza.
 
+Si la pantalla tiene interacción (pulsar, escribir, enviar), el plan trae los pasos de una prueba de teclado. Esa prueba la escribe y la ejecuta el desarrollador en `herramientas/recorridos/`, después del último verde y antes del paso 7: detente ahí, dale un informe corto y espera su resultado, que queda en `evidencia/interaccion.md`. El `verificador-ui` solo abre direcciones; no pulsa nada.
+
 ## Cómo delegar
+
+**Una sola delegación a la vez.** Espera el informe de un subagente antes de invocar al siguiente, también en los controles. Dos agentes pesados a la vez dejaron al equipo sin memoria y se perdió la sesión.
 
 Cada subagente empieza sin contexto. En cada encargo incluye:
 
 - La ruta de `spec.md` y de `plan.md`.
 - Los criterios de aceptación y las filas de la matriz que le tocan.
 - Qué debe devolver y qué evidencia esperas.
+- Las normas que no puede deducir: sin archivos temporales; sin `rm`, `mv`, `cp` ni redirecciones, que están negados; commits de una sola línea; un comando negado no se reintenta, salvo la excepción de `flujo.md`.
 
 Al recibir el informe:
 
 - Comprueba que trae la evidencia pedida. Sin evidencia la tarea no está hecha: vuelve a encargarla diciendo qué falta.
-- Marca la tarea en `tareas.md` y agrega una fila a `evidencia/traza.md` con el paso, el agente, el resultado y el commit.
+- Marca la tarea en `tareas.md` y agrega una fila a `evidencia/traza.md` con el paso, el agente, el resultado y el commit. Hazlo apenas llegue el informe, antes de delegar la tarea siguiente.
 - Las decisiones y acciones del desarrollador las anotas en primera persona y con sus palabras, como notas suyas: «Aprobé el plan», «Descarté B2 porque…». No escribas «el desarrollador humano decidió», ni que revisó o comprobó algo que él no te haya dicho.
 - Guarda completos los informes de control: `evidencia/contrato.md`, `evidencia/ui.md` y `evidencia/revision.md`.
+- Una comprobación tuya que no puede fallar no comprueba nada: si una búsqueda no encuentra coincidencias, asegúrate de que el patrón sí busca donde crees.
+
+## Si la sesión se corta
+
+El estado de una spec vive en `tareas.md`, en la traza y en el historial de git, no en la conversación. Cuando te reanuden, lee `tareas.md` y la traza y comprueba las puntas de las ramas antes de seguir. Una tarea sin marcar y sin commit no está hecha; una con commit pero sin marcar necesita que el agente repita sus comprobaciones, sin tocar el código.
 
 ## Bucles y regla de parada
 

@@ -30,7 +30,7 @@ Tareas del plan aprobado el 19 de noviembre de 2026. Las mías (T0, T3, T11 y T1
 
 - [x] T8 · guardian-contrato · compara las dos entradas del contrato; «coincide», sin diferencias; evidencia en `evidencia/contrato.md` (traza, paso 13)
 - [x] T9 · verificador-ui · cuatro rutas con `npm run verificar-ui`: «Resultado: pasa» (16 visitas sin axe serias o críticas, sin consola ni peticiones fallidas ni desborde; recorrido con Tab de 35, 41, 1 y 4 paradas con nombre, foco y 44 × 44; las cuatro rutas con `role="alert"` sin backend); tres hallazgos que no bloquean (H1 a H3); evidencia en `evidencia/ui/` y `evidencia/ui.md` (traza, paso 14)
-- [x] T10 · revisor · «aprueba con observaciones»: 0 críticos, 0 altos, 0 medios y 7 bajos; mutación de `src/funciones` y `src/asientos` 100 % (93 mutantes, 0 sobrevivientes) frente a la línea base de T1 (100 %); Grep de D23 conforme; orden de commits correcto y mensajes sin atribución; evidencia en `evidencia/revision.md` (traza, paso 15)
+- [x] T10 · revisor · «aprueba con observaciones»: 0 críticos, 0 altos, 0 medios y 7 bajos; mutación de `src/funciones` y `src/asientos` 100 % (93 mutantes, 0 sobrevivientes) frente a la línea base de T1 (100 %); Grep de D23 conforme; orden de commits correcto y mensajes de una sola línea; evidencia en `evidencia/revision.md` (traza, paso 15)
 
 ## Cierre
 

@@ -1,0 +1,509 @@
+{
+  "spec": "006-boleta-por-codigo",
+  "rutas": [
+    "/",
+    "/boletas/ZZZZ9999",
+    "/funciones/1/compra?asientos=A1%2CA2"
+  ],
+  "visitas": [
+    {
+      "ruta": "/",
+      "ancho": 390,
+      "tema": "claro",
+      "captura": "inicio-390-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 757,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/",
+      "ancho": 390,
+      "tema": "oscuro",
+      "captura": "inicio-390-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 757,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/",
+      "ancho": 1280,
+      "tema": "claro",
+      "captura": "inicio-1280-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 757,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/",
+      "ancho": 1280,
+      "tema": "oscuro",
+      "captura": "inicio-1280-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 757,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/boletas/ZZZZ9999",
+      "ancho": 390,
+      "tema": "claro",
+      "captura": "boletas-zzzz9999-390-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 103,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/boletas/ZZZZ9999",
+      "ancho": 390,
+      "tema": "oscuro",
+      "captura": "boletas-zzzz9999-390-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 103,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/boletas/ZZZZ9999",
+      "ancho": 1280,
+      "tema": "claro",
+      "captura": "boletas-zzzz9999-1280-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 103,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/boletas/ZZZZ9999",
+      "ancho": 1280,
+      "tema": "oscuro",
+      "captura": "boletas-zzzz9999-1280-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 103,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/1/compra?asientos=A1%2CA2",
+      "ancho": 390,
+      "tema": "claro",
+      "captura": "funciones-1-compra-asientos-a1-2ca2-390-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 264,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/1/compra?asientos=A1%2CA2",
+      "ancho": 390,
+      "tema": "oscuro",
+      "captura": "funciones-1-compra-asientos-a1-2ca2-390-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 264,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/1/compra?asientos=A1%2CA2",
+      "ancho": 1280,
+      "tema": "claro",
+      "captura": "funciones-1-compra-asientos-a1-2ca2-1280-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 264,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/1/compra?asientos=A1%2CA2",
+      "ancho": 1280,
+      "tema": "oscuro",
+      "captura": "funciones-1-compra-asientos-a1-2ca2-1280-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 264,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    }
+  ],
+  "sinBackend": [
+    {
+      "ruta": "/",
+      "captura": "inicio-sin-backend.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [
+        "No pudimos cargar la cartelera. Intenta de nuevo en unos minutos."
+      ],
+      "textoVisible": 170,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/boletas/ZZZZ9999",
+      "captura": "boletas-zzzz9999-sin-backend.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [
+        "No pudimos cargar la boleta. Intenta de nuevo en unos minutos."
+      ],
+      "textoVisible": 154,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/1/compra?asientos=A1%2CA2",
+      "captura": "funciones-1-compra-asientos-a1-2ca2-sin-backend.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [
+        "No pudimos cargar la compra. Intenta de nuevo en unos minutos."
+      ],
+      "textoVisible": 154,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    }
+  ],
+  "recorridos": [
+    {
+      "ruta": "/",
+      "paradas": [
+        {
+          "control": "input",
+          "nombre": "Código de la boleta",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Consultar",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 117,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "select",
+          "nombre": "Categoría",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "select",
+          "nombre": "Ciudad",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "input",
+          "nombre": "Fecha",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "input",
+          "nombre": "Fecha",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": true
+        },
+        {
+          "control": "input",
+          "nombre": "Fecha",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": true
+        },
+        {
+          "control": "input",
+          "nombre": "Fecha",
+          "destino": null,
+          "focoVisible": false,
+          "ancho": 224,
+          "alto": 48,
+          "interna": true
+        },
+        {
+          "control": "button",
+          "nombre": "Filtrar",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 87,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "El Último Faro +13 Cine · Neiva · 1 h 58 min",
+          "destino": "/eventos/1",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Galaxia Perdida +7 Cine · Bogotá · 2 h 12 min",
+          "destino": "/eventos/2",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Risas en Familia TP Cine · Pitalito · 1 h 35 min",
+          "destino": "/eventos/3",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Cartas a Medianoche +13 Teatro · Neiva · 1 h 30 min",
+          "destino": "/eventos/4",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "El Inspector Distraído TP Teatro · Bogotá · 1 h 20 min",
+          "destino": "/eventos/5",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Bambucos al Atardecer TP Concierto · Neiva · 2 h",
+          "destino": "/eventos/6",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Rock del Valle de Laboyos +16 Concierto · Pitalito · 2 h 30 min",
+          "destino": "/eventos/7",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Del Grano a la Taza TP Charla · Neiva · 1 h",
+          "destino": "/eventos/8",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Inteligencia Artificial sin Miedo TP Charla · Bogotá · 1 h 15 min",
+          "destino": "/eventos/9",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Historia del Huila en Cinco Objetos TP Charla · Íquira · 50 min",
+          "destino": "/eventos/10",
+          "focoVisible": true,
+          "ancho": 258,
+          "alto": 496,
+          "interna": false
+        }
+      ]
+    },
+    {
+      "ruta": "/boletas/ZZZZ9999",
+      "paradas": [
+        {
+          "control": "input",
+          "nombre": "Código de la boleta",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Consultar",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 117,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Volver a la cartelera",
+          "destino": "/",
+          "focoVisible": true,
+          "ancho": 124,
+          "alto": 44,
+          "interna": false
+        }
+      ]
+    },
+    {
+      "ruta": "/funciones/1/compra?asientos=A1%2CA2",
+      "paradas": [
+        {
+          "control": "input",
+          "nombre": "Código de la boleta",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 224,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Consultar",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 117,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Volver a la cartelera",
+          "destino": "/",
+          "focoVisible": true,
+          "ancho": 124,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "input",
+          "nombre": "Nombre completo",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 672,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "input",
+          "nombre": "Correo electrónico",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 672,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Pagar $ 30.000",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 672,
+          "alto": 48,
+          "interna": false
+        }
+      ]
+    }
+  ],
+  "servidor": [],
+  "bloqueos": [],
+  "observaciones": []
+}

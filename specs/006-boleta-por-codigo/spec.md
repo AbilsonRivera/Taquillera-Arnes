@@ -1,9 +1,9 @@
 # 006 · Boleta con código QR y validación
 
-- **Estado:** aprobada
+- **Estado:** implementada y revisada
 - **Rama:** `feat/006-boleta-por-codigo`
 - **Repositorios:** backend, frontend
-- **Pull requests:** pendientes
+- **Pull requests:** [Backend #9](https://github.com/Bredman01/Taquillera-Backend/pull/9) y [Frontend #9](https://github.com/Bredman01/TaquilleraFrontend/pull/9)
 
 ## Por qué
 
@@ -33,6 +33,7 @@ La boleta de una compra, con su código QR, y la validación del ingreso, que la
 - **CA-11:** El encabezado del sitio tiene un formulario «Consultar boleta» con el campo «Código de la boleta», que lleva a `/boletas/{código}`. Con el campo vacío no navega.
 - **CA-12:** La confirmación de la compra (spec 005) incluye el enlace «Ver mi boleta» a `/boletas/{código}`.
 - **CA-13:** En 390 px y en 1280 px de ancho, en tema claro y oscuro, la página no tiene violaciones de axe de impacto serio o crítico ni errores de consola, y el código QR se puede leer en los dos temas.
+- **CA-14:** Los campos de formulario del sitio (el del encabezado, los filtros de la cartelera y los de la compra) tienen un borde con un contraste de al menos 3 a 1 contra su fondo, en tema claro y oscuro.
 
 ## Fuera de alcance
 
@@ -46,3 +47,4 @@ La boleta de una compra, con su código QR, y la validación del ingreso, que la
 - Una boleta tiene dos estados: válida, si todavía no se ha ingresado con ella, y usada. Un código que no existe es una boleta inválida.
 - La validación es definitiva: una boleta usada no vuelve a ser válida.
 - Generar el QR necesita una librería nueva en el frontend: el plan debe proponerla y el desarrollador aprobarla.
+- El borde de los campos sale de la guía visual. La revisión de la spec 005 midió 1,5 a 1 de contraste (hallazgo B6), por debajo de lo que necesita el contorno de un control. La guía se corrige primero y esta spec, que agrega otro campo, actualiza los que ya existen.

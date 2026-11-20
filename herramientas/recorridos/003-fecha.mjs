@@ -51,7 +51,8 @@ try {
   // cada una se ve dónde está el foco. El campo nativo tiene partes internas (día, mes,
   // año e icono del calendario) que el navegador dibuja por su cuenta.
   if (CAPTURAS) mkdirSync(CAPTURAS, { recursive: true });
-  const formulario = pagina.locator('form').first();
+  // El encabezado tiene su propio formulario desde la spec 006: el de los filtros es el del contenido.
+  const formulario = pagina.locator('main form').first();
   for (let i = 1; i <= 8 && (await tieneElFoco(fecha)); i++) {
     const contorno = await fecha.evaluate((el) => {
       const estilo = getComputedStyle(el);

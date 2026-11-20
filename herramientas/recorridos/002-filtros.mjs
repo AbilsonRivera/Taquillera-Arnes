@@ -56,7 +56,8 @@ try {
   await pagina.keyboard.press('Enter');
   await pagina.waitForURL(/categoria=teatro/, { timeout: 15000 });
   await pagina.waitForLoadState('networkidle');
-  anotar('Enter en «Filtrar» cambia la dirección', '/?categoria=teatro&ciudad=Neiva', direccion(pagina));
+  // Desde la spec 003 el formulario tiene también el campo de fecha, y un formulario GET envía sus campos vacíos.
+  anotar('Enter en «Filtrar» cambia la dirección', '/?categoria=teatro&ciudad=Neiva&fecha=', direccion(pagina));
   anotar('La cartelera queda filtrada', 'Cartas a Medianoche', (await titulos(pagina)).join(', '));
   const marcado = async (nombre) =>
     pagina.getByRole('combobox', { name: nombre, exact: true }).evaluate((el) => el.options[el.selectedIndex].text);

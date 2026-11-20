@@ -12,7 +12,7 @@ Espacio de trabajo del proyecto **Taquillera** (cartelera de eventos pequeños y
   skills/        nueva-spec, matriz-criterios, contrato-api, guia-visual
   settings.json  comandos permitidos y negados para todos los agentes
 specs/           una carpeta por spec: spec.md, plan.md, tareas.md y evidencia/
-herramientas/    servidores.mjs y verificar-ui.mjs
+herramientas/    servidores.mjs, verificar-ui.mjs y recorridos/ (una prueba de teclado en el navegador por spec)
 docs/bitacora.md lo que se observó al usar el arnés y qué se cambió por eso
 backend/         clon de Taquillera-Backend (NestJS 12, puerto 3001); no se versiona aquí
 frontend/        clon de TaquilleraFrontend (Next.js 16, puerto 3000); no se versiona aquí
@@ -31,6 +31,7 @@ npm run test:hooks                               pruebas del script del hook lim
 npm run servidores -- iniciar back|front|ambos   compila y levanta los servidores
 npm run servidores -- detener                    los detiene y libera los puertos
 npm run verificar-ui -- --spec NNN-nombre --rutas inicio,eventos/1
+node herramientas/recorridos/006-boleta.mjs http://localhost:3000 <carpeta>   prueba de teclado de una spec; necesita los servidores levantados
 claude --agent taquilla-orquestador              sesión del orquestador para ejecutar una spec
 ```
 
@@ -47,7 +48,7 @@ Todo cambio de la aplicación pasa por una spec y por el orquestador:
 1. El desarrollador escribe `specs/NNN-nombre/spec.md` y crea la rama `feat/NNN-nombre` en los repositorios afectados.
 2. El `planificador` propone el plan y la matriz criterio → prueba. El desarrollador lo aprueba.
 3. En cada lado, el probador escribe las pruebas en rojo (`test:`) y después el desarrollador las pone en verde (`feat:`).
-4. El `guardian-contrato` compara los dos lados, el `verificador-ui` revisa la interfaz en el navegador y el `revisor` revisa todo.
+4. Si la pantalla tiene interacción, el desarrollador ejecuta su prueba de teclado de `herramientas/recorridos/`. Después, el `guardian-contrato` compara los dos lados, el `verificador-ui` revisa la interfaz en el navegador y el `revisor` revisa todo.
 5. El desarrollador revisa el diff, sube las ramas, abre los pull requests y fusiona con el CI en verde.
 
 El detalle de cada rol está en `.claude/agents/` y el de los documentos en `specs/README.md`.

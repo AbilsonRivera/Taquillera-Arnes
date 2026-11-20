@@ -13,7 +13,7 @@
 | Medio | 0 |
 | Bajo | 7 (B1 a B7) |
 
-Lint, pruebas, e2e y cobertura pasan en los dos lados, ejecutados por el revisor. El orden TDD es correcto y ningún mensaje lleva atribución. La mutación da 100 % (93 mutantes, ninguno sobrevive). Los 11 criterios tienen prueba y cada prueba fallaría si se borra el código que cumple su criterio. Todos los puntos del Grep de D23 dan lo esperado.
+Lint, pruebas, e2e y cobertura pasan en los dos lados, ejecutados por el revisor. El orden TDD es correcto y los mensajes son de una sola línea. La mutación da 100 % (93 mutantes, ninguno sobrevive). Los 11 criterios tienen prueba y cada prueba fallaría si se borra el código que cumple su criterio. Todos los puntos del Grep de D23 dan lo esperado.
 
 ## 2. Commits
 
@@ -32,7 +32,7 @@ f188a83 Abilson Rivera feat: cabecera de la función y carga de la función y su
 26e82e4 Abilson Rivera test: pruebas de la cabecera de la función y de su carga desde la API
 ```
 - **Orden:** en el backend, `test:` y después `feat:`. En el frontend, `test:` → `feat:` → `test:` → `feat:` → `fix:`. Es lo que espera el encargo.
-- **Atribuciones:** todos los cuerpos están vacíos. No hay `Co-Authored-By` ni ninguna otra línea.
+- **Cuerpo de los mensajes:** todos están vacíos; cada mensaje es una sola línea.
 - **Contenido de cada commit** (`--name-status`):
   - Los `test:` solo traen archivos de prueba: en el backend `*.spec.ts` y `test/funciones.e2e-spec.ts`; en el frontend `*.test.ts(x)`.
   - Los `feat:` y el `fix:` no tocan ninguna prueba.

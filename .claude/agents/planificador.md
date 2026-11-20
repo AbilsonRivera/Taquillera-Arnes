@@ -39,4 +39,5 @@ Usa la estructura de `specs/_plantilla/plan.md`:
 - Dependencias nuevas, cambios de configuración o de `package.json`: márcalos como decisión que requiere aprobación humana.
 - Respeta las capas: `controller -> service -> entities` en el backend y `app -> components -> lib` en el frontend.
 - Las pantallas se arman con las piezas de `.claude/skills/guia-visual/SKILL.md`. Si la spec necesita una pieza que no está ahí, el plan dice cuál y la agrega a la guía.
+- Si la pantalla tiene interacción (pulsar, escribir, enviar), lista los pasos de la prueba de teclado que el desarrollador escribirá en `herramientas/recorridos/`. El `verificador-ui` solo abre direcciones: lo que el plan le deje «para comprobar en el navegador» y exija pulsar algo se queda sin comprobar.
 - Si la spec contradice el código existente o un `AGENTS.md`, no elijas tú: pregúntalo.

@@ -466,7 +466,7 @@ Si alguno mide menos de 44 px de alto, el tamaño sale marcado como «**bajo**»
 
 ## Tareas
 
-Cada encargo que termina en commit dice: «El mensaje del commit es solo el mensaje, sin `Co-Authored-By` ni otra atribución». Como evidencia exige la salida de `git -C <lado> log -1 --format=%B` y la de `git -C <lado> status`.
+Cada encargo que termina en commit dice: «El mensaje del commit es solo el asunto, en una sola línea». Como evidencia exige la salida de `git -C <lado> log -1 --format=%B` y la de `git -C <lado> status`.
 
 **Permisos (cambio al aprobar; se dice en cada encargo).** El arnés ya no se ejecuta en el modo que acepta ediciones. `Edit` y `Write` siguen permitidos dentro de las rutas de cada rol, pero están negados `rm`, `mv`, `cp`, `sed -i`, `tee`, `git rm`, `git mv` y las redirecciones a archivos. Nadie crea archivos temporales: no se podrían borrar. Si un agente necesita comprobar algo cambiando el código un momento, lo edita con `Edit` y lo restaura con `Edit`, sin commit.
 
@@ -597,7 +597,7 @@ Se niegan `cd … &&`, las tuberías, los prefijos de variable de entorno, `$TEM
     - Que `MapaAsientos.tsx` sea el único archivo con `'use client'` y solo importe tipos de `lib/funciones.ts`.
     - Que la precondición de D8 salga ejecutada y en verde.
     - El orden de los commits: en el backend, `test:` y después `feat:`; en el frontend, `test:`, `feat:`, `test:` y `feat:`.
-    - Que ningún mensaje lleve atribución.
+    - Que cada mensaje sea solo el asunto.
     - Evidencia: `evidencia/revision.md`.
 11. **T11 · yo · prueba de recorrido.**
     - **Ya escribí** `herramientas/recorridos/004-mapa.mjs` con los 22 pasos de «Prueba de recorrido de T11».
@@ -689,7 +689,7 @@ Abilson Rivera Garcia, el 19 de noviembre de 2026, aprobó el plan y respondió:
    - «formato.ts escribe los espacios no separables con los escapes   ; la herramienta de edición los convierte en el carácter real, así que esa línea no se toca.» Está en D8 y en «No se tocan».
    - El orquestador comprobó los commits en los reflogs de 003, `vi.hoisted` en `FuncionesEvento.test.tsx:16-20`, `formato.test.ts:19-23` y `funciones.test.ts:28-32` (y en las pruebas del backend), el escape en `formato.ts:42` y la regla en `SKILL.md:57`.
 6. **Permisos.** «El arnés ya no se ejecuta en el modo que acepta ediciones. Edit y Write siguen permitidos dentro de las rutas de cada rol, pero están negados rm, mv, cp, sed -i, tee, git rm, git mv y las redirecciones a archivos. Nadie debe crear archivos temporales: no se podrían borrar. Si un agente necesita comprobar algo cambiando el código un momento, lo edita con Edit y lo restaura con Edit, sin commit. Dilo en cada encargo.» El orquestador comprobó que `.claude/settings.json` niega `rm`, `rmdir`, `mv`, `cp`, `sed -i`, `tee`, `git rm` y `git mv` (también con `-C`); las redirecciones no figuran en ese archivo: es lo que dijo el desarrollador. Se dijo en cada encargo (R16).
-7. **Normas que siguen rigiendo.** Mis decisiones se anotan en primera persona y con mis palabras, y mis tareas dicen «yo»; ningún commit lleva líneas de atribución y cada agente entrega la salida de `git log -1 --format=%B`; la sesión corre sin terminal interactiva, así que un comando negado no se reintenta salvo la excepción de `flujo.md`.
+7. **Normas que siguen rigiendo.** Mis decisiones se anotan en primera persona y con mis palabras, y mis tareas dicen «yo»; cada commit lleva solo el asunto y cada agente entrega la salida de `git log -1 --format=%B`; la sesión corre sin terminal interactiva, así que un comando negado no se reintenta salvo la excepción de `flujo.md`.
 8. **Alcance de esa sesión.** «Escribe tareas.md y ejecuta las tareas en orden hasta terminar el verde del frontend. Detente antes del guardian-contrato y dame un informe corto; ahí ejecuto yo la prueba de recorrido y te reanudo para los controles.» Por eso T11 pasó a ejecutarse después de T7 y antes de T8.
 
 ## Desviaciones

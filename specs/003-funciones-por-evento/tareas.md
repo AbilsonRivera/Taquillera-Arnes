@@ -46,7 +46,7 @@ Tareas del plan aprobado el 19 de noviembre de 2026. Las mías (T0 y T10) detien
 - [x] B-9 · yo · acepté las capturas perdidas y lo resolví: cambié `herramientas/verificar-ui.mjs` para que no vacíe `evidencia/ui/` (solo reemplaza las capturas de las direcciones que vuelve a visitar) y repetí la verificación con las ocho rutas sobre el código final: «Resultado: pasa», sin bloqueos ni observaciones, y la carpeta vuelve a tener las 40 capturas, con el `informe.md` y el `informe.json` de esa tercera pasada
 - [x] Guía visual · yo · ya tiene la regla de que, en una fila de formulario, los campos, las listas y el botón llevan `h-12` (`SKILL.md:57`)
 - [x] Clase con caracteres invisibles de `formato.test.ts` · yo · la dejo como está
-- [x] Permisos de los agentes (`rm` y `cp` del probador-back) · yo · tenía razón y era un hueco real; lo corregí: el arnés se ejecuta en el modo normal de permisos, con `Edit` y `Write` permitidos dentro de las rutas y con `rm`, `mv`, `cp`, `sed -i`, `tee`, `git rm` y `git mv` negados para todos; lo comprobé con sesiones reales; quedó en la bitácora (entrada 42) y en el README
+- [x] Permisos de los agentes (`rm` y `cp` del probador-back) · yo · tenía razón y era un hueco real; lo corregí: el arnés se ejecuta en el modo normal de permisos, con `Edit` y `Write` permitidos dentro de las rutas y con `rm`, `mv`, `cp`, `sed -i`, `tee`, `git rm` y `git mv` negados para todos; lo comprobé con sesiones reales; quedó en la bitácora (entrada 40) y en el README
 
 ## Cierre
 

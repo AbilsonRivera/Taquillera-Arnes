@@ -482,7 +482,7 @@ En Chrome y con el teclado, la prueba de recorrido (T12) vuelve a comprobar CA-2
 
 ## Tareas
 
-Cada encargo que termina en commit dice: «El mensaje del commit es solo el mensaje, sin `Co-Authored-By` ni otra atribución». Como evidencia, el agente trae la salida de `git -C <lado> log -1 --format=%B` y la de `git -C <lado> status`.
+Cada encargo que termina en commit dice: «El mensaje del commit es solo el asunto, en una sola línea». Como evidencia, el agente trae la salida de `git -C <lado> log -1 --format=%B` y la de `git -C <lado> status`.
 
 **Normas de cada encargo (las dije al aprobar):** una sola delegación a la vez, porque el equipo tiene poca memoria; sin archivos temporales, sin `rm`, `mv`, `cp` ni redirecciones; mis decisiones en primera persona y mis tareas como «yo»; la sesión corre sin terminal interactiva, así que un comando negado no se reintenta salvo la excepción de `flujo.md` (repetirlo solo, sin añadidos, y anotarlo).
 
@@ -651,7 +651,7 @@ Apruebo el plan el 20 de noviembre de 2026. Mis respuestas a los seis puntos:
 
 **Alcance de la ejecución que pedí:** que el orquestador escriba `tareas.md` y ejecute las tareas en orden hasta terminar el último verde del frontend (T9). Se detiene antes del guardian-contrato y me da un informe corto; ahí ejecuto yo el recorrido y lo reanudo para los controles (T10, T11 y T13). Por eso T12 va antes de T10.
 
-**Normas para cada encargo:** una sola delegación a la vez, porque el equipo tiene poca memoria; sin archivos temporales, sin `rm`, `mv`, `cp` ni redirecciones; commits sin líneas de atribución, con la salida de `git log -1 --format=%B`; mis decisiones en primera persona y mis tareas como «yo»; la sesión corre sin terminal interactiva, así que un comando negado no se reintenta salvo la excepción de `flujo.md`.
+**Normas para cada encargo:** una sola delegación a la vez, porque el equipo tiene poca memoria; sin archivos temporales, sin `rm`, `mv`, `cp` ni redirecciones; commits de una sola línea, con la salida de `git log -1 --format=%B`; mis decisiones en primera persona y mis tareas como «yo»; la sesión corre sin terminal interactiva, así que un comando negado no se reintenta salvo la excepción de `flujo.md`.
 
 ## Desviaciones
 
