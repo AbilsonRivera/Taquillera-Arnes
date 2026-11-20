@@ -1,14 +1,14 @@
 ---
 name: guia-visual
-description: Guía visual de la interfaz de Taquillera, con los colores, tamaños, botones, formularios, mensajes y estados que ya usa la aplicación. Úsala al escribir o revisar cualquier página o componente del frontend, para que una pantalla nueva se vea igual que la cartelera y el detalle de película.
+description: Guía visual de la interfaz de Taquillera, con los colores, tamaños, botones, formularios, mensajes y estados que ya usa la aplicación. Úsala al escribir o revisar cualquier página o componente del frontend, para que una pantalla nueva se vea igual que las que ya existen.
 metadata:
   author: Abilson Rivera Garcia y Bredman Estiven Velez Cortez
-  version: "1.5.0"
+  version: "1.5.1"
 ---
 
 # Guía visual de Taquillera
 
-La cartelera y el detalle de película ya definen cómo se ve Taquillera. Una pantalla nueva reutiliza esas mismas clases de Tailwind; no inventa colores, tamaños ni bordes. Todo lleva su variante `dark:`.
+La cartelera y el detalle del evento ya definen cómo se ve Taquillera. Una pantalla nueva reutiliza esas mismas clases de Tailwind; no inventa colores, tamaños ni bordes. Todo lleva su variante `dark:`.
 
 ## Lo que ya existe y se reutiliza
 
@@ -45,7 +45,7 @@ Cuando una pantalla necesite una de estas piezas, se escribe así:
 | Mensaje de éxito | `rounded-xl border border-green-200 bg-green-50 p-6 text-green-900 dark:border-green-900 dark:bg-green-950 dark:text-green-200` |
 | Lista de datos | `<dl>` con `grid grid-cols-[auto_1fr] gap-x-6 gap-y-2`. Cada término es un `<dt>` con `font-semibold text-zinc-950 dark:text-zinc-50` y cada valor un `<dd>` con `text-zinc-600 dark:text-zinc-400`. Dentro del «Mensaje de éxito» se usa igual. |
 | Código QR | Un `<svg role="img" aria-label="Código QR de la boleta {código}" viewBox="0 0 {lado} {lado}" shapeRendering="crispEdges" class="size-56">` con:<br>• un `<rect width="{lado}" height="{lado}" class="fill-white">`;<br>• un `<path class="fill-zinc-950">` con un cuadrado de 1 × 1 por módulo oscuro.<br>`lado` es el tamaño del QR más 4 módulos por cada lado. Sin `dark:`: oscuro sobre blanco en los dos temas. |
-| Estado de la boleta | Va en el `<dd>` de la «Lista de datos».<br>• «Válida»: `inline-block rounded-md border border-green-200 bg-green-50 px-2 py-0.5 text-sm font-semibold text-green-900 dark:border-green-900 dark:bg-green-950 dark:text-green-200`.<br>• «Usada»: la «Etiqueta pequeña» tal cual, con «Día de uso» y «Hora de uso» debajo.<br>La palabra es la señal: el color no es la única. |
+| Estado de la boleta | Va en el `<dd>` de la «Lista de datos».<br>• «Válida»: `inline-block rounded-md border border-green-200 bg-green-50 px-2 py-0.5 text-sm font-semibold text-green-900 dark:border-green-900 dark:bg-green-950 dark:text-green-200`.<br>• «Usada»: la «Etiqueta pequeña» con `inline-block`, igual que «Válida», para que la fila no cambie de alto al validar; «Día de uso» y «Hora de uso» van debajo.<br>La palabra es la señal: el color no es la única. |
 | Formulario del encabezado | `<form role="search" aria-label="Consultar boleta" class="flex w-full flex-col gap-1.5 sm:w-auto">`, sin `<fieldset>`, con:<br>• la «Etiqueta de un campo»;<br>• una fila `flex gap-2` con el «Campo de texto», que lleva `h-12` (en lugar de `min-h-11`) y `min-w-0 flex-1 sm:w-56 sm:flex-none`, y el «Botón secundario», con `h-12 shrink-0` y sin `py-3`;<br>• el «Error de un campo» debajo de la fila.<br>El contenedor del encabezado pasa a `mx-auto flex w-full max-w-6xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-end sm:justify-between sm:px-6`. |
 | Asiento disponible | `<button type="button" aria-pressed="false">` con el número visible y `aria-label` «Fila A, asiento 1, disponible»: `inline-flex size-11 items-center justify-center gap-0.5 rounded-md border border-zinc-300 bg-white text-sm font-semibold text-zinc-950 enabled:hover:bg-zinc-100 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-50 dark:enabled:hover:bg-zinc-800`, más el foco del asiento: `focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 dark:focus-visible:outline-blue-400` |
 | Asiento seleccionado | El mismo botón con `aria-pressed="true"` y el mismo nombre. Suma `aria-pressed:border-zinc-950 aria-pressed:bg-zinc-950 aria-pressed:text-white aria-pressed:enabled:hover:bg-zinc-800 dark:aria-pressed:border-zinc-50 dark:aria-pressed:bg-zinc-50 dark:aria-pressed:text-zinc-950 dark:aria-pressed:enabled:hover:bg-zinc-200` y, junto al número, una marca de verificación en SVG en línea `size-3` con `aria-hidden="true"` |
