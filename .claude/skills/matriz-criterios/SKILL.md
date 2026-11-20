@@ -16,8 +16,8 @@ Va en la sección «Matriz» de `plan.md`:
 
 | Criterio | Qué se comprueba | Tipo | Archivo de prueba | Nombre de la prueba |
 |---|---|---|---|---|
-| CA-1 | La tarjeta enlaza a `/peliculas/{id}` | Componente | `frontend/src/components/PeliculaCard.test.tsx` | `enlaza al detalle de la película` |
-| CA-4 | Una película inexistente responde 404 | e2e | `backend/test/peliculas.e2e-spec.ts` | `GET /peliculas/9999 responde 404` |
+| CA-1 | La tarjeta enlaza a `/eventos/{id}` | Componente | `frontend/src/components/EventoCard.test.tsx` | `enlaza al detalle del evento` |
+| CA-4 | Un evento inexistente responde 404 | e2e | `backend/test/eventos.e2e-spec.ts` | `GET /eventos/9999 responde 404` |
 
 Tipos válidos:
 

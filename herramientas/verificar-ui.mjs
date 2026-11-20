@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Evidencia de interfaz de una spec: capturas, axe-core, consola y estado sin backend.
 //
-//   npm run verificar-ui -- --spec 001-detalle-pelicula --rutas inicio,peliculas/1
+//   npm run verificar-ui -- --spec 001-detalle-pelicula --rutas inicio,eventos/1
 //
 // Las rutas van sin la barra inicial e "inicio" es la portada: Git Bash en Windows
 // convierte un argumento que empieza por "/" en una ruta de disco.
@@ -23,25 +23,33 @@ const TEMAS = [
   { nombre: 'oscuro', esquema: 'dark' },
 ];
 const IMPACTOS_QUE_BLOQUEAN = new Set(['serious', 'critical']);
+const MAX_PARADAS = 60;
+// La guía visual pide controles de al menos 44 px de alto.
+const TAMANO_MINIMO = 44;
 
 function argumento(nombre) {
   const indice = process.argv.indexOf(`--${nombre}`);
   return indice === -1 ? undefined : process.argv[indice + 1];
 }
 
-/** "inicio" → "/", "peliculas/1" → "/peliculas/1". */
+/** "inicio" → "/", "eventos/1" → "/eventos/1". */
 function normalizarRuta(texto) {
   if (/^[a-zA-Z]:[\\/]/.test(texto)) {
     throw new Error(
-      `La ruta "${texto}" llegó convertida en ruta de disco. Escríbela sin la barra inicial: inicio,peliculas/1`,
+      `La ruta "${texto}" llegó convertida en ruta de disco. Escríbela sin la barra inicial: inicio,eventos/1`,
     );
   }
   const limpia = texto.replace(/^\/+/, '');
   return limpia === '' || limpia === 'inicio' ? '/' : `/${limpia}`;
 }
 
-const nombreDe = (ruta) =>
-  ruta.split('?')[0].replace(/^\/+|\/+$/g, '').replace(/[^a-zA-Z0-9]+/g, '-') || 'inicio';
+/** Nombre de archivo de una ruta. Incluye la consulta, para que "/?a=1" y "/?a=2" no se pisen. */
+function nombreDe(ruta) {
+  const [camino, consulta = ''] = ruta.split('?');
+  const limpiar = (texto) =>
+    texto.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-zA-Z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  return [limpiar(camino) || 'inicio', limpiar(consulta)].filter(Boolean).join('-').toLowerCase();
+}
 
 async function abrirNavegador() {
   for (const canal of ['chrome', 'msedge']) {
@@ -122,12 +130,61 @@ async function visitar(navegador, ruta, { ancho, alto, esquema }, archivoCaptura
   return resultado;
 }
 
+/**
+ * Recorre la página con la tecla Tab y anota cada parada: qué control es, cómo lo
+ * anuncia un lector de pantalla, a dónde lleva y si se ve dónde está el foco.
+ */
+async function recorrerConTeclado(navegador, ruta) {
+  const contexto = await navegador.newContext({
+    viewport: { width: 1280, height: 800 },
+    locale: 'es-CO',
+    timezoneId: 'America/Bogota',
+  });
+  const pagina = await contexto.newPage();
+  await pagina.goto(BASE + ruta, { waitUntil: 'networkidle', timeout: 30000 });
+  const paradas = [];
+  for (let i = 0; i < MAX_PARADAS; i++) {
+    await pagina.keyboard.press('Tab');
+    const parada = await pagina.evaluate(() => {
+      const el = document.activeElement;
+      if (!el || el === document.body) return null;
+      const estilo = getComputedStyle(el);
+      const textos = [
+        el.getAttribute('aria-label'),
+        el.labels?.[0]?.innerText,
+        el.innerText,
+        el.querySelector?.('img[alt]')?.getAttribute('alt'),
+        el.getAttribute('alt'),
+        el.getAttribute('title'),
+      ];
+      const nombre = (textos.find((t) => t && t.trim() !== '') ?? '').replace(/\s+/g, ' ').trim();
+      return {
+        control: el.getAttribute('role') || el.tagName.toLowerCase(),
+        nombre,
+        destino: el.getAttribute('href'),
+        focoVisible: estilo.outlineStyle !== 'none' && parseFloat(estilo.outlineWidth) > 0,
+        ancho: Math.round(el.getBoundingClientRect().width),
+        alto: Math.round(el.getBoundingClientRect().height),
+        huella: el.outerHTML.slice(0, 300),
+      };
+    });
+    if (!parada) break;
+    if (paradas.length > 0 && parada.huella === paradas[0].huella) break;
+    // Un campo nativo, como el de fecha, tiene varias paradas dentro del mismo control
+    // (día, mes, año, icono). El foco de esas partes lo dibuja el navegador, no el control.
+    parada.interna = paradas.length > 0 && parada.huella === paradas[paradas.length - 1].huella;
+    paradas.push(parada);
+  }
+  await contexto.close();
+  return paradas.map(({ huella, ...resto }) => resto);
+}
+
 function erroresDelServidor(desde) {
   const registro = readFileSync(archivoLog('front'), 'utf8').slice(desde);
   return registro.split(/\r?\n/).filter((linea) => /error|⨯|unhandled/i.test(linea));
 }
 
-function informeMarkdown(spec, visitas, sinBackend, servidor, bloqueos) {
+function informeMarkdown(spec, visitas, sinBackend, recorridos, servidor, bloqueos, observaciones) {
   const lineas = [
     `# Verificación de interfaz · ${spec}`,
     '',
@@ -152,6 +209,25 @@ function informeMarkdown(spec, visitas, sinBackend, servidor, bloqueos) {
         `| \`${v.ruta}\` | ${v.estado} | ${v.alertas.map((a) => `«${a}»`).join(' ') || 'ninguno'} | [${v.captura}](${v.captura}) |`,
     ),
     '',
+    '## Recorrido con teclado',
+    '',
+    'Cada fila es una parada de la tecla Tab, en orden, a 1280 px.',
+    '',
+    ...recorridos.flatMap(({ ruta, paradas }) => [
+      `### \`${ruta}\``,
+      '',
+      ...(paradas.length === 0
+        ? ['No hay ningún control al que se llegue con el teclado.', '']
+        : [
+            '| # | Control | Cómo se anuncia | A dónde lleva | Se ve el foco | Tamaño (px) |',
+            '|---|---|---|---|---|---|',
+            ...paradas.map(
+              (p, i) =>
+                `| ${i + 1} | ${p.control} | ${p.nombre ? `«${p.nombre.slice(0, 90)}»` : '**sin nombre**'} | ${p.destino ? `\`${p.destino}\`` : '—'} | ${p.interna ? 'lo dibuja el navegador' : p.focoVisible ? 'sí' : 'no'} | ${p.ancho} × ${p.alto}${p.alto < TAMANO_MINIMO ? ' **bajo**' : ''} |`,
+            ),
+            '',
+          ]),
+    ]),
     '## Errores del servidor del frontend',
     '',
     ...(servidor.length === 0 ? ['Ninguno.'] : servidor.map((l) => `- \`${l.trim()}\``)),
@@ -159,6 +235,10 @@ function informeMarkdown(spec, visitas, sinBackend, servidor, bloqueos) {
     '## Qué bloquea',
     '',
     ...(bloqueos.length === 0 ? ['Nada.'] : bloqueos.map((b) => `- ${b}`)),
+    '',
+    '## Observaciones que no bloquean',
+    '',
+    ...(observaciones.length === 0 ? ['Ninguna.'] : observaciones.map((o) => `- ${o}`)),
     '',
     'El detalle completo, con cada violación de axe y cada mensaje de consola, está en `informe.json`.',
     '',
@@ -171,9 +251,14 @@ async function principal() {
   const rutas = (argumento('rutas') ?? '').split(',').map((r) => r.trim()).filter(Boolean).map(normalizarRuta);
   const carpetaSpec = path.join(RAIZ, 'specs', spec ?? '');
   if (!spec || rutas.length === 0 || !existsSync(carpetaSpec) || !statSync(carpetaSpec).isDirectory()) {
-    console.error('Uso: npm run verificar-ui -- --spec NNN-nombre --rutas inicio,peliculas/1');
+    console.error('Uso: npm run verificar-ui -- --spec NNN-nombre --rutas inicio,eventos/1');
     console.error('La spec debe existir en specs/. Las rutas van sin la barra inicial; "inicio" es la portada.');
     process.exit(1);
+  }
+  if (process.argv.includes('--listar')) {
+    // Solo muestra cómo se entendieron las rutas, sin levantar nada.
+    for (const ruta of rutas) console.log(`${ruta}  ->  ${nombreDe(ruta)}-<ancho>-<tema>.png`);
+    return;
   }
   const salida = path.join(carpetaSpec, 'evidencia', 'ui');
   mkdirSync(salida, { recursive: true });
@@ -182,6 +267,7 @@ async function principal() {
   let navegador;
   const visitas = [];
   const sinBackend = [];
+  const recorridos = [];
   let servidor = [];
   try {
     await iniciar('ambos');
@@ -204,6 +290,10 @@ async function principal() {
         }
       }
     }
+    for (const ruta of rutas) {
+      recorridos.push({ ruta, paradas: await recorrerConTeclado(navegador, ruta) });
+      console.log(`${ruta} · teclado: recorrida`);
+    }
     servidor = erroresDelServidor(inicioDelRegistro);
 
     await detener('back');
@@ -225,6 +315,7 @@ async function principal() {
   }
 
   const bloqueos = [];
+  const observaciones = [];
   for (const v of visitas) {
     const donde = `\`${v.ruta}\` a ${v.ancho} px en tema ${v.tema}`;
     for (const x of v.violaciones.filter((x) => IMPACTOS_QUE_BLOQUEAN.has(x.impacto))) {
@@ -235,6 +326,14 @@ async function principal() {
     for (const imagen of v.imagenesRotas) bloqueos.push(`${donde}: la imagen «${imagen}» no cargó`);
     if (v.desbordeHorizontal) bloqueos.push(`${donde}: el contenido se sale a lo ancho de la pantalla`);
     if (v.estado >= 500) bloqueos.push(`${donde}: la página respondió ${v.estado}`);
+  }
+  for (const { ruta, paradas } of recorridos) {
+    paradas.forEach((p, i) => {
+      if (p.alto < TAMANO_MINIMO) {
+        observaciones.push(`\`${ruta}\`: «${p.nombre.slice(0, 60)}» (${p.control}) mide ${p.alto} px de alto; la guía visual pide ${TAMANO_MINIMO}`);
+      }
+      if (!p.nombre) bloqueos.push(`\`${ruta}\`: la parada ${i + 1} del teclado (${p.control}) no tiene nombre accesible`);
+    });
   }
   for (const linea of servidor) bloqueos.push(`Error del servidor del frontend: \`${linea.trim()}\``);
   for (const v of sinBackend) {
@@ -247,9 +346,9 @@ async function principal() {
 
   writeFileSync(
     path.join(salida, 'informe.json'),
-    JSON.stringify({ spec, rutas, visitas, sinBackend, servidor, bloqueos }, null, 2),
+    JSON.stringify({ spec, rutas, visitas, sinBackend, recorridos, servidor, bloqueos, observaciones }, null, 2),
   );
-  writeFileSync(path.join(salida, 'informe.md'), informeMarkdown(spec, visitas, sinBackend, servidor, bloqueos));
+  writeFileSync(path.join(salida, 'informe.md'), informeMarkdown(spec, visitas, sinBackend, recorridos, servidor, bloqueos, observaciones));
 
   console.log(`\nInforme: specs/${spec}/evidencia/ui/informe.md`);
   console.log(bloqueos.length === 0 ? 'Resultado: pasa' : `Resultado: no pasa (${bloqueos.length} bloqueos)`);

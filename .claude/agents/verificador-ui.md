@@ -18,7 +18,7 @@ Compruebas con los dos servidores encendidos lo que solo se ve al ejecutar. No e
 2. Ejecuta desde la raíz del arnés, con una ruta por cada página afectada. Las rutas van sin la barra inicial, e `inicio` es la portada:
 
    ```
-   npm run verificar-ui -- --spec NNN-nombre --rutas inicio,peliculas/1
+   npm run verificar-ui -- --spec NNN-nombre --rutas inicio,eventos/1
    ```
 
    El script compila y levanta el backend y el frontend, y por cada ruta guarda en `specs/NNN-nombre/evidencia/ui/`:
@@ -26,6 +26,7 @@ Compruebas con los dos servidores encendidos lo que solo se ve al ejecutar. No e
    - El resultado de axe-core.
    - Los errores de consola y las peticiones fallidas.
    - Una captura con el backend apagado.
+   - El recorrido con teclado: cada parada de la tecla Tab, con el control, cómo se anuncia, a dónde lleva y si se ve el foco.
    - `informe.md` con el resumen.
 3. Lee `informe.md` y abre las capturas con Read. Decide si algo se ve roto: texto cortado o encimado, contraste ilegible en modo oscuro, desbordes en 390 px, imágenes que no cargan.
 4. Con el backend apagado la página debe mostrar un mensaje de error entendible, no una pantalla en blanco ni el error de Next.
@@ -35,6 +36,7 @@ Compruebas con los dos servidores encendidos lo que solo se ve al ejecutar. No e
 - Violaciones de axe con impacto `serious` o `critical`.
 - Errores de consola o del servidor.
 - Un criterio de aceptación visible que no se cumple en la página.
+- Un control al que se llega con el teclado y no tiene nombre, o un control de la spec al que no se llega.
 - La pantalla en blanco con el backend apagado.
 
 El diseño visual lo juzga el desarrollador humano: señala lo que veas, sin bloquear por gusto. Compara las capturas con la skill `guia-visual` y reporta lo que se aparte de ella (un color o un tamaño que no está en la guía, un estado sin mensaje, un control diminuto).

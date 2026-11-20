@@ -1,0 +1,9 @@
+#!/bin/sh
+# Quita del mensaje de cada commit las líneas de atribución a una herramienta.
+# Los commits van solo a nombre de quien tiene configurado git.
+archivo="$1"
+temporal="$archivo.sin-atribucion"
+grep -v -i -E '^(co-authored-by:|.*generated with \[?claude)' "$archivo" > "$temporal" || true
+# Sin líneas vacías sobrantes al final.
+awk '{ lineas[NR] = $0 } END { n = NR; while (n > 0 && lineas[n] ~ /^[[:space:]]*$/) n--; for (i = 1; i <= n; i++) print lineas[i] }' "$temporal" > "$archivo"
+rm -f "$temporal"

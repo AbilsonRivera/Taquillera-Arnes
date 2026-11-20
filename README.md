@@ -12,14 +12,32 @@ Arnés de Claude Code del proyecto **Taquillera**, una aplicación web con la ca
 
 El arnés es un repositorio aparte porque un solo sistema de agentes coordina los dos repositorios de la aplicación, que se clonan dentro como `backend/` y `frontend/`.
 
+## Alcance frente a la propuesta
+
+La propuesta del proyecto era una cartelera de eventos pequeños con asientos numerados y validación por código QR. El proyecto integrador pide desarrollar cinco funcionalidades con el arnés, no el producto completo, así que construimos el recorrido del comprador de principio a fin y dejamos fuera lo demás.
+
+| Lo que decía la propuesta | Cómo queda | Spec |
+|---|---|---|
+| Cartelera con filtros por fecha, categoría y ciudad | Sí | 002 y 003 |
+| Mapa de asientos | Sí, sin la reserva temporal de 10 minutos | 004 |
+| Pago simulado | Sí, sin pasarela de pruebas | 005 |
+| Que no se venda dos veces el mismo asiento | Sí | 005 |
+| Boleta con QR | Sí, en pantalla; sin PDF ni envío por correo | 006 |
+| Validación: válida, ya usada o inválida | Sí | 006 |
+| Registro e inicio de sesión con roles | No | — |
+| Gestión de eventos por el organizador | No | — |
+| Base de datos PostgreSQL | No: los datos viven en memoria | — |
+
+Las primeras pantallas se construyeron solo con películas. Al comparar con la propuesta decidimos volver a eventos (cine, teatro, conciertos y charlas) con la spec 002, cuando solo había una spec terminada. Está contado en la entrada 29 de la [bitácora](docs/bitacora.md).
+
 ## Estado
 
 | Parte | Estado |
 |---|---|
 | Arnés: memoria, reglas, skills | Implementado |
 | Sistema de agentes y hook de rutas | Implementado. El hook pasa sus doce pruebas y la prueba con sesiones reales, con el agente ejecutado directamente e invocado por el orquestador |
-| Seis specs | La 001 está implementada, revisada y en pull request; las otras cinco, aprobadas y sin empezar |
-| Mecanismos de calidad | CI, cobertura y mutación en pull request abierto en cada repositorio; evidencia por spec, pendiente |
+| Seis specs | La 001 está fusionada; la 002, implementada, revisada y en pull request; la 003, en ejecución; las otras tres, aprobadas y sin empezar |
+| Mecanismos de calidad | CI con cobertura, orden de commits, revisión, contrato, navegador y mutación, funcionando; la evidencia de cada spec está en su carpeta |
 
 ## Piezas del arnés
 
@@ -47,7 +65,7 @@ No usamos Spec Kit, así que no hay constitución. La estructura propia de las s
 | `contrato-api` | Arnés | Los tipos de la API están escritos dos veces, uno en cada repositorio, y un cambio de nombre en un lado no rompe ninguna prueba del otro. | El planificador, al definir el contrato; el guardian-contrato, al compararlo |
 | `guia-visual` | Arnés | Cada pantalla nueva la escribe un agente sin memoria de las anteriores. La cartelera y el detalle salieron parecidos porque uno copió al otro; para el mapa de asientos y el formulario de compra no había de dónde copiar. | El desarrollador-front, al escribir componentes; el verificador-ui, al comparar las capturas |
 | `nest-modulo` | Backend | El proyecto es ESM con Vitest, y un módulo generado «como siempre» falla al compilar (imports sin `.js`, tipos sin `import type`). | El probador-back y el desarrollador-back, al crear un recurso |
-| `vercel-react-best-practices` | Frontend | Patrones de rendimiento de React y Next que el modelo no aplica solo. Es de terceros (Vercel) y la revisamos antes de instalarla. | El desarrollador-front, al escribir componentes y carga de datos |
+| `vercel-react-best-practices` | Frontend | Patrones de rendimiento de React y Next que el modelo no aplica solo. Es de terceros (Vercel): la revisamos buscando texto oculto y comandos de red, y su versión queda fijada en `skills-lock.json`. | El desarrollador-front, al escribir componentes y carga de datos |
 
 ## Sistema de agentes
 
@@ -141,19 +159,19 @@ Los cambios que salgan de ejecutar las demás specs se agregan aquí, cada uno c
 | Mecanismo | Cómo funciona | Estado | Evidencia |
 |---|---|---|---|
 | TDD estructural | El probador y el desarrollador son agentes distintos, el hook le impide al desarrollador tocar una prueba, y el commit `test:` va antes del `feat:`. | Hook implementado y probado, también en una sesión real | [`limitar-rutas.test.mjs`](.claude/hooks/limitar-rutas.test.mjs) y [`probar-hook.ps1`](scripts/probar-hook.ps1); el historial de cada rama y `evidencia/revision.md`, al ejecutar las specs |
-| CI con cobertura mínima del 80 % y `main` protegida | Un workflow por repositorio con lint, pruebas, cobertura y build en cada pull request. | Workflows en pull request, sin fusionar; falta proteger `main` | [Backend #4](https://github.com/Bredman01/Taquillera-Backend/pull/4) y [Frontend #3](https://github.com/Bredman01/TaquilleraFrontend/pull/3); después, los checks de cada pull request |
+| CI con cobertura mínima del 80 % y `main` protegida | Un workflow por repositorio con lint, pruebas, cobertura y build en cada pull request. | Funcionando en los dos repositorios; falta proteger `main` | [Backend #4](https://github.com/Bredman01/Taquillera-Backend/pull/4) y [Frontend #3](https://github.com/Bredman01/TaquilleraFrontend/pull/3); después, los checks de cada pull request |
 | Revisión independiente con matriz | El revisor comprueba que cada criterio tiene una prueba que falla si se borra el código, y clasifica los hallazgos por severidad. | Agente implementado | `specs/NNN-nombre/evidencia/revision.md` |
 | Contrato entre repositorios | El guardian-contrato compara campo por campo los tipos del frontend con lo que responde el backend. | Agente implementado | `specs/NNN-nombre/evidencia/contrato.md` |
 | Verificación en el navegador | Capturas a 390 y 1280 px en tema claro y oscuro, axe-core, consola y estado con el backend apagado. | Herramienta implementada y probada sobre la cartelera | `specs/NNN-nombre/evidencia/ui/` |
-| Mutación en el backend | StrykerJS sobre los archivos que cambió la spec; los sobrevivientes se clasifican. Es informativa, no bloquea. | Configurada en el mismo pull request del backend; línea base del 63,1 % | [Backend #4](https://github.com/Bredman01/Taquillera-Backend/pull/4); después, `specs/NNN-nombre/evidencia/revision.md` |
+| Mutación en el backend | StrykerJS sobre los archivos que cambió la spec; los sobrevivientes se clasifican. Es informativa, no bloquea. | Funcionando. En la spec 002, el módulo de eventos dio 98,8 %, frente al 61,3 % del módulo anterior | [Backend #4](https://github.com/Bredman01/Taquillera-Backend/pull/4); después, `specs/NNN-nombre/evidencia/revision.md` |
 
 ## Specs
 
 | Spec | Estado | Pull requests |
 |---|---|---|
-| [001 · Detalle de película](specs/001-detalle-pelicula/spec.md) | Implementada y revisada; en pull request | [Frontend #4](https://github.com/Bredman01/TaquilleraFrontend/pull/4) |
-| [002 · Eventos y filtros de la cartelera](specs/002-eventos-y-filtros/spec.md) | Aprobada, sin empezar | Pendientes |
-| [003 · Funciones por evento](specs/003-funciones-por-evento/spec.md) | Aprobada, sin empezar | Pendientes |
+| [001 · Detalle de película](specs/001-detalle-pelicula/spec.md) | Fusionada en `main` | [Frontend #4](https://github.com/Bredman01/TaquilleraFrontend/pull/4) |
+| [002 · Eventos y filtros de la cartelera](specs/002-eventos-y-filtros/spec.md) | Implementada y revisada; en pull request | [Backend #5](https://github.com/Bredman01/Taquillera-Backend/pull/5) y [Frontend #5](https://github.com/Bredman01/TaquilleraFrontend/pull/5) |
+| [003 · Funciones por evento](specs/003-funciones-por-evento/spec.md) | Plan aprobado; en ejecución | Pendientes |
 | [004 · Mapa de asientos](specs/004-mapa-de-asientos/spec.md) | Aprobada, sin empezar | Pendientes |
 | [005 · Compra con pago simulado](specs/005-compra-pago-simulado/spec.md) | Aprobada, sin empezar | Pendientes |
 | [006 · Boleta con código QR y validación](specs/006-boleta-por-codigo/spec.md) | Aprobada, sin empezar | Pendientes |

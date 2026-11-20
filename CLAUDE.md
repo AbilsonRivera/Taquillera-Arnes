@@ -30,7 +30,7 @@ npm run test:hooks                               pruebas del script del hook lim
 ./scripts/probar-hook.ps1                        comprueba con sesiones reales que el hook limita a cada agente
 npm run servidores -- iniciar back|front|ambos   compila y levanta los servidores
 npm run servidores -- detener                    los detiene y libera los puertos
-npm run verificar-ui -- --spec NNN-nombre --rutas inicio,peliculas/1
+npm run verificar-ui -- --spec NNN-nombre --rutas inicio,eventos/1
 claude --agent taquilla-orquestador              sesión del orquestador para ejecutar una spec
 ```
 

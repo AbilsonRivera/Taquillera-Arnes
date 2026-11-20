@@ -26,7 +26,7 @@ Cada criterio lleva un identificador (`CA-1`, `CA-2`...) y describe algo que se 
 | En lugar de | Escribe |
 |---|---|
 | «La página debe verse bien» | «CA-3: en 390 px de ancho ningún texto se sale de la pantalla» |
-| «Manejar errores» | «CA-5: si la película no existe, la página responde 404 y muestra "No encontramos esa película"» |
+| «Manejar errores» | «CA-5: si el evento no existe, la página responde 404 y muestra "No encontramos ese evento"» |
 | «Validar los datos» | «CA-2: una compra sin correo responde 400 y no ocupa asientos» |
 
 Antes de terminar, revisa cada criterio:

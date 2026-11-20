@@ -3,7 +3,7 @@ name: guia-visual
 description: Guía visual de la interfaz de Taquillera, con los colores, tamaños, botones, formularios, mensajes y estados que ya usa la aplicación. Úsala al escribir o revisar cualquier página o componente del frontend, para que una pantalla nueva se vea igual que la cartelera y el detalle de película.
 metadata:
   author: Abilson Rivera Garcia y Bredman Estiven Velez Cortez
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Guía visual de Taquillera
@@ -37,7 +37,10 @@ Cuando una pantalla necesite una de estas piezas, se escribe así:
 | Botón secundario | `rounded-lg border border-zinc-300 px-5 py-3 text-base font-semibold text-zinc-950 hover:bg-zinc-100 dark:border-zinc-600 dark:text-zinc-50 dark:hover:bg-zinc-800` |
 | Botón o control deshabilitado | Se agrega `disabled:cursor-not-allowed disabled:opacity-50` y el atributo `disabled` |
 | Etiqueta de un campo | `<label>` visible encima del campo: `text-sm font-semibold text-zinc-950 dark:text-zinc-50` |
-| Campo de texto | `w-full rounded-lg border border-zinc-300 bg-white px-3 py-2.5 text-base text-zinc-950 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-50`, más el foco de teclado |
+| Campo de texto | `min-h-11 w-full rounded-lg border border-zinc-300 bg-white px-3 py-2.5 text-base text-zinc-950 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-50`, más el foco de teclado |
+| Lista desplegable | `<select>` nativo con su `<label>` visible encima y las mismas clases del campo de texto, incluido `min-h-11` |
+| Campo de fecha | `<input type="date">` nativo con su `<label>` visible encima, las clases del campo de texto, el foco de teclado y `dark:scheme-dark`, para que el icono del calendario se vea en tema oscuro |
+| Subtítulo (`h3`) | `text-lg font-semibold text-zinc-950 dark:text-zinc-50` |
 | Error de un campo | Debajo del campo, unido con `aria-describedby`: `text-sm text-red-700 dark:text-red-300`. El campo lleva `aria-invalid="true"` |
 | Mensaje de éxito | `rounded-xl border border-green-200 bg-green-50 p-6 text-green-900 dark:border-green-900 dark:bg-green-950 dark:text-green-200` |
 
@@ -46,6 +49,7 @@ Cuando una pantalla necesite una de estas piezas, se escribe así:
 - **Una sola acción principal por pantalla.** Si hay dos botones, el otro es secundario o un enlace.
 - **El color nunca es la única señal.** Un asiento ocupado, un campo con error o una boleta usada se distinguen también por un texto, un icono o un atributo (`disabled`, `aria-pressed`, `aria-invalid`).
 - **Controles de al menos 44 px** de alto y de ancho en el celular, con separación suficiente para no tocar el vecino.
+- **En una fila de formulario, todo mide lo mismo.** Los campos, las listas desplegables y el botón de la fila llevan `h-12`, para que las etiquetas y los bordes queden alineados.
 - **Primero el celular.** La pantalla se arma para 390 px sin desborde horizontal, y con `sm:`, `md:` y `lg:` se acomoda a pantallas grandes.
 - **Encabezados en orden.** Un solo `h1` por página, también en los estados de error y de «no encontrado».
 - **Un estado vacío no es una página en blanco.** Dice qué pasó y ofrece a dónde ir, con un enlace o un botón.

@@ -35,9 +35,9 @@ specs/NNN-nombre/
 
 | Spec | Qué construye | Repositorios | Estado | Pull requests |
 |---|---|---|---|---|
-| [001 · Detalle de película](001-detalle-pelicula/spec.md) | Página de detalle y pruebas del frontend | frontend | Implementada y revisada; en pull request | [Frontend #4](https://github.com/Bredman01/TaquilleraFrontend/pull/4) |
-| [002 · Eventos y filtros de la cartelera](002-eventos-y-filtros/spec.md) | De películas a eventos, con categoría, ciudad y filtros | backend, frontend | Aprobada, sin empezar | Pendientes |
-| [003 · Funciones por evento](003-funciones-por-evento/spec.md) | Fechas, horas y precio en el detalle; filtro por fecha | backend, frontend | Aprobada, sin empezar | Pendientes |
+| [001 · Detalle de película](001-detalle-pelicula/spec.md) | Página de detalle y pruebas del frontend | frontend | Fusionada en `main` | [Frontend #4](https://github.com/Bredman01/TaquilleraFrontend/pull/4) |
+| [002 · Eventos y filtros de la cartelera](002-eventos-y-filtros/spec.md) | De películas a eventos, con categoría, ciudad y filtros | backend, frontend | Implementada y revisada; en pull request | [Backend #5](https://github.com/Bredman01/Taquillera-Backend/pull/5) y [Frontend #5](https://github.com/Bredman01/TaquilleraFrontend/pull/5) |
+| [003 · Funciones por evento](003-funciones-por-evento/spec.md) | Fechas, horas y precio en el detalle; filtro por fecha | backend, frontend | Plan aprobado; en ejecución | Pendientes |
 | [004 · Mapa de asientos](004-mapa-de-asientos/spec.md) | Selección de asientos de una función | backend, frontend | Aprobada, sin empezar | Pendientes |
 | [005 · Compra con pago simulado](005-compra-pago-simulado/spec.md) | Compra sin vender dos veces un asiento | backend, frontend | Aprobada, sin empezar | Pendientes |
 | [006 · Boleta con código QR y validación](006-boleta-por-codigo/spec.md) | Boleta con QR y validación del ingreso | backend, frontend | Aprobada, sin empezar | Pendientes |
