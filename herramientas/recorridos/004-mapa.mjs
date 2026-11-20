@@ -18,6 +18,7 @@ const CAPTURAS = process.argv[3];
 const pasos = [];
 let fallos = 0;
 const problemas = [];
+const canceladas = [];
 let contarProblemas = true;
 let direccionFinal = '';
 
@@ -54,7 +55,18 @@ async function alternar(pagina, id, atras = false) {
 function vigilar(pagina) {
   pagina.on('console', (m) => contarProblemas && m.type() === 'error' && problemas.push(`consola: ${m.text()}`));
   pagina.on('pageerror', (e) => contarProblemas && problemas.push(`excepción: ${e.message}`));
-  pagina.on('requestfailed', (p) => contarProblemas && problemas.push(`petición fallida: ${p.url()}`));
+  pagina.on('requestfailed', (p) => {
+    if (!contarProblemas) return;
+    const motivo = p.failure()?.errorText ?? 'sin motivo';
+    // El router de Next deja de leer una respuesta suya cuando ya tiene los datos que necesita, y
+    // Chrome lo informa como petición cancelada. No es un error: que la página cargó bien lo
+    // comprueban los pasos que siguen. Ver herramientas/recorridos/005-compra.mjs.
+    if (motivo === 'net::ERR_ABORTED' && p.headers().rsc === '1') {
+      canceladas.push(`${p.method()} ${new URL(p.url()).pathname}${new URL(p.url()).search}`);
+      return;
+    }
+    problemas.push(`petición fallida (${motivo}): ${p.url()}`);
+  });
   pagina.on('response', (r) => {
     if (contarProblemas && r.status() >= 400 && r.request().resourceType() !== 'document') {
       problemas.push(`${r.status()} ${r.url()}`);
@@ -67,8 +79,8 @@ const opciones = { locale: 'es-CO', timezoneId: 'America/Bogota' };
 try {
   const contexto = await navegador.newContext({ ...opciones, viewport: { width: 1280, height: 800 } });
   const pagina = await contexto.newPage();
-  const aCompra = [];
-  pagina.on('request', (p) => p.url().includes('/compra') && aCompra.push(p.url()));
+  const fallosDeCompra = [];
+  pagina.on('response', (r) => r.url().includes('/compra') && r.status() >= 400 && fallosDeCompra.push(`${r.status()} ${r.url()}`));
   vigilar(pagina);
 
   // 1 y 2: del detalle del evento a la función
@@ -131,7 +143,8 @@ try {
   await alternar(pagina, 'A2');
   await alternar(pagina, 'A1', true);
   anotar('Los asientos van en el orden del mapa, no en el de los clics', '/funciones/5/compra?asientos=A1,A2', await destino(pagina));
-  anotar('«Continuar» no se precarga', 0, aCompra.length);
+  // Desde la spec 005 la página de compra existe y «Continuar» se precarga: lo que se comprueba es que no falle.
+  anotar('La precarga de «Continuar» no falla', 0, fallosDeCompra.length);
   await tabHasta(pagina, pagina.getByRole('link', { name: 'Continuar', exact: true }));
   contarProblemas = false;
   await pagina.keyboard.press('Enter');
@@ -222,6 +235,14 @@ console.log('|---|---|---|---|---|');
 console.log(pasos.join('\n'));
 console.log('');
 console.log(`Dirección tal como queda en el navegador después de «Continuar»: \`${direccionFinal}\`. El enlace lleva la coma literal (\`asientos=A1,A2\`); al navegar, Next la escribe como \`%2C\`. Decodificada es la misma dirección, y la página de compra recibe «A1,A2».`);
+if (canceladas.length > 0) {
+  console.log('');
+  console.log('## Peticiones que canceló el router de Next');
+  console.log('');
+  console.log('Al navegar dentro de la aplicación, el router de Next deja de leer una respuesta cuando ya tiene los datos que necesita, y Chrome lo informa como petición cancelada (`net::ERR_ABORTED`). Depende del momento: unas veces aparece y otras no. No cuenta como error, porque los pasos que siguen a cada navegación comprueban que la página cargó completa.');
+  console.log('');
+  for (const cancelada of canceladas) console.log(`- ${cancelada}`);
+}
 if (problemas.length > 0) {
   console.log('');
   console.log('## Errores y peticiones fallidas');

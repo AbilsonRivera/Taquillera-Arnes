@@ -1,0 +1,419 @@
+{
+  "spec": "005-compra-pago-simulado",
+  "rutas": [
+    "/funciones/1/compra?asientos=A1%2CA2",
+    "/funciones/1/compra",
+    "/funciones/1/compra?asientos=Z9",
+    "/funciones/9999/compra?asientos=A1"
+  ],
+  "visitas": [
+    {
+      "ruta": "/funciones/1/compra?asientos=A1%2CA2",
+      "ancho": 390,
+      "tema": "claro",
+      "captura": "funciones-1-compra-asientos-a1-2ca2-390-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 234,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/1/compra?asientos=A1%2CA2",
+      "ancho": 390,
+      "tema": "oscuro",
+      "captura": "funciones-1-compra-asientos-a1-2ca2-390-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 234,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/1/compra?asientos=A1%2CA2",
+      "ancho": 1280,
+      "tema": "claro",
+      "captura": "funciones-1-compra-asientos-a1-2ca2-1280-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 234,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/1/compra?asientos=A1%2CA2",
+      "ancho": 1280,
+      "tema": "oscuro",
+      "captura": "funciones-1-compra-asientos-a1-2ca2-1280-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 234,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/1/compra",
+      "ancho": 390,
+      "tema": "claro",
+      "captura": "funciones-1-compra-390-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 82,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/1/compra",
+      "ancho": 390,
+      "tema": "oscuro",
+      "captura": "funciones-1-compra-390-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 82,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/1/compra",
+      "ancho": 1280,
+      "tema": "claro",
+      "captura": "funciones-1-compra-1280-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 82,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/1/compra",
+      "ancho": 1280,
+      "tema": "oscuro",
+      "captura": "funciones-1-compra-1280-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 82,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/1/compra?asientos=Z9",
+      "ancho": 390,
+      "tema": "claro",
+      "captura": "funciones-1-compra-asientos-z9-390-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 82,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/1/compra?asientos=Z9",
+      "ancho": 390,
+      "tema": "oscuro",
+      "captura": "funciones-1-compra-asientos-z9-390-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 82,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/1/compra?asientos=Z9",
+      "ancho": 1280,
+      "tema": "claro",
+      "captura": "funciones-1-compra-asientos-z9-1280-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 82,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/1/compra?asientos=Z9",
+      "ancho": 1280,
+      "tema": "oscuro",
+      "captura": "funciones-1-compra-asientos-z9-1280-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 82,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/9999/compra?asientos=A1",
+      "ancho": 390,
+      "tema": "claro",
+      "captura": "funciones-9999-compra-asientos-a1-390-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 59,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/9999/compra?asientos=A1",
+      "ancho": 390,
+      "tema": "oscuro",
+      "captura": "funciones-9999-compra-asientos-a1-390-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 59,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/9999/compra?asientos=A1",
+      "ancho": 1280,
+      "tema": "claro",
+      "captura": "funciones-9999-compra-asientos-a1-1280-claro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 59,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/9999/compra?asientos=A1",
+      "ancho": 1280,
+      "tema": "oscuro",
+      "captura": "funciones-9999-compra-asientos-a1-1280-oscuro.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [],
+      "textoVisible": 59,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    }
+  ],
+  "sinBackend": [
+    {
+      "ruta": "/funciones/1/compra?asientos=A1%2CA2",
+      "captura": "funciones-1-compra-asientos-a1-2ca2-sin-backend.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [
+        "No pudimos cargar la compra. Intenta de nuevo en unos minutos."
+      ],
+      "textoVisible": 124,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/1/compra",
+      "captura": "funciones-1-compra-sin-backend.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [
+        "No pudimos cargar la compra. Intenta de nuevo en unos minutos."
+      ],
+      "textoVisible": 124,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/1/compra?asientos=Z9",
+      "captura": "funciones-1-compra-asientos-z9-sin-backend.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [
+        "No pudimos cargar la compra. Intenta de nuevo en unos minutos."
+      ],
+      "textoVisible": 124,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    },
+    {
+      "ruta": "/funciones/9999/compra?asientos=A1",
+      "captura": "funciones-9999-compra-asientos-a1-sin-backend.png",
+      "estado": 200,
+      "titulo": "Taquillera · Cartelera y venta de boletas",
+      "consola": [],
+      "peticiones": [],
+      "imagenesRotas": [],
+      "alertas": [
+        "No pudimos cargar la compra. Intenta de nuevo en unos minutos."
+      ],
+      "textoVisible": 124,
+      "desbordeHorizontal": false,
+      "violaciones": []
+    }
+  ],
+  "recorridos": [
+    {
+      "ruta": "/funciones/1/compra?asientos=A1%2CA2",
+      "paradas": [
+        {
+          "control": "a",
+          "nombre": "Volver a la cartelera",
+          "destino": "/",
+          "focoVisible": true,
+          "ancho": 124,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "input",
+          "nombre": "Nombre completo",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 672,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "input",
+          "nombre": "Correo electrónico",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 672,
+          "alto": 48,
+          "interna": false
+        },
+        {
+          "control": "button",
+          "nombre": "Pagar $ 30.000",
+          "destino": null,
+          "focoVisible": true,
+          "ancho": 672,
+          "alto": 48,
+          "interna": false
+        }
+      ]
+    },
+    {
+      "ruta": "/funciones/1/compra",
+      "paradas": [
+        {
+          "control": "a",
+          "nombre": "Volver a la cartelera",
+          "destino": "/",
+          "focoVisible": true,
+          "ancho": 124,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Ir al mapa de asientos",
+          "destino": "/funciones/1",
+          "focoVisible": true,
+          "ancho": 207,
+          "alto": 48,
+          "interna": false
+        }
+      ]
+    },
+    {
+      "ruta": "/funciones/1/compra?asientos=Z9",
+      "paradas": [
+        {
+          "control": "a",
+          "nombre": "Volver a la cartelera",
+          "destino": "/",
+          "focoVisible": true,
+          "ancho": 124,
+          "alto": 44,
+          "interna": false
+        },
+        {
+          "control": "a",
+          "nombre": "Ir al mapa de asientos",
+          "destino": "/funciones/1",
+          "focoVisible": true,
+          "ancho": 207,
+          "alto": 48,
+          "interna": false
+        }
+      ]
+    },
+    {
+      "ruta": "/funciones/9999/compra?asientos=A1",
+      "paradas": [
+        {
+          "control": "a",
+          "nombre": "Volver a la cartelera",
+          "destino": "/",
+          "focoVisible": true,
+          "ancho": 124,
+          "alto": 44,
+          "interna": false
+        }
+      ]
+    }
+  ],
+  "servidor": [],
+  "bloqueos": [],
+  "observaciones": []
+}
