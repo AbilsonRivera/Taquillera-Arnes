@@ -170,6 +170,9 @@ async function recorrerConTeclado(navegador, ruta) {
     });
     if (!parada) break;
     if (paradas.length > 0 && parada.huella === paradas[0].huella) break;
+    // Un campo nativo, como el de fecha, tiene varias paradas dentro del mismo control
+    // (día, mes, año, icono). El foco de esas partes lo dibuja el navegador, no el control.
+    parada.interna = paradas.length > 0 && parada.huella === paradas[paradas.length - 1].huella;
     paradas.push(parada);
   }
   await contexto.close();
@@ -220,7 +223,7 @@ function informeMarkdown(spec, visitas, sinBackend, recorridos, servidor, bloque
             '|---|---|---|---|---|---|',
             ...paradas.map(
               (p, i) =>
-                `| ${i + 1} | ${p.control} | ${p.nombre ? `«${p.nombre.slice(0, 90)}»` : '**sin nombre**'} | ${p.destino ? `\`${p.destino}\`` : '—'} | ${p.focoVisible ? 'sí' : 'no'} | ${p.ancho} × ${p.alto}${p.alto < TAMANO_MINIMO ? ' **bajo**' : ''} |`,
+                `| ${i + 1} | ${p.control} | ${p.nombre ? `«${p.nombre.slice(0, 90)}»` : '**sin nombre**'} | ${p.destino ? `\`${p.destino}\`` : '—'} | ${p.interna ? 'lo dibuja el navegador' : p.focoVisible ? 'sí' : 'no'} | ${p.ancho} × ${p.alto}${p.alto < TAMANO_MINIMO ? ' **bajo**' : ''} |`,
             ),
             '',
           ]),

@@ -49,6 +49,7 @@ Cuando una pantalla necesite una de estas piezas, se escribe así:
 - **Una sola acción principal por pantalla.** Si hay dos botones, el otro es secundario o un enlace.
 - **El color nunca es la única señal.** Un asiento ocupado, un campo con error o una boleta usada se distinguen también por un texto, un icono o un atributo (`disabled`, `aria-pressed`, `aria-invalid`).
 - **Controles de al menos 44 px** de alto y de ancho en el celular, con separación suficiente para no tocar el vecino.
+- **En una fila de formulario, todo mide lo mismo.** Los campos, las listas desplegables y el botón de la fila llevan `h-12`, para que las etiquetas y los bordes queden alineados.
 - **Primero el celular.** La pantalla se arma para 390 px sin desborde horizontal, y con `sm:`, `md:` y `lg:` se acomoda a pantallas grandes.
 - **Encabezados en orden.** Un solo `h1` por página, también en los estados de error y de «no encontrado».
 - **Un estado vacío no es una página en blanco.** Dice qué pasó y ofrece a dónde ir, con un enlace o un botón.
