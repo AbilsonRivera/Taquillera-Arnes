@@ -1,6 +1,6 @@
 # 004 · Mapa de asientos
 
-- **Estado:** implementada y revisada; en pull request
+- **Estado:** implementada y revisada
 - **Rama:** `feat/004-mapa-de-asientos`
 - **Repositorios:** backend, frontend
 - **Pull requests:** [Backend #7](https://github.com/Bredman01/Taquillera-Backend/pull/7) y [Frontend #7](https://github.com/Bredman01/TaquilleraFrontend/pull/7)

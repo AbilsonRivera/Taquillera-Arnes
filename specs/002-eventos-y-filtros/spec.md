@@ -1,6 +1,6 @@
 # 002 · Eventos y filtros de la cartelera
 
-- **Estado:** implementada y revisada; en pull request
+- **Estado:** implementada y revisada
 - **Rama:** `feat/002-eventos-y-filtros`
 - **Repositorios:** backend, frontend
 - **Pull requests:** [Backend #5](https://github.com/Bredman01/Taquillera-Backend/pull/5) y [Frontend #5](https://github.com/Bredman01/TaquilleraFrontend/pull/5)

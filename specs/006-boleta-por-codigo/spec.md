@@ -1,9 +1,9 @@
 # 006 · Boleta con código QR y validación
 
-- **Estado:** aprobada
+- **Estado:** implementada y revisada
 - **Rama:** `feat/006-boleta-por-codigo`
 - **Repositorios:** backend, frontend
-- **Pull requests:** pendientes
+- **Pull requests:** [Backend #9](https://github.com/Bredman01/Taquillera-Backend/pull/9) y [Frontend #9](https://github.com/Bredman01/TaquilleraFrontend/pull/9)
 
 ## Por qué
 

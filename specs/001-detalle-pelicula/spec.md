@@ -1,6 +1,6 @@
 # 001 · Detalle de película
 
-- **Estado:** implementada y revisada; en pull request
+- **Estado:** implementada y revisada
 - **Rama:** `feat/001-detalle-pelicula`
 - **Repositorios:** frontend
 - **Pull requests:** [Frontend #4](https://github.com/Bredman01/TaquilleraFrontend/pull/4)
